@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--red-accent: rgb(255, 30, 70);
+	--lighter-red-accent: rgba(225, 30, 70, 0.8);
+	--gray-accent: rgb(210, 210, 210);
+	--gray-background: rgba(190, 190, 190, 0.3);
+	--red-background: rgba(225, 30, 70, 0.4);
+	--background-color: rgb(245, 245, 245);
+	--shadow-color: rgb(160, 160, 160);
+	--lighter-shadow-color: rgb(200, 200, 200);
+}
+
+@font-face {
+	font-family: "custom-font";
+	src: url("../public/fonts/Atkinson-Hyperlegible-Regular-102.otf")
+		format("opentype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "custom-font";
+	src: url("../public/fonts/Atkinson-Hyperlegible-Bold-102.otf")
+		format("opentype");
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "custom-font";
+	src: url("../public/fonts/Atkinson-Hyperlegible-Italic-102.otf")
+		format("opentype");
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "custom-font";
+	src: url("../public/fonts/Atkinson-Hyperlegible-BoldItalic-102.otf")
+		format("opentype");
+	font-weight: bold;
+	font-style: italic;
+	font-display: swap;
+}
