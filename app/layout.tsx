@@ -1,13 +1,9 @@
 import "../styles/global.css"
 
 import type { Metadata } from "next"
-import ResponsiveAppBar from "./components/Appbar"
 
 import { ThemeProvider } from "@mui/material/styles"
-import { theme } from "./materialui"
-import Container from "@mui/material/Container"
-import Footer from "./components/Footer"
-import { Box } from "@mui/material"
+import { theme } from "./materialUI"
 
 export const metadata: Metadata = {
 	title: "iRepair45 - home",
@@ -51,17 +47,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<ThemeProvider theme={theme}>
-				<body>
-					<Box sx={{ display: "flex", flexDirection: "column" }}>
-						<ResponsiveAppBar />
-
-						<Container maxWidth="xl" sx={{ flex: 1, minHeight: "62vh", mt: 10}}>
-							<main>{children}</main>
-						</Container>
-					
-						<Footer />
-					</Box>
-				</body>
+				<body>{children}</body>
 			</ThemeProvider>
 		</html>
 	)
