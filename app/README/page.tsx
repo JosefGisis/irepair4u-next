@@ -1,3 +1,7 @@
+import type { Metadata } from "next"
+
+export const metadata: Metadata = { title: "iRepair4u - README" }
+
 export default function ReadMePage() {
 	return (
 		<div

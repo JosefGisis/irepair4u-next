@@ -1,6 +1,11 @@
 import { Container, Box, Typography, Button, Divider } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import ServicesCard from "../components/ServicesContainer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+	title: "iRepair4u - home",
+}
 
 export default function page() {
 	return (

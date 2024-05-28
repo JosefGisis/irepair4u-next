@@ -1,5 +1,8 @@
 import * as React from "react"
 import { Container, Typography, Box } from "@mui/material"
+import { Metadata } from "next"
+
+export const metadata: Metadata = { title: "iRepair4u - About Us" }
 
 export default function AboutPage() {
 	return (

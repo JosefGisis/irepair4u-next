@@ -1,6 +1,9 @@
 import * as React from "react"
 import { Container, Typography, Box } from "@mui/material"
 import JotformComp from "../../components/JotformComp"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = { title: "iRepair4u - Contact Us" }
 
 export default function ContactUsPage() {
 	return (

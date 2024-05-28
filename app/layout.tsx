@@ -6,7 +6,7 @@ import { ThemeProvider } from "@mui/material/styles"
 import { theme } from "./materialUI"
 
 export const metadata: Metadata = {
-	title: "iRepair45 - home",
+	title: "iRepair4u",
 	description:
 		"iRepair4U is your one stop shop for phone and tablet repairs in Lakewood, New Jersey and neighboring communities.",
 	authors: {
