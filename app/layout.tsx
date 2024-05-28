@@ -1,6 +1,13 @@
-import '../styles/global.css'
+import "../styles/global.css"
 
 import type { Metadata } from "next"
+import ResponsiveAppBar from "./components/Appbar"
+
+import { ThemeProvider } from "@mui/material/styles"
+import { theme } from "./materialui"
+import Container from "@mui/material/Container"
+import Footer from "./components/Footer"
+import { Box } from "@mui/material"
 
 export const metadata: Metadata = {
 	title: "iRepair45 - home",
@@ -33,8 +40,7 @@ export const metadata: Metadata = {
 		"Data Recovery",
 	],
 	robots: "index",
-	icons: ["../public/favicon/4u_favicon_32x32.png", "../public/favicon/4u_favicon_64x64.png"],
-
+	icons: ["/favicon/4u_favicon_32x32.png", "/favicon/4u_favicon_64x64.png"],
 }
 
 export default function RootLayout({
@@ -44,15 +50,19 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="flex flex-col bg-white">
-				<nav>
-				</nav>
+			<ThemeProvider theme={theme}>
+				<body>
+					<Box sx={{ display: "flex", flexDirection: "column" }}>
+						<ResponsiveAppBar />
 
-				<main>{children}</main>
-
-				<footer>
-				</footer>
-			</body>
+						<Container maxWidth="xl" sx={{ flex: 1, minHeight: "62vh", mt: 10}}>
+							<main>{children}</main>
+						</Container>
+					
+						<Footer />
+					</Box>
+				</body>
+			</ThemeProvider>
 		</html>
 	)
 }

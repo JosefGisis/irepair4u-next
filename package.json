@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "tinacms dev -c \"next dev\"",
+		"next": "next dev",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "tinacms build && next build"
 	},
@@ -13,6 +14,7 @@
 	"dependencies": {
 		"@emotion/react": "^11.11.4",
 		"@emotion/styled": "^11.11.5",
+		"@mui/icons-material": "^5.15.18",
 		"@mui/material": "^5.15.18",
 		"@tinacms/cli": "^1.5.45",
 		"next": "^14.2.3",
