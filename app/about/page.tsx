@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Container, Typography, Box } from "@mui/material"
-import { title } from "process"
 
 export default function AboutPage() {
 	return (
