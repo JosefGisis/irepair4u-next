@@ -12,7 +12,7 @@ export default function NotFound() {
 					Page not found
 				</Typography>
 				<Typography variant="body1" textAlign="center">
-					Click <Link href="/">here</Link>to be redirected to our home
+					Click <Link href="/">{" "}here{" "}</Link> to be redirected to our home
 					page.
 				</Typography>
 				<img src="/images/kostiantyn-li-Fi_nhg5itCw-unsplash.jpg" />
