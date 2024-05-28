@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Container, Typography, Box } from "@mui/material"
-import JotformComp from "../components/JotformComp"
+import JotformComp from "../../components/JotformComp"
 
 export default function ContactUsPage() {
 	return (
@@ -45,7 +45,7 @@ export default function ContactUsPage() {
 						</Box>
 					))}
 				</Box>
-        <JotformComp />
+				<JotformComp />
 			</Container>
 		</Box>
 	)

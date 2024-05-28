@@ -1,6 +1,6 @@
-import ResponsiveAppBar from "./components/Appbar"
+import ResponsiveAppBar from "../components/Appbar"
 
-import Footer from "./components/Footer"
+import Footer from "../components/Footer"
 import { Box } from "@mui/material"
 
 export default function RootLayout({
