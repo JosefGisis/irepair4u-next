@@ -1,10 +1,17 @@
-import { Container, Box, Typography, Button } from "@mui/material"
+import { Container, Box, Typography, Button, Divider } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
-import ServicesCard from "./components/ServicesContainer"
+import ServicesCard from "../components/ServicesContainer"
 
 export default function page() {
 	return (
-		<Box component="div" id="home-page-content">
+		<Box
+			component="div"
+			id="home-page-content"
+			sx={{
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "center",
+			}}>
 			<Container maxWidth="lg">
 				{/* this is the hero section for the home page */}
 				<Box
@@ -14,31 +21,29 @@ export default function page() {
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",
+						marginTop: "3rem",
+						marginBottom: "4rem",
 					}}>
-					<Box>
-						<Typography
-							textAlign="center"
-							sx={{ maxWidth: "38.75rem" }}
-							variant="h4">
-							IPHONE, IPAD, AND MORE
+					<Box maxWidth="38.75rem" marginBottom="2rem">
+						<Typography textAlign="center" variant="h3">
+							{heroContent.title}
 						</Typography>
 					</Box>
 
-					<Box>
-						<Typography
-							textAlign="center"
-							sx={{ maxWidth: "43.75rem" }}
-							variant="h6">
-							iRepair4U has been serving Lakewood, Jackson and
-							neighboring communities for over 9 years. We provide
-							fast, professional, and courteous services at
-							affordable prices. Give us a call so we may assist
-							you!
-						</Typography>
+					<Box maxWidth="43.75rem" marginBottom="2rem">
+						{heroContent.paragraphs.map((paragraph, index) => (
+							<Typography
+								key={index}
+								variant="h6"
+								textAlign="center">
+								{paragraph}
+							</Typography>
+						))}
 					</Box>
 
 					<Box
-						sx={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>
+						sx={{ display: "flex", flexWrap: "wrap", gap: "15px" }}
+						marginBottom="4rem">
 						<Button href="/contact-us" variant="contained">
 							CONTACT US
 						</Button>
@@ -48,50 +53,53 @@ export default function page() {
 						</Button>
 					</Box>
 
-					<img
-						src="images/imac-940x474.png"
-						width="940"
-						height="474"
-						alt="Image of several Apple devices"
-						title="Image of several Apple devices"
-					/>
+					<img src={heroContent.url} width="940" height="474" />
 				</Box>
+			</Container>
 
-				{/* this is a simple about section for the home page */}
-				<Box
-					component="section"
-					id="about-detailed"
-					sx={{
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-					}}>
-					<Box maxWidth="28.75rem">
-						<Typography textAlign="center" variant="h4">
+			{/* this is a simple about section for the home page */}
+			<Box
+				component="section"
+				id="about-detailed"
+				sx={{
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+					marginBottom: "4rem",
+				}}>
+				<Container maxWidth="lg">
+					<Box maxWidth="28.75rem" marginBlock="2.5rem">
+						<Typography textAlign="center" variant="h3">
 							ABOUT US
 						</Typography>
 					</Box>
 
-					<Box sx={{ display: "flex", flexDirection: "row" }}>
-						<Box>
-							<Typography variant="h6">OUR STORY</Typography>
+					{homePageAboutContent.map((content, index) => (
+						<Box
+							key={index}
+							sx={{
+								display: "flex",
+								flexDirection: "row",
+								gap: "15px",
+							}}>
+							<Box>
+								<Typography variant="h6">
+									{content.title}
+								</Typography>
 
-							<Typography variant="body2">
-								we have a long story that I am not interested in
-								getting into just about now so let this message
-								suffice as an example
-							</Typography>
+								{content.paragraphs.map((paragraph, index) => (
+									<Typography key={index} variant="body2">
+										{paragraph}
+									</Typography>
+								))}
+							</Box>
+							<img src={content.url} width="460" height="307" />
 						</Box>
-						<img
-							src="images/about-us-3-2-460x307.jpg"
-							width="460"
-							height="307"
-							alt="Image of a phone being repaired surrounded by phone repair tools"
-							title="Image of a phone being repaired surrounded by phone repair tools"
-						/>
-					</Box>
-				</Box>
+					))}
+				</Container>
+			</Box>
 
+			<Container>
 				{/* this is a simple services section for the home page */}
 				<Box
 					component="section"
@@ -100,68 +108,174 @@ export default function page() {
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",
+						marginBottom: "4rem",
 					}}>
-					<Box maxWidth="38.75rem">
-						<Typography textAlign="center" variant="h4">
+					<Box maxWidth="38.75rem" marginBottom="2.5rem">
+						<Typography textAlign="center" variant="h3">
 							SERVICES
 						</Typography>
 					</Box>
-					<Grid2 container spacing={2}>
-						<Grid2 xs={12} sm={6}>
-							<ServicesCard
-								text="Phone screen broken or cracked? No worries! Screen repairs are our specialty. We will have your phone looking and working
-  line new in no time."
-								url="images/age-barros-fKAjOxgZNPg-unsplash.jpg"
-								href="/services"
-								header="SCREEN REPLACEMENT"
-							/>
-						</Grid2>
-						<Grid2 xs={12} sm={6}>
-							<ServicesCard
-								text="Accidents happen. Bring us your water damaged phone so we can assist you. In the meantime, 
-  click <a classtext-white href to see what you can do to increase your phone's chance of surviving."
-								url="images/iphone-1067991_640.jpg"
-								href="/services"
-								header="WATER DAMAGE"
-							/>
-						</Grid2>
-						<Grid2 xs={12} sm={6}>
-							<ServicesCard
-								text="If your phone won't charge or your battery is draining too quickly, we offer fast and affordable battery replacements and
-  charging port repairs. "
-								url="images/tyler-lastovich-rAtzDB6hWrU-unsplash.jpg"
-								href="/services"
-								header="BATTERY REPLACEMENT"
-							/>
-						</Grid2>
+					<Grid2
+						container
+						rowSpacing={5}
+						columnSpacing={3}
+						justifyItems="center">
+						{homePageServicesContent.map((content, index) => (
+							<Grid2 key={index} xs={12} sm={6} md={4}>
+								<ServicesCard
+									text={content.paragraphs[0]}
+									url={content.url}
+									href={content.href}
+									header={content.title}
+								/>
+							</Grid2>
+						))}
 					</Grid2>
+				</Box>
+
+				<Box maxWidth="43.75rem" marginBottom="4rem">
+					<Typography variant="h6" textAlign="center">
+						We offer many more services. For a full listing, check
+						out our <a href="/services">services page</a>
+					</Typography>
 				</Box>
 			</Container>
 
 			{/* this is the warranty banner */}
 			<Box
 				id="warranty-banner"
-				sx={{ backgroundColor: "#D2D2D2", textColor: "#000000" }}>
+				sx={{
+					width: "100%",
+					backgroundColor: "#D2D2D2",
+					textColor: "#000000",
+					borderBottom: "5px solid rgb(150, 150, 150)",
+				}}>
 				<Container maxWidth="lg">
 					<Box
 						sx={{
 							display: "flex",
 							flexDirection: "column",
 							alignItems: "center",
+							paddingBlock: "2.5rem",
 						}}>
-						<Typography variant="h4" textAlign="center">
-							WARRANTY
+						<Typography
+							variant="h4"
+							textAlign="center"
+							marginBottom="2.5rem">
+							{warrantyBannerContent.title}
 						</Typography>
-						<Typography variant="body2" textAlign="center">
-							All our phone repair services are backed by our free
-							90-day warranty. We guarantee the quality of our
-							work. If you encounter issue connected to the repair
-							we conducted, we've got you covered. See for more
-							information on our warranty.
-						</Typography>
+						{warrantyBannerContent.paragraphs.map(
+							(paragraph, index) => (
+								<Typography
+									key={index}
+									variant="body2"
+									textAlign="center">
+									{paragraph}
+								</Typography>
+							)
+						)}
 					</Box>
 				</Container>
 			</Box>
 		</Box>
 	)
+}
+
+const heroContent = {
+	title: "IPHONE, IPAD, AND MORE",
+	url: "images/imac-940x474.png",
+	paragraphs: [
+		"iRepair4U has been serving Lakewood, Jackson and neighboring communities for over 9 years. We provide fast, professional, and courteous services at affordable prices. Give us a call so we may assist you!",
+	],
+}
+
+const homePageAboutContent: {
+	title: string
+	url: string
+	paragraphs: string[]
+}[] = [
+	{
+		title: "OUR STORY",
+		url: "images/about-us-3-2-460x307.jpg",
+		paragraphs: [
+			"iRepair4U started fixing phones in 2016 in Lakewood, NJ, and soon gained a reputation for its quality work and friendly service. Since then, our business has grown and our workshop is now located in beautiful Jackson, New Jersey, right off Clearstream, only five minutes out of lakewood.",
+		],
+	},
+	{
+		title: "COVERAGE",
+		url: "images/coverage.jpg",
+		paragraphs: [
+			"We offer a broad range of services for a wide variety of devices. We repair all popular makes and models, such as Apple, Samsung, LG, Google, OnePlus, Motorola, and more. We would love to work with you, so if you don't see a device or service you need, please give us call!",
+		],
+	},
+	{
+		title: "CUSTOMER SERVICE",
+		url: "images/customer-service.jpg",
+		paragraphs: [
+			"Since our start, we have set customer service, affordability, and quality work as the cornerstone of our business. We pride ourselves in passing savings on to our customers without compromising on the quality of our work and all while providing a warm and welcoming environment.",
+		],
+	},
+]
+
+const homePageServicesContent: {
+	title: string
+	url: string
+	href: string
+	paragraphs: string[]
+}[] = [
+	{
+		title: "SCREEN REPLACEMENT",
+		url: "images/age-barros-fKAjOxgZNPg-unsplash.jpg",
+		href: "/services",
+		paragraphs: [
+			"Phone screen broken or cracked? No worries! Screen repairs are our specialty. We will have your phone looking and working line new in no time.",
+		],
+	},
+	{
+		title: "WATER DAMAGE",
+		url: "images/iphone-1067991_640.jpg",
+		href: "/services",
+		paragraphs: [
+			"Accidents happen. Bring us your water damaged phone so we can assist you. In the meantime, click <a class='text-white' href='/faq.html'>here</a> to see what you can do to increase your phone's chance of surviving.",
+		],
+	},
+	{
+		title: "BATTERY REPLACEMENT",
+		url: "images/tyler-lastovich-rAtzDB6hWrU-unsplash.jpg",
+		href: "/services",
+		paragraphs: [
+			"If your phone won't charge or your battery is draining too quickly, we offer fast and affordable battery replacements and charging port repairs.",
+		],
+	},
+	{
+		title: "DATA RECOVERY",
+		url: "images/benjamin-lehman-GNyjCePVRs8-unsplash.jpg",
+		href: "/services",
+		paragraphs: [
+			"Need to save precious data? We can help you recover and preserve all your invaluable photos, videos, messages, and other media from your device.",
+		],
+	},
+	{
+		title: "ACCESSORIES",
+		url: "images/lucas-hoang-0_S1K3u6Cmc-unsplash.jpg",
+		href: "/services",
+		paragraphs: [
+			"We offer accessories for your mobile devices, such as screen protectors, chargers, car mounts, and more. We also have cases for most popular smartphone makes and models.",
+		],
+	},
+	{
+		title: "SPEAKER REPAIR",
+		url: "images/apple-1284223_640.jpg",
+		href: "/services",
+		paragraphs: [
+			"Having a hard time hearing others during your calls? Speakers can go weak over time. We can improve the quality of your microphone and speakers.",
+		],
+	},
+]
+
+const warrantyBannerContent = {
+	title: "Free 90-Day Warranty",
+	paragraphs: [
+		"All our phone repair services are backed by our free 90-day warranty. We guarantee the quality of our work. If you encounter issue connected to the repair we conducted, we've got you covered. See for more information on our warranty.",
+	],
 }
