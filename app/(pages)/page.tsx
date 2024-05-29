@@ -1,6 +1,7 @@
 import { Container, Box, Typography, Button, Divider } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import ServicesCard from "../components/ServicesContainer"
+import { colorTheme } from "../../styles/colorTheme"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -30,7 +31,7 @@ export default function page() {
 						marginBottom: "4rem",
 					}}>
 					<Box maxWidth="38.75rem" marginBottom="2rem">
-						<Typography textAlign="center" variant="h3">
+						<Typography textAlign="center" variant="h1">
 							{heroContent.title}
 						</Typography>
 					</Box>
@@ -39,7 +40,7 @@ export default function page() {
 						{heroContent.paragraphs.map((paragraph, index) => (
 							<Typography
 								key={index}
-								variant="h6"
+								variant="subtitle2"
 								textAlign="center">
 								{paragraph}
 							</Typography>
@@ -49,11 +50,17 @@ export default function page() {
 					<Box
 						sx={{ display: "flex", flexWrap: "wrap", gap: "15px" }}
 						marginBottom="4rem">
-						<Button href="/contact-us" variant="contained">
+						<Button
+							href="/contact-us"
+							variant="contained"
+							sx={{ backgroundColor: colorTheme.redAccent }}>
 							CONTACT US
 						</Button>
 
-						<Button href="/about" variant="outlined">
+						<Button
+							href="/about"
+							variant="outlined"
+							sx={{ color: colorTheme.redAccent }}>
 							ABOUT US
 						</Button>
 					</Box>
@@ -71,10 +78,12 @@ export default function page() {
 					flexDirection: "column",
 					alignItems: "center",
 					marginBottom: "4rem",
+					background:
+						"linear-gradient(to bottom right, white, rgb(210, 210, 210)",
 				}}>
 				<Container maxWidth="lg">
 					<Box maxWidth="28.75rem" marginBlock="2.5rem">
-						<Typography textAlign="center" variant="h3">
+						<Typography textAlign="center" variant="h1">
 							ABOUT US
 						</Typography>
 					</Box>
@@ -88,12 +97,12 @@ export default function page() {
 								gap: "15px",
 							}}>
 							<Box>
-								<Typography variant="h6">
+								<Typography variant="h4">
 									{content.title}
 								</Typography>
 
 								{content.paragraphs.map((paragraph, index) => (
-									<Typography key={index} variant="body2">
+									<Typography key={index} variant="body1">
 										{paragraph}
 									</Typography>
 								))}
@@ -116,7 +125,7 @@ export default function page() {
 						marginBottom: "4rem",
 					}}>
 					<Box maxWidth="38.75rem" marginBottom="2.5rem">
-						<Typography textAlign="center" variant="h3">
+						<Typography textAlign="center" variant="h1">
 							SERVICES
 						</Typography>
 					</Box>
@@ -138,10 +147,21 @@ export default function page() {
 					</Grid2>
 				</Box>
 
-				<Box maxWidth="43.75rem" marginBottom="4rem">
-					<Typography variant="h6" textAlign="center">
+				<Box
+					maxWidth="43.75rem"
+					marginBottom="4rem"
+					marginInline="auto">
+					<Typography variant="subtitle1" textAlign="center">
 						We offer many more services. For a full listing, check
-						out our <a href="/services">services page</a>
+						out our{" "}
+						<span
+							style={{
+								color: "rgb(255, 30, 70)",
+								textDecoration: "underline",
+							}}>
+							<a href="/services">services</a>
+						</span>{" "}
+						page
 					</Typography>
 				</Box>
 			</Container>
@@ -164,7 +184,7 @@ export default function page() {
 							paddingBlock: "2.5rem",
 						}}>
 						<Typography
-							variant="h4"
+							variant="h3"
 							textAlign="center"
 							marginBottom="2.5rem">
 							{warrantyBannerContent.title}
@@ -173,7 +193,7 @@ export default function page() {
 							(paragraph, index) => (
 								<Typography
 									key={index}
-									variant="body2"
+									variant="body1"
 									textAlign="center">
 									{paragraph}
 								</Typography>
@@ -208,14 +228,14 @@ const homePageAboutContent: {
 	},
 	{
 		title: "COVERAGE",
-		url: "images/coverage.jpg",
+		url: "images/coverage1-3-2-460x307.jpg",
 		paragraphs: [
 			"We offer a broad range of services for a wide variety of devices. We repair all popular makes and models, such as Apple, Samsung, LG, Google, OnePlus, Motorola, and more. We would love to work with you, so if you don't see a device or service you need, please give us call!",
 		],
 	},
 	{
 		title: "CUSTOMER SERVICE",
-		url: "images/customer-service.jpg",
+		url: "images/trust-us1-3-2-460x307.jpg",
 		paragraphs: [
 			"Since our start, we have set customer service, affordability, and quality work as the cornerstone of our business. We pride ourselves in passing savings on to our customers without compromising on the quality of our work and all while providing a warm and welcoming environment.",
 		],

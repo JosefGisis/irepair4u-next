@@ -1,0 +1,16 @@
+export const colorTheme = {
+    redAccent: "rgba(225, 30, 70, 1)",
+    redAccentContrast: "rgba(255, 255, 255, 1)",
+    lighterRedAccent: "rgba(225, 30, 70, 0.8)",
+    lighterRedAccentContrast: "rgba(255, 255, 255, 1)",
+    grayAccent: "rgba(210, 210, 210, 1)",
+    grayAccentContrast: "rgba(255, 255, 255, 1)",
+    grayBackground: "rgba(190, 190, 190, 0.3)",
+    grayBackgroundContrast: "rgba(0, 0, 0, 1)",
+    redBackground: "rgba(225, 30, 70, 0.4)",
+    redBackgroundContrast: "rgba(0, 0, 0, 1)",
+    shadowColor: "rgba(160, 160, 160, 1)",
+    shadowColorContrast: "rgba(255, 255, 255, 1)",
+    lighterShadowColor: "rgb(200, 200, 200, 1)",
+    lighterShadowColorContrast: "rgba(0, 0, 0, 1)",
+}

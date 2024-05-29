@@ -1,18 +1,15 @@
 "use client"
 
-import { Theme, useTheme } from "@emotion/react"
 import { Box, Typography, Container } from "@mui/material"
+import { colorTheme } from "../../styles/colorTheme"
 import Link from "next/link"
 
 export default function Footer() {
-	const theme = useTheme()
-	const primaryColor = theme.palette.primary
-
 	return (
 		<Box
 			sx={{
-				backgroundColor: primaryColor.main,
-				color: primaryColor.contrastText,
+				backgroundColor: colorTheme.redAccent,
+				color: "white",
 			}}
 			>
 			<Container maxWidth="lg">
@@ -59,7 +56,7 @@ export default function Footer() {
 							<li>
 								<table id="hours">
 									<thead id="hours-heading">
-										<Typography variant="h6">
+										<Typography variant="h6" >
 											hours
 										</Typography>
 									</thead>

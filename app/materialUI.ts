@@ -14,34 +14,95 @@ export const theme: Theme = createTheme({
 			contrastText: "#000000",
 		},
 	},
+	components: {
+		MuiCssBaseline: {
+			styleOverrides: `
+				@font-face {
+					font-family: 'custom-font';
+					src: url('fonts/Atkinson-Hyperlegible-Regular-102.otf') format('opentype');
+					font-weight: normal;
+					font-style: normal;
+					font-display: swap;
+				}
+
+
+				@font-face {
+					font-family: 'custom-font';
+					src: url('fonts/Atkinson-Hyperlegible-Bold-102.otf') format('opentype');
+					font-weight: bold;
+					font-style: normal;
+					font-display: swap;
+				}
+
+
+				@font-face {
+					font-family: 'custom-font';
+					src: url('fonts/Atkinson-Hyperlegible-Italic-102.otf') format('opentype');
+					font-weight: normal;
+					font-style: italic;
+					font-display: swap;
+				}
+
+
+				@font-face {
+					font-family: 'custom-font';
+					src: url('fontss/Atkinson-Hyperlegible-BoldItalic-102.otf') format('opentype');
+					font-weight: bold;
+					font-style: italic;
+					font-display: swap;
+				}
+			`,
+		},
+	},
 	typography: {
-		fontFamily: "custom-font sans-serif",
+		fontFamily: "custom-font, sans-serif",
 		h1: {
-			fontFamily: "custom-font serif",
+			fontSize: "3rem",
+			fontFamily: "custom-font, sans-serif",
 		},
 		h2: {
-			fontFamily: "custom-font serif",
+			fontSize: "3rem",
+			fontFamily: "custom-font, sans-serif",
 		},
 		h3: {
-			fontFamily: "custom-font serif",
+			fontSize: "2rem",
+			fontFamily: "custom-font, sans-serif",
 		},
 		h4: {
-			fontFamily: "custom-font serif",
+			fontSize: "2rem",
+			fontFamily: "custom-font, sans-serif",
 		},
 		h5: {
-			fontFamily: "custom-font serif",
+			fontWeight: 700,
+			fontSize: "1.5rem",
+			fontFamily: "custom-font, sans-serif",
 		},
 		h6: {
-			fontSize: "1.5rem",
+			fontSize: "1.3rem",
 			fontWeight: 500,
-			fontFamily: "custom-font serif",
+			fontFamily: "custom-font, sans-serif",
 		},
 		body1: {
-			fontFamily: "custom-font sans-serif",
+			fontSize: "1.1rem",
+			fontFamily: "custom-font, sans-serif",
 		},
 		body2: {
-			fontFamily: "custom-font sans-serif",
+			fontSize: "1rem",
+			fontFamily: "custom-font, sans-serif",
 		},
+		subtitle1: {
+			fontWeight: 700,
+			fontSize: "1.2rem",
+			fontFamily: "custom-font, sans-serif",
+		},
+		subtitle2: {
+			fontSize: "1.2rem",
+			fontFamily: "custom-font, sans-serif",
+		},
+		button: {
+			fontSize: "1.1rem",
+			fontFamily: "custom-font, sans-serif",
+		},	
 
-	}
+	},
 })
