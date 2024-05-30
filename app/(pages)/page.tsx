@@ -5,14 +5,23 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import ServicesCard from "../components/ServicesContainer"
 import { widths } from "../../styles/widths"
 import { colorTheme } from "../../styles/colorTheme"
+import { WelcomeHeroBlockBackup } from "./homePageBackupContent"
 
 import type { Metadata } from "next"
+import type { PageBlocksWelcomeHero } from "../../tina/__generated__/types"
+import client from "../../tina/__generated__/client"
 
 export const metadata: Metadata = {
 	title: "iRepair4u - home",
 }
 
-export default function page() {
+export default async function page() {
+	const result = await client.queries.page({ relativePath: "Home.md" })
+	
+	const heroBlock = result?.data?.page?.blocks?.find(
+		(block) => block?.__typename === "PageBlocksWelcomeHero"
+	) as PageBlocksWelcomeHero | undefined
+
 	const { sixColumn, eightColumn, nineColumn } = widths
 	const { redAccent, redAccentContrast, grayAccent } = colorTheme
 
@@ -40,18 +49,13 @@ export default function page() {
 						variant="h1"
 						maxWidth={eightColumn}
 						marginBottom="2rem">
-						{heroContent.title}
+						{heroBlock?.title || WelcomeHeroBlockBackup.title}
 					</Typography>
 
 					<div style={{ maxWidth: nineColumn, marginBottom: "2rem" }}>
-						{heroContent.paragraphs.map((paragraph, index) => (
-							<Typography
-								key={index}
-								variant="subtitle2"
-								textAlign="center">
-								{paragraph}
-							</Typography>
-						))}
+						<Typography variant="subtitle2" textAlign="center">
+							{heroBlock?.subtitle || WelcomeHeroBlockBackup.subtitle}
+						</Typography>
 					</div>
 
 					<div
@@ -81,7 +85,7 @@ export default function page() {
 					</div>
 
 					<div style={{ width: "100%" }}>
-						<img src={heroContent.url} style={{ width: "100%" }} />
+						<img src={WelcomeHeroBlockBackup.url} style={{ width: "100%" }} />
 					</div>
 				</section>
 			</Container>
@@ -281,14 +285,6 @@ export default function page() {
 			</div>
 		</div>
 	)
-}
-
-const heroContent = {
-	title: "IPHONE, IPAD, AND MORE",
-	url: "images/imac-940x474.png",
-	paragraphs: [
-		"iRepair4U has been serving Lakewood, Jackson and neighboring communities for over 9 years. We provide fast, professional, and courteous services at affordable prices. Give us a call so we may assist you!",
-	],
 }
 
 const homePageAboutContent: {
