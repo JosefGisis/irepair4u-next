@@ -2,54 +2,55 @@ import * as React from "react"
 import { Container, Typography, Box } from "@mui/material"
 
 import type { Metadata } from "next"
+import { widths } from "../../../styles/widths"
 
 export const metadata: Metadata = {
 	title: "iRepair4u - FAQ",
 }
 
 export default function FAQPage() {
+	const { tenColumn } = widths
 	return (
-		<Box
-			component="section"
+		<section
 			id="about-page"
-			sx={{
+			style={{
 				display: "flex",
 				flexDirection: "column",
 				alignItems: "center",
+				maxWidth: tenColumn,
+				marginInline: "auto",
+				paddingInline: "20px",
 			}}>
-			<Container maxWidth="lg">
-				{/* detailed about us information */}
-				<Box maxWidth="38.75rem">
-					<Typography textAlign="center" variant="h4">
-						Frequently Asked Questions
-					</Typography>
-					<Typography textAlign="center" variant="h6">
-						Here are some questions are customers frequently ask us.
-					</Typography>
-				</Box>
+			{/* detailed about us information */}
 
-				<Box
-					maxWidth="43.75rem"
-					sx={{
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-					}}>
-            {
-              faqTextContent.map((section, index) => (
-                <Box key={index} maxWidth="43.75rem">
-                  <Typography textAlign="center" variant="h6">
-                    {section.q}
-                  </Typography>
-                  <Typography variant="body2">
-                    {section.a}
-                  </Typography>
-                </Box>
-              ))
-            }
-          </Box>
-			</Container>
-		</Box>
+			<Typography
+				textAlign="center"
+				variant="h1"
+				style={{ marginBottom: "1rem", marginTop: "3rem" }}>
+				FAQ
+			</Typography>
+
+			<Typography variant="h5" marginBottom="2rem">
+				Here are some questions are customers frequently ask us.
+			</Typography>
+
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+					marginBottom: "3rem",
+				}}>
+				{faqTextContent.map((section, index) => (
+					<div key={index} style={{ width: "100%" }}>
+						<Typography variant="subtitle1" marginBottom="1rem" marginTop="1.5rem">
+							Q. {section.q}
+						</Typography>
+						<Typography marginBottom="1rem" variant="body2">{section.a}</Typography>
+					</div>
+				))}
+			</div>
+		</section>
 	)
 }
 
