@@ -1,7 +1,5 @@
 import ResponsiveAppBar from "../components/Appbar"
-
 import Footer from "../components/Footer"
-import { Box } from "@mui/material"
 
 export default function RootLayout({
 	children,
@@ -11,15 +9,22 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
-				<Box sx={{ display: "flex", flexDirection: "column" }}>
+				<div style={{ display: "flex", flexDirection: "column" }}>
 					<ResponsiveAppBar />
+					<div className="background-image">
+						<img
+							src="images/irepair4u_icon_red_transparent_300x300.svg"
+							width="300px"
+							height="300px"
+						/>
+					</div>
 
-					<Box sx={{ flex: 1, minHeight: "62vh", mt: 10 }}>
+					<div style={{ flex: 1, minHeight: "62vh" }}>
 						<main>{children}</main>
-					</Box>
+					</div>
 
 					<Footer />
-				</Box>
+				</div>
 			</body>
 		</html>
 	)

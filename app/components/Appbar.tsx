@@ -40,7 +40,7 @@ function ResponsiveAppBar() {
 
 	return (
 		<AppBar
-			position="fixed"
+			position="static"
 			sx={{ backgroundColor: redAccentContrast, color: redAccent }}>
 			<Container maxWidth="lg">
 				<Toolbar
