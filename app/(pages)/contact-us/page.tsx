@@ -1,7 +1,6 @@
 import * as React from "react"
 import Link from "next/link"
-import { Container, Typography, Box } from "@mui/material"
-import JotformComp from "../../components/JotFormComp"
+import { Typography } from "@mui/material"
 import type { Metadata } from "next"
 import { widths } from "../../../styles/widths"
 import { colorTheme } from "../../../styles/colorTheme"
