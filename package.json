@@ -4,12 +4,12 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "tinacms dev -c \"next dev\"",
-		"next": "next dev",
-		"next-build": "next build",
-		"next-start": "next start -p 3006",
+		"dev": "next dev",
+		"tina-dev": "tinacms dev -c \"next dev\"",
+		"build": "next build",
+		"start": "next start -p 3006",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "tinacms build && next build"
+		"tina-build": "tinacms build && next build"
 	},
 	"author": "",
 	"license": "ISC",
