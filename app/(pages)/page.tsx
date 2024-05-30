@@ -1,7 +1,10 @@
-import { Container, Box, Typography, Button, Divider } from "@mui/material"
+import React from "react"
+import { Container, Box, Typography, Button } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import ServicesCard from "../components/ServicesContainer"
+import { widths } from "../../styles/widths"
 import { colorTheme } from "../../styles/colorTheme"
+
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -9,6 +12,9 @@ export const metadata: Metadata = {
 }
 
 export default function page() {
+	const { sixColumn, eightColumn, nineColumn } = widths
+	const { redAccent, redAccentContrast, shadowColor, grayAccent } = colorTheme
+
 	return (
 		<Box
 			component="div"
@@ -30,13 +36,13 @@ export default function page() {
 						marginTop: "3rem",
 						marginBottom: "4rem",
 					}}>
-					<Box maxWidth="38.75rem" marginBottom="2rem">
+					<Box maxWidth={eightColumn} marginBottom="2rem">
 						<Typography textAlign="center" variant="h1">
 							{heroContent.title}
 						</Typography>
 					</Box>
 
-					<Box maxWidth="43.75rem" marginBottom="2rem">
+					<Box maxWidth={nineColumn} marginBottom="2rem">
 						{heroContent.paragraphs.map((paragraph, index) => (
 							<Typography
 								key={index}
@@ -53,19 +59,24 @@ export default function page() {
 						<Button
 							href="/contact-us"
 							variant="contained"
-							sx={{ backgroundColor: colorTheme.redAccent }}>
+							sx={{ backgroundColor: redAccent }}>
 							CONTACT US
 						</Button>
 
 						<Button
 							href="/about"
 							variant="outlined"
-							sx={{ color: colorTheme.redAccent }}>
+							sx={{ color: redAccent }}>
 							ABOUT US
 						</Button>
 					</Box>
 
-					<img src={heroContent.url} width="940" height="474" />
+					<Box
+						sx={{
+							width: "100%",
+						}}>
+						<img src={heroContent.url} style={{width: "100%"}} />
+					</Box>
 				</Box>
 			</Container>
 
@@ -74,42 +85,99 @@ export default function page() {
 				component="section"
 				id="about-detailed"
 				sx={{
+					width: "100%",
 					display: "flex",
 					flexDirection: "column",
 					alignItems: "center",
 					marginBottom: "4rem",
-					background:
-						"linear-gradient(to bottom right, white, rgb(210, 210, 210)",
+					paddingBottom: "4rem",
+					background: `linear-gradient(to bottom right, ${redAccentContrast}, ${grayAccent})`,
 				}}>
 				<Container maxWidth="lg">
-					<Box maxWidth="28.75rem" marginBlock="2.5rem">
-						<Typography textAlign="center" variant="h1">
-							ABOUT US
-						</Typography>
-					</Box>
+					<Box
+						sx={{
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "center",
+						}}>
+						<Box maxWidth={sixColumn} marginBlock="2.5rem">
+							<Typography textAlign="center" variant="h1">
+								ABOUT US
+							</Typography>
+						</Box>
 
-					{homePageAboutContent.map((content, index) => (
 						<Box
-							key={index}
 							sx={{
 								display: "flex",
-								flexDirection: "row",
-								gap: "15px",
+								flexDirection: "column",
+								gap: "3rem",
 							}}>
-							<Box>
-								<Typography variant="h4">
-									{content.title}
-								</Typography>
+							{homePageAboutContent.map((content, index) => (
+								<Box
+									key={index}
+									sx={{
+										display: "flex",
+										flexDirection: {
+											xs: "column",
+											md: "row",
+										},
+										gap: "3rem",
+										order: 1,
+									}}>
+									<Box
+										sx={{
+											display: "flex",
+											flexDirection: "column",
+											gap: "1rem",
+											alignItems: "center",
+											maxWidth: sixColumn,
+											order: 2,
+										}}>
+										<Box
+											sx={{
+												padding: "1rem",
+												width: "100%",
+												marginBottom: "1rem",
+												background: `linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6) )`,
+											}}>
+											<Typography
+												variant="h4"
+												textAlign="center"
+												color={redAccentContrast}>
+												{content.title}
+											</Typography>
+										</Box>
 
-								{content.paragraphs.map((paragraph, index) => (
-									<Typography key={index} variant="body1">
-										{paragraph}
-									</Typography>
-								))}
-							</Box>
-							<img src={content.url} width="460" height="307" />
+										<Box paddingInline="15px">
+											{content.paragraphs.map(
+												(paragraph, subIndex) => (
+													<Typography
+														key={subIndex}
+														variant="body1">
+														{paragraph}
+													</Typography>
+												)
+											)}
+										</Box>
+									</Box>
+									<Box
+										sx={{
+											order: {
+												xs: 3,
+												// alternate order
+												md: index % 2 === 0 ? 3 : 1,
+											},
+										}}>
+										<img
+											src={content.url}
+											width="460"
+											height="307"
+										/>
+									</Box>
+								</Box>
+							))}
 						</Box>
-					))}
+					</Box>
 				</Container>
 			</Box>
 
@@ -124,7 +192,7 @@ export default function page() {
 						alignItems: "center",
 						marginBottom: "4rem",
 					}}>
-					<Box maxWidth="38.75rem" marginBottom="2.5rem">
+					<Box maxWidth={eightColumn} marginBottom="2.5rem">
 						<Typography textAlign="center" variant="h1">
 							SERVICES
 						</Typography>
@@ -148,7 +216,7 @@ export default function page() {
 				</Box>
 
 				<Box
-					maxWidth="43.75rem"
+					maxWidth={nineColumn}
 					marginBottom="4rem"
 					marginInline="auto">
 					<Typography variant="subtitle1" textAlign="center">
@@ -156,7 +224,7 @@ export default function page() {
 						out our{" "}
 						<span
 							style={{
-								color: "rgb(255, 30, 70)",
+								color: redAccent,
 								textDecoration: "underline",
 							}}>
 							<a href="/services">services</a>
