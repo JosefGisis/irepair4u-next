@@ -13,36 +13,36 @@ export const metadata: Metadata = {
 
 export default function page() {
 	const { sixColumn, eightColumn, nineColumn } = widths
-	const { redAccent, redAccentContrast, shadowColor, grayAccent } = colorTheme
+	const { redAccent, redAccentContrast, grayAccent } = colorTheme
 
 	return (
-		<Box
-			component="div"
+		<div
 			id="home-page-content"
-			sx={{
+			style={{
 				display: "flex",
 				flexDirection: "column",
 				alignItems: "center",
 			}}>
 			<Container maxWidth="lg">
 				{/* this is the hero section for the home page */}
-				<Box
-					component="section"
+				<section
 					id="about-simple"
-					sx={{
+					style={{
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",
 						marginTop: "3rem",
 						marginBottom: "4rem",
 					}}>
-					<Box maxWidth={eightColumn} marginBottom="2rem">
-						<Typography textAlign="center" variant="h1">
-							{heroContent.title}
-						</Typography>
-					</Box>
+					<Typography
+						textAlign="center"
+						variant="h1"
+						maxWidth={eightColumn}
+						marginBottom="2rem">
+						{heroContent.title}
+					</Typography>
 
-					<Box maxWidth={nineColumn} marginBottom="2rem">
+					<div style={{ maxWidth: nineColumn, marginBottom: "2rem" }}>
 						{heroContent.paragraphs.map((paragraph, index) => (
 							<Typography
 								key={index}
@@ -51,11 +51,15 @@ export default function page() {
 								{paragraph}
 							</Typography>
 						))}
-					</Box>
+					</div>
 
-					<Box
-						sx={{ display: "flex", flexWrap: "wrap", gap: "15px" }}
-						marginBottom="4rem">
+					<div
+						style={{
+							display: "flex",
+							flexWrap: "wrap",
+							gap: "15px",
+							marginBottom: "4rem",
+						}}>
 						<Button
 							href="/contact-us"
 							variant="contained"
@@ -69,22 +73,18 @@ export default function page() {
 							sx={{ color: redAccent }}>
 							ABOUT US
 						</Button>
-					</Box>
+					</div>
 
-					<Box
-						sx={{
-							width: "100%",
-						}}>
-						<img src={heroContent.url} style={{width: "100%"}} />
-					</Box>
-				</Box>
+					<div style={{ width: "100%" }}>
+						<img src={heroContent.url} style={{ width: "100%" }} />
+					</div>
+				</section>
 			</Container>
 
 			{/* this is a simple about section for the home page */}
-			<Box
-				component="section"
+			<section
 				id="about-detailed"
-				sx={{
+				style={{
 					width: "100%",
 					display: "flex",
 					flexDirection: "column",
@@ -94,20 +94,22 @@ export default function page() {
 					background: `linear-gradient(to bottom right, ${redAccentContrast}, ${grayAccent})`,
 				}}>
 				<Container maxWidth="lg">
-					<Box
-						sx={{
+					<div
+						style={{
 							display: "flex",
 							flexDirection: "column",
 							alignItems: "center",
 						}}>
-						<Box maxWidth={sixColumn} marginBlock="2.5rem">
-							<Typography textAlign="center" variant="h1">
-								ABOUT US
-							</Typography>
-						</Box>
+						<Typography
+							textAlign="center"
+							variant="h1"
+							maxWidth={sixColumn}
+							marginBlock="2.5rem">
+							ABOUT US
+						</Typography>
 
-						<Box
-							sx={{
+						<div
+							style={{
 								display: "flex",
 								flexDirection: "column",
 								gap: "3rem",
@@ -124,8 +126,8 @@ export default function page() {
 										gap: "3rem",
 										order: 1,
 									}}>
-									<Box
-										sx={{
+									<div
+										style={{
 											display: "flex",
 											flexDirection: "column",
 											gap: "1rem",
@@ -133,8 +135,8 @@ export default function page() {
 											maxWidth: sixColumn,
 											order: 2,
 										}}>
-										<Box
-											sx={{
+										<div
+											style={{
 												padding: "1rem",
 												width: "100%",
 												marginBottom: "1rem",
@@ -146,9 +148,9 @@ export default function page() {
 												color={redAccentContrast}>
 												{content.title}
 											</Typography>
-										</Box>
+										</div>
 
-										<Box paddingInline="15px">
+										<div style={{ paddingInline: 15 }}>
 											{content.paragraphs.map(
 												(paragraph, subIndex) => (
 													<Typography
@@ -158,8 +160,8 @@ export default function page() {
 													</Typography>
 												)
 											)}
-										</Box>
-									</Box>
+										</div>
+									</div>
 									<Box
 										sx={{
 											order: {
@@ -176,27 +178,29 @@ export default function page() {
 									</Box>
 								</Box>
 							))}
-						</Box>
-					</Box>
+						</div>
+					</div>
 				</Container>
-			</Box>
+			</section>
 
 			<Container>
 				{/* this is a simple services section for the home page */}
-				<Box
-					component="section"
+				<section
 					id="services"
-					sx={{
+					style={{
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",
 						marginBottom: "4rem",
 					}}>
-					<Box maxWidth={eightColumn} marginBottom="2.5rem">
-						<Typography textAlign="center" variant="h1">
-							SERVICES
-						</Typography>
-					</Box>
+					<Typography
+						maxWidth={eightColumn}
+						marginBottom="2.5rem"
+						textAlign="center"
+						variant="h1">
+						SERVICES
+					</Typography>
+
 					<Grid2
 						container
 						rowSpacing={5}
@@ -213,39 +217,39 @@ export default function page() {
 							</Grid2>
 						))}
 					</Grid2>
-				</Box>
+				</section>
 
-				<Box
+				<Typography
+					variant="subtitle1"
+					textAlign="center"
 					maxWidth={nineColumn}
 					marginBottom="4rem"
 					marginInline="auto">
-					<Typography variant="subtitle1" textAlign="center">
-						We offer many more services. For a full listing, check
-						out our{" "}
-						<span
-							style={{
-								color: redAccent,
-								textDecoration: "underline",
-							}}>
-							<a href="/services">services</a>
-						</span>{" "}
-						page
-					</Typography>
-				</Box>
+					We offer many more services. For a full listing, check out
+					our{" "}
+					<span
+						style={{
+							color: redAccent,
+							textDecoration: "underline",
+						}}>
+						<a href="/services">services</a>
+					</span>{" "}
+					page
+				</Typography>
 			</Container>
 
 			{/* this is the warranty banner */}
-			<Box
+			<div
 				id="warranty-banner"
-				sx={{
+				style={{
 					width: "100%",
 					backgroundColor: "#D2D2D2",
-					textColor: "#000000",
+					color: "#000000",
 					borderBottom: "5px solid rgb(150, 150, 150)",
 				}}>
 				<Container maxWidth="lg">
-					<Box
-						sx={{
+					<div
+						style={{
 							display: "flex",
 							flexDirection: "column",
 							alignItems: "center",
@@ -267,10 +271,10 @@ export default function page() {
 								</Typography>
 							)
 						)}
-					</Box>
+					</div>
 				</Container>
-			</Box>
-		</Box>
+			</div>
+		</div>
 	)
 }
 
