@@ -118,8 +118,7 @@ export default function Footer() {
 									<Typography
 										variant="body2"
 										className="footer-link"
-										width="fit-content"
-										style={{ textWrap: "nowrap" }}>
+										width="fit-content">
 										{link.name}
 									</Typography>
 								</Link>
