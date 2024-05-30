@@ -1,56 +1,80 @@
 import * as React from "react"
 import { Container, Typography, Box } from "@mui/material"
-import JotformComp from "../../components/JotformComp"
+import JotformComp from "../../components/JotFormComp"
 import type { Metadata } from "next"
+import { widths } from "../../../styles/widths"
+import { colorTheme } from "../../../styles/colorTheme"
 
 export const metadata: Metadata = { title: "iRepair4u - Contact Us" }
 
 export default function ContactUsPage() {
+	const { redAccent } = colorTheme
+	const { tenColumn } = widths
 	return (
-		<Box
-			component="section"
+		<section
 			id="about-page"
-			sx={{
+			style={{
 				display: "flex",
 				flexDirection: "column",
 				alignItems: "center",
+				maxWidth: tenColumn,
+				marginInline: "auto",
+				paddingInline: "20px",
 			}}>
-			<Container maxWidth="lg">
-				{/* detailed about us information */}
-				<Box maxWidth="38.75rem">
-					<Typography textAlign="center" variant="h4">
-						WE'D LOVE TO WORK WITH YOU!
-					</Typography>
-					<Typography textAlign="center" variant="h6">
-						Let's Connect and Get Your Device Back on Track.
-					</Typography>
-				</Box>
+			{/* detailed about us information */}
 
-				<Box
-					maxWidth="43.75rem"
-					sx={{
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-					}}>
-					{contactUsPageContent.map((section, index) => (
-						<Box key={index} maxWidth="43.75rem">
-							<Typography textAlign="center" variant="h6">
-								{section.title}
+			<Typography
+				textAlign="center"
+				variant="h3"
+				marginTop="3rem"
+				marginBottom="1.8rem">
+				WE'D LOVE TO WORK WITH YOU!
+			</Typography>
+			<Typography textAlign="center" variant="h6" marginBottom="2rem">
+				Let's Connect and Get Your Device Back on Track.
+			</Typography>
+
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+				}}>
+				{contactUsPageContent.map((section, index) => (
+					<div key={index} style={{ width: "100%" }}>
+						<Typography
+							variant="h6"
+							marginBottom="1rem"
+							marginTop="1.5rem">
+							{section.title}{" "}
+							<span
+								style={{
+									color: redAccent,
+									textDecoration: "underline",
+								}}>
 								<a
 									href={`${section.linkType === "email" ? "mailto:" : section.linkType === "tel" ? "tel:+" : ""}${section.link}`}>
 									{section.link}
 								</a>
-							</Typography>
-							<Typography variant="body2">
-								{section.paragraph}
-							</Typography>
-						</Box>
-					))}
-				</Box>
+							</span>
+						</Typography>
+						<Typography variant="body1" marginBottom="1rem">
+							{section.paragraph}
+						</Typography>
+					</div>
+				))}
+			</div>
+			{/* not working for now */}
+			{/* <div
+				style={{
+					minHeight: "1042px",
+					width: "100%",
+					marginBottom: "3rem",
+					marginTop: "3rem",
+				}}>
 				<JotformComp />
-			</Container>
-		</Box>
+			</div> */}
+		</section>
 	)
 }
 
@@ -62,9 +86,9 @@ export type ContactUsPageContentType = {
 }[]
 const contactUsPageContent: ContactUsPageContentType = [
 	{
-		title: "Give us a call at ",
+		title: "Give us a call at",
 		linkType: "tel",
-		link: "+7323303038",
+		link: "7323303038",
 		paragraph:
 			"If you can't get through to us, please leave a voicemail or message with your name, phone number, and device specifications.",
 	},

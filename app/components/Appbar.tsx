@@ -65,7 +65,13 @@ function ResponsiveAppBar() {
 							aria-haspopup="true"
 							onClick={handleOpenNavMenu}
 							color="inherit">
-							<MenuIcon style={{ width: 35, height: 35, color: redAccent }} />
+							<MenuIcon
+								style={{
+									width: 35,
+									height: 35,
+									color: redAccent,
+								}}
+							/>
 						</IconButton>
 						<Menu
 							id="menu-appbar"
@@ -110,11 +116,14 @@ function ResponsiveAppBar() {
 									sx={{
 										ml: 2,
 										my: 2,
-										background: page.name === "Contact Us" ? redAccent : "inherit",
+										background:
+											page.name === "Contact Us"
+												? redAccent
+												: "inherit",
 										color:
 											page.name === "Contact Us"
 												? redAccentContrast
-												: "inherit",
+												: "rgb(0, 0, 0)",
 										display: "block",
 									}}>
 									{page.name}

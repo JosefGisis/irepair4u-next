@@ -6,6 +6,8 @@
 	"scripts": {
 		"dev": "tinacms dev -c \"next dev\"",
 		"next": "next dev",
+		"next-build": "next build",
+		"next-start": "next start -p $PORT",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "tinacms build && next build"
 	},
@@ -20,6 +22,7 @@
 		"@mui/material": "^5.15.18",
 		"@mui/material-nextjs": "^5.15.11",
 		"@tinacms/cli": "^1.5.45",
+		"jotform-react": "^1.1.1",
 		"next": "^14.2.3",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
