@@ -102,7 +102,6 @@ export default function Footer() {
 						</div>
 					</div>
 
-					{/* information links */}
 					{links.map((item, index) => (
 						<Box
 							key={index}
@@ -115,14 +114,13 @@ export default function Footer() {
 							<Typography variant="h6">{item.title}</Typography>
 
 							{item.links.map((link, index) => (
-								<Typography
-									key={index}
-									variant="body2"
-									className="footer-link">
-									<Link key={index} href={link.link}>
+								<Link key={index} href={link.link}>
+									<Typography
+										variant="body2"
+										className="footer-link">
 										{link.name}
-									</Link>
-								</Typography>
+									</Typography>
+								</Link>
 							))}
 						</Box>
 					))}
