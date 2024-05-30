@@ -30,6 +30,7 @@ function ResponsiveAppBar() {
 	const [scrolling, setScrolling] = useState(false)
 	useEffect(() => {
 		const onScroll = () => {
+			handleCloseNavMenu()
 			const isScrolling = document.documentElement.scrollTop > 10
 			setScrolling(isScrolling)
 		}
@@ -118,6 +119,7 @@ function ResponsiveAppBar() {
 							</IconButton>
 							<Menu
 								id="menu-appbar"
+								disableScrollLock={true}
 								anchorEl={anchorElNav}
 								anchorOrigin={{
 									vertical: "bottom",
@@ -131,7 +133,10 @@ function ResponsiveAppBar() {
 								open={Boolean(anchorElNav)}
 								onClose={handleCloseNavMenu}
 								sx={{
-									display: { xs: "block", md: "none" },
+									display: {
+										xs: scrolling ? "none" : "block",
+										md: "none",
+									},
 								}}>
 								{pages.map((page, index) => (
 									<Link key={index} href={page.link}>
