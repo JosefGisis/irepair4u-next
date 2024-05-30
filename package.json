@@ -7,7 +7,7 @@
 		"dev": "tinacms dev -c \"next dev\"",
 		"next": "next dev",
 		"next-build": "next build",
-		"next-start": "next start -p $PORT",
+		"next-start": "next start -p 3006",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "tinacms build && next build"
 	},

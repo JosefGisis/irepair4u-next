@@ -1,4 +1,5 @@
 import * as React from "react"
+import Link from "next/link"
 import { Container, Typography, Box } from "@mui/material"
 import JotformComp from "../../components/JotFormComp"
 import type { Metadata } from "next"
@@ -52,10 +53,10 @@ export default function ContactUsPage() {
 									color: redAccent,
 									textDecoration: "underline",
 								}}>
-								<a
+								<Link
 									href={`${section.linkType === "email" ? "mailto:" : section.linkType === "tel" ? "tel:+" : ""}${section.link}`}>
 									{section.link}
-								</a>
+								</Link>
 							</span>
 						</Typography>
 						<Typography variant="body1" marginBottom="1rem">

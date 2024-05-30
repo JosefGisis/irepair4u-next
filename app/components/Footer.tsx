@@ -33,7 +33,7 @@ export default function Footer() {
 						}}>
 						{/* logo and home page links */}
 						<Box sx={{ marginInline: { xs: "auto", md: 0 } }}>
-							<a href="/">
+							<Link href="/">
 								<div style={{ display: "flex", gap: "8px" }}>
 									<img
 										src="images/irepair4u_white_transparent_100x860.svg"
@@ -48,7 +48,7 @@ export default function Footer() {
 										height="40px"
 									/>
 								</div>
-							</a>
+							</Link>
 						</Box>
 
 						{/* contact information links */}

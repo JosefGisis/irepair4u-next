@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import { Container, Box, Typography, Button } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import ServicesCard from "../components/ServicesContainer"
@@ -60,19 +61,23 @@ export default function page() {
 							gap: "15px",
 							marginBottom: "4rem",
 						}}>
-						<Button
-							href="/contact-us"
-							variant="contained"
-							sx={{ backgroundColor: redAccent }}>
-							CONTACT US
-						</Button>
+						<Link href="/contact-us">
+							<Button
+								href="/contact-us"
+								variant="contained"
+								sx={{ backgroundColor: redAccent }}>
+								CONTACT US
+							</Button>
+						</Link>
 
-						<Button
-							href="/about"
-							variant="outlined"
-							sx={{ color: redAccent }}>
-							ABOUT US
-						</Button>
+						<Link href="/about">
+							<Button
+								href="/about"
+								variant="outlined"
+								sx={{ color: redAccent }}>
+								ABOUT US
+							</Button>
+						</Link>
 					</div>
 
 					<div style={{ width: "100%" }}>
@@ -232,7 +237,7 @@ export default function page() {
 							color: redAccent,
 							textDecoration: "underline",
 						}}>
-						<a href="/services">services</a>
+						<Link href="/services">services</Link>
 					</span>{" "}
 					page
 				</Typography>
