@@ -1,10 +1,12 @@
 import * as React from "react"
 import { Container, Typography, Box } from "@mui/material"
 import { Metadata } from "next"
+import { widths } from "../../../styles/widths"
 
 export const metadata: Metadata = { title: "iRepair4u - About Us" }
 
 export default function AboutPage() {
+	const { nineColumn, tenColumn } = widths
 	return (
 		<Box
 			component="section"
@@ -13,98 +15,109 @@ export default function AboutPage() {
 				display: "flex",
 				flexDirection: "column",
 				alignItems: "center",
+				maxWidth: tenColumn,
+				marginInline: "auto",
 			}}>
-			<Container maxWidth="lg">
-				{/* detailed about us information */}
-				<Box maxWidth="38.75rem">
-					<Typography textAlign="center" variant="h4">
-						ABOUT US
-					</Typography>
-				</Box>
+			{/* detailed about us information */}
+			<div>
+				<Typography
+					textAlign="center"
+					variant="h1"
+					style={{ marginBottom: "2rem", marginTop: "3rem" }}>
+					ABOUT US
+				</Typography>
+			</div>
 
-				<Box
-					sx={{
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-					}}>
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+				}}>
+				<div style={{ paddingInline: 20 }}>
 					{aboutPageContent.map((section, index) => (
-						<Box key={index} maxWidth="43.75rem">
-							<Typography textAlign="center" variant="h6">
+						<div key={index}>
+							<Typography
+								variant="h5"
+								style={{ marginBlock: 20 }}>
 								{section.title}
 							</Typography>
 							{section.paragraphs.map((paragraph, index) => (
 								<Typography
 									key={index}
-									variant="body2"
-									textAlign="center">
+									style={{ marginBottom: 15 }}
+									variant="body2">
 									{paragraph}
 								</Typography>
 							))}
-						</Box>
+						</div>
 					))}
+				</div>
 
-					{/* image section */}
-					<Box
-						id="image section"
-						component="section"
-						sx={{
-							display: "flex",
-							flexDirection: "column",
-							alignItems: "center",
-						}}>
-						<img
-							src="images/waving_android_improved.svg"
-							alt="Image of waving android"
-							width="275px"
-							height="275px"
-						/>
-						<Box maxWidth="43.75rem">
-							<Typography textAlign="center" variant="h6">
-								SEE YOU SOON!
-							</Typography>
-						</Box>
-					</Box>
+				{/* image section */}
+				<section
+					id="image section"
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+						marginTop: "2rem",
+						marginBottom: "3.5rem",
+					}}>
+					<img
+						src="images/waving_android_improved.svg"
+						alt="Image of waving android"
+						width="275px"
+						height="275px"
+					/>
+					<div>
+						<Typography textAlign="center" variant="h2">
+							SEE YOU SOON!
+						</Typography>
+					</div>
+				</section>
 
-					{/* terms and conditions section */}
-					<Box
-						component="section"
-						id="terms-and-conditions"
-						maxWidth="48.75rem"
-						sx={{
-							display: "flex",
-							flexDirection: "column",
-							alignItems: "center",
-							backgroundColor: "#D2D2D2",
-						}}>
-						<Box maxWidth="43.75rem">
-							<Typography variant="h6" textAlign="center">
-								TERMS AND CONDITIONS
-							</Typography>
-						</Box>
+				{/* terms and conditions section */}
+				<section
+					id="terms-and-conditions"
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+						backgroundColor: "#D2D2D2",
+						padding: "2rem",
+						marginBottom: "3rem",
+					}}>
+					<div>
+						<Typography
+							variant="h4"
+							style={{ marginBlock: "0.5rem" }}
+							textAlign="center">
+							TERMS AND CONDITIONS
+						</Typography>
+					</div>
 
-						<Box>
-							{termsAndConditions.map((section, index) => (
-								<Box key={index} maxWidth="43.75rem">
-									<Typography variant="h6" textAlign="center">
-										{section.title}
+					<div>
+						{termsAndConditions.map((section, index) => (
+							<div key={index}>
+								<Typography
+									variant="h5"
+									style={{ marginBottom: "1rem", marginTop: "2rem" }}>
+									{section.title}
+								</Typography>
+								{section.paragraphs.map((paragraph, index) => (
+									<Typography
+										key={index}
+										style={{ marginBottom: "0.8rem" }}
+										variant="body2">
+										- {paragraph}
 									</Typography>
-									{section.paragraphs.map(
-										(paragraph, index) => (
-											<Typography
-												key={index}
-												variant="body2"
-												textAlign="center">
-												{paragraph}
-											</Typography>
-										)
-									)}
-								</Box>
-							))}
-						</Box>
-					</Box>
-				</Box>
-			</Container>
+								))}
+							</div>
+						))}
+					</div>
+				</section>
+			</div>
 		</Box>
 	)
 }
