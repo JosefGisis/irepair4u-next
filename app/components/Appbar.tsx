@@ -14,7 +14,7 @@ import {
 } from "@mui/material"
 import Link from "next/link"
 import MenuIcon from "@mui/icons-material/Menu"
-import { useTheme } from "@emotion/react"
+import { colorTheme } from "../../styles/colorTheme"
 
 const pages = [
 	{ name: "About", link: "/about" },
@@ -24,8 +24,8 @@ const pages = [
 ]
 
 function ResponsiveAppBar() {
-	const theme = useTheme()
-	const primaryColor = theme.palette.primary
+	const { redAccent, redAccentContrast } = colorTheme
+
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
 		null
 	)
@@ -41,7 +41,7 @@ function ResponsiveAppBar() {
 	return (
 		<AppBar
 			position="fixed"
-			sx={{ backgroundColor: "#FFFFFF", color: "#000000" }}>
+			sx={{ backgroundColor: redAccentContrast, color: redAccent }}>
 			<Container maxWidth="lg">
 				<Toolbar
 					disableGutters
@@ -65,7 +65,7 @@ function ResponsiveAppBar() {
 							aria-haspopup="true"
 							onClick={handleOpenNavMenu}
 							color="inherit">
-							<MenuIcon style={{ width: 35, height: 35, color: primaryColor.main }} />
+							<MenuIcon style={{ width: 35, height: 35, color: redAccent }} />
 						</IconButton>
 						<Menu
 							id="menu-appbar"
@@ -110,9 +110,10 @@ function ResponsiveAppBar() {
 									sx={{
 										ml: 2,
 										my: 2,
+										background: page.name === "Contact Us" ? redAccent : "inherit",
 										color:
 											page.name === "Contact Us"
-												? primaryColor.contrastText
+												? redAccentContrast
 												: "inherit",
 										display: "block",
 									}}>
