@@ -1,78 +1,84 @@
 import * as React from "react"
-import { Container, Typography, Box } from "@mui/material"
+import { Typography } from "@mui/material"
 
 import type { Metadata } from "next"
+import { widths } from "../../../styles/widths"
 
 export const metadata: Metadata = {
 	title: "iRepair4u - FAQ",
 }
 
 export default function ServicesPage() {
+	const { tenColumn } = widths
 	return (
-		<Box
-			component="section"
+		<section
 			id="about-page"
-			sx={{
+			style={{
 				display: "flex",
 				flexDirection: "column",
 				alignItems: "center",
+				maxWidth: tenColumn,
+				marginInline: "auto",
+				paddingInline: "20px",
 			}}>
-			<Container maxWidth="lg">
-				{/* detailed about us information */}
-				<Box maxWidth="38.75rem">
-					<Typography textAlign="center" variant="h4">
-						Services
-					</Typography>
-				</Box>
+			{/* detailed about us information */}
 
-				<Box
-					maxWidth="43.75rem"
-					sx={{
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-					}}>
-					{servicesTextContent.map((section, index) => (
-						<Box key={index} maxWidth="43.75rem">
-							<Typography textAlign="center" variant="h6">
-								{section.section}
-							</Typography>
-							{section.services.map((service, index) => (
-								<Box key={index} id={service.id}>
-									<Typography variant="h6">
-										{service.service}
-									</Typography>
-									<Typography variant="body2">
-										{service.description}
-									</Typography>
-								</Box>
-							))}
-						</Box>
-					))}
-				</Box>
-				<Box
-					maxWidth="58.75rem"
-					sx={{
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-					}}>
-					<Box maxWidth="43.75rem">
-						<Typography textAlign="center" variant="h6">
-							Don't see what you are looking for? No worries! Just
-							give us a call.
+			<Typography
+				textAlign="center"
+				variant="h1"
+				style={{ marginBottom: "2rem", marginTop: "3rem" }}>
+				SERVICES
+			</Typography>
+
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+				}}>
+				{servicesTextContent.map((section, index) => (
+					<div key={index} style={{ width: "100%" }}>
+						<Typography
+							variant="h5"
+							style={{ marginTop: "1rem", marginBottom: "1rem" }}>
+							{section.section}
 						</Typography>
-					</Box>
+						{section.services.map((service, index) => (
+							<div key={index} id={service.id}>
+								<Typography
+									variant="subtitle1"
+									style={{ marginBottom: "0.6rem" }}>
+									● {service.service}
+								</Typography>
+								<Typography
+									variant="body1"
+									style={{ marginBottom: "0.6rem" }}>
+									{service.description}
+								</Typography>
+							</div>
+						))}
+					</div>
+				))}
+			</div>
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+					marginBlock: "4rem",
+				}}>
+				<Typography textAlign="center" variant="h4" marginBottom="3rem">
+					Don't see what you are looking for? No worries! Just give us
+					a call.
+				</Typography>
 
-					<Box maxWidth="48.75rem">
-						<img
-							src="images/pexels-gabriel-freytez-5184x3456-corrected-reduced.jpg"
-							alt="Image of multiple apple devices stacked on top of each other"
-						/>
-					</Box>
-				</Box>
-			</Container>
-		</Box>
+				<img
+					style={{ width: "100%" }}
+					src="images/pexels-gabriel-freytez-5184x3456-corrected-reduced.jpg"
+					alt="Image of multiple apple devices stacked on top of each other"
+				/>
+			</div>
+		</section>
 	)
 }
 
