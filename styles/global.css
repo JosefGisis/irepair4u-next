@@ -49,18 +49,6 @@
 	font-display: swap;
 }
 
-.footer-link {
-	margin-bottom: 15px;
-}
-
-.footer-item {
-	margin-bottom: 15px;
-}
-
-.footer-header {
-	margin-bottom: 15px;
-}
-
 .footer-link:hover {
 	text-decoration: underline;
 }

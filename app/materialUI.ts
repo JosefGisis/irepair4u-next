@@ -88,6 +88,7 @@ export const theme: Theme = createTheme({
 		},
 		body2: {
 			fontSize: "1rem",
+			fontWeight: 500,
 			fontFamily: "custom-font, sans-serif",
 		},
 		subtitle1: {
