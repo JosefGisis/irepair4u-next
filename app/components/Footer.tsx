@@ -117,7 +117,8 @@ export default function Footer() {
 								<Link key={index} href={link.link}>
 									<Typography
 										variant="body2"
-										className="footer-link">
+										className="footer-link"
+										width="fit-content">
 										{link.name}
 									</Typography>
 								</Link>
