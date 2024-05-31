@@ -6,14 +6,14 @@ export const linkFields = [
 		required: true,
 		fields: [
 			{
-				description: "Please a valid phone number.",
+				description: "Please provide a valid phone number.",
 				name: "phoneNumber",
 				label: "Phone Number",
 				type: "string",
 				required: true,
 			},
 			{
-				description: "Please a valid email address.",
+				description: "Please provide a valid email address.",
 				name: "email",
 				label: "Email",
 				type: "string",
@@ -151,8 +151,8 @@ export const linkFields = [
 		required: true,
 		fields: [
 			{
-				name: "day(s)",
-				label: "Day(s)",
+				name: "day",
+				label: "Day",
 				type: "string",
 				required: true,
 				options: [
@@ -171,7 +171,7 @@ export const linkFields = [
 				name: "hours",
 				label: "Hours",
 				required: true,
-				value: "string",
+				type: "string",
 			},
 		],
 	},
