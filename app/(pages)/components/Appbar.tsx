@@ -16,6 +16,7 @@ import Link from "next/link"
 import MenuIcon from "@mui/icons-material/Menu"
 import { colorTheme } from "../../../styles/colorTheme"
 import client from "../../../tina/__generated__/client"
+import ScrollToTop from "./ScrollToTop"
 
 const pages = [
 	{ name: "About", link: "/about" },
@@ -31,7 +32,6 @@ function ResponsiveAppBar() {
 	const [scrolling, setScrolling] = useState(false)
 	useEffect(() => {
 		const onScroll = () => {
-			handleCloseNavMenu()
 			const isScrolling = document.documentElement.scrollTop > 10
 			setScrolling(isScrolling)
 		}
@@ -53,34 +53,7 @@ function ResponsiveAppBar() {
 
 	return (
 		<div>
-			{/* scroll top top button */}
-			<div
-				onClick={() => window.scrollTo(0, 0)}
-				style={{
-					position: "fixed",
-					bottom: scrolling ? 0 : "-6rem",
-					right: "8%",
-					padding: "0.4rem",
-					paddingInline: "0.5rem",
-					zIndex: 1000,
-					backgroundColor: redAccent,
-					color: redAccentContrast,
-					borderTopLeftRadius: 6,
-					borderTopRightRadius: 6,
-					borderLeft: `1px solid ${redAccentContrast}`,
-					borderRight: `1px solid ${redAccentContrast}`,
-					borderTop: `1px solid ${redAccentContrast}`,
-					transition: "all 0.5s ease-in-out",
-				}}>
-				<Typography
-					variant="body2"
-					fontSize="1rem"
-					textAlign="center"
-					margin="0"
-					style={{ cursor: "pointer" }}>
-					Scroll to top
-				</Typography>
-			</div>
+			<ScrollToTop scrolling={scrolling} />
 
 			<AppBar
 				position="static"
@@ -120,7 +93,6 @@ function ResponsiveAppBar() {
 							</IconButton>
 							<Menu
 								id="menu-appbar"
-								disableScrollLock={true}
 								anchorEl={anchorElNav}
 								anchorOrigin={{
 									vertical: "bottom",
@@ -135,7 +107,7 @@ function ResponsiveAppBar() {
 								onClose={handleCloseNavMenu}
 								sx={{
 									display: {
-										xs: scrolling ? "none" : "block",
+										xs: "block",
 										md: "none",
 									},
 								}}>

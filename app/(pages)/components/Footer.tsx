@@ -1,5 +1,3 @@
-"use client"
-
 import { Box, Typography, Container, Divider } from "@mui/material"
 import PlaceIcon from "@mui/icons-material/Place"
 import EmailIcon from "@mui/icons-material/Email"
