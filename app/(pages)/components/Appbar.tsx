@@ -14,8 +14,8 @@ import {
 } from "@mui/material"
 import Link from "next/link"
 import MenuIcon from "@mui/icons-material/Menu"
-import { colorTheme } from "../../styles/colorTheme"
-import client from "../../tina/__generated__/client"
+import { colorTheme } from "../../../styles/colorTheme"
+import client from "../../../tina/__generated__/client"
 
 const pages = [
 	{ name: "About", link: "/about" },

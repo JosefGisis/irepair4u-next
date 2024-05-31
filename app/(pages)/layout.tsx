@@ -1,5 +1,5 @@
-import ResponsiveAppBar from "../components/Appbar"
-import Footer from "../components/Footer"
+import ResponsiveAppBar from "./components/Appbar"
+import Footer from "./components/Footer"
 
 export default function RootLayout({
 	children,

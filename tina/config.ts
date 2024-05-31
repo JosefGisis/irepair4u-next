@@ -1,4 +1,10 @@
 import { defineConfig } from "tinacms"
+import { homePageBlocks } from "./homePageBlocks"
+import { aboutPageBlocks } from "./aboutPageBlocks"
+import { servicesPageBlocks } from "./servicesPageBlocks"
+import { contactUsPageBlocks } from "./contactUsPageBlocks"
+import { faqPageBlocks } from "./faqPageBlocks"
+import { linkFields } from "./linkFields"
 
 export default defineConfig({
 	branch: "",
@@ -21,6 +27,24 @@ export default defineConfig({
 				label: "Page",
 				path: "content/pages",
 				format: "md",
+				ui: {
+					router: (props) => {
+						switch (props.document._sys.relativePath) {
+							case "Home.md":
+								return "/"
+							case "About.md":
+								return "/about"
+							case "Services.md":
+								return "/services"
+							case "Contact_Us.md":
+								return "/contact-us"
+							case "FAQ.md":
+								return "/faq"
+							default:
+								return "/404"
+						}
+					},
+				},
 				fields: [
 					{ name: "title", type: "string" },
 					{
@@ -28,48 +52,29 @@ export default defineConfig({
 						label: "Blocks",
 						type: "object",
 						list: true,
-						templates: [
-							{
-								name: "welcomeHero",
-								label: "Welcome Hero",
-								fields: [
-									{
-										name: "title",
-										label: "Title",
-										type: "string",
-										required: true,
-									},
-									{
-										name: "subtitle",
-										label: "Subtitle",
-										type: "string",
-										required: true,
-									},
-									{
-										name: "image",
-										label: "Image",
-										type: "image",
-										required: true,
-									},
-								],
-							},
-							{
-								name: "links",
-								label: "Links",
-								type: "object",
-								list: true,
-								fields: [
-									{ name: "link", type: "string" },
-									{ name: "label", type: "string" },
-									{
-										name: "style",
-										type: "string",
-										options: ["primary", "secondary"],
-									},
-								],
-							},
+						// @ts-ignore
+						fields: [
+							...homePageBlocks,
+							...aboutPageBlocks,
+							...servicesPageBlocks,
+							...contactUsPageBlocks,
+							...faqPageBlocks,
 						],
 					},
+				],
+			},
+			{
+				name: "links",
+				label: "Links",
+				path: "content/links",
+				format: "md",
+				ui: {
+					router: () => "/",
+				},
+				// @ts-ignore
+				fields: [
+					...linkFields
+					
 				],
 			},
 		],

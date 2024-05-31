@@ -4,10 +4,12 @@ import { Box, Typography, Container, Divider } from "@mui/material"
 import PlaceIcon from "@mui/icons-material/Place"
 import EmailIcon from "@mui/icons-material/Email"
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone"
-import { colorTheme } from "../../styles/colorTheme"
+import { colorTheme } from "../../../styles/colorTheme"
 import Link from "next/link"
+import { useTina, tinaField } from "tinacms/dist/react"
 
 export default function Footer() {
+	// const { data } = useTina('example')
 	const { redAccent, redAccentContrast } = colorTheme
 	return (
 		<div
@@ -25,6 +27,7 @@ export default function Footer() {
 						mt: "18px",
 					}}>
 					<div
+						// data-tina-field={tinaField(props: "business-links")}
 						id="business-links"
 						style={{
 							display: "flex",

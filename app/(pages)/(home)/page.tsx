@@ -3,24 +3,24 @@ import Link from "next/link"
 import { Container, Box, Typography, Button } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import ServicesCard from "../components/ServicesContainer"
-import { widths } from "../../styles/widths"
-import { colorTheme } from "../../styles/colorTheme"
-import { WelcomeHeroBlockBackup } from "./homePageBackupContent"
+import { widths } from "../../../styles/widths"
+import { colorTheme } from "../../../styles/colorTheme"
+import { WelcomeHeroBlockBackup } from "../homePageBackupContent"
 
 import type { Metadata } from "next"
-import type { PageBlocksWelcomeHero } from "../../tina/__generated__/types"
-import client from "../../tina/__generated__/client"
+// import type { PageBlocksWelcomeHero } from "../../../tina/__generated__/types"
+import client from "../../../tina/__generated__/client"
 
 export const metadata: Metadata = {
 	title: "iRepair4u - home",
 }
 
 export default async function page() {
-	const result = await client.queries.page({ relativePath: "Home.md" })
-	
-	const heroBlock = result?.data?.page?.blocks?.find(
-		(block) => block?.__typename === "PageBlocksWelcomeHero"
-	) as PageBlocksWelcomeHero | undefined
+	// const result = await client.queries.page({ relativePath: "Home.md" })
+
+	// const heroBlock = result?.data?.page?.blocks?.find(
+	// 	(block) => block?.__typename === "PageBlocksWelcomeHero"
+	// ) as PageBlocksWelcomeHero | undefined
 
 	const { sixColumn, eightColumn, nineColumn } = widths
 	const { redAccent, redAccentContrast, grayAccent } = colorTheme
@@ -49,12 +49,12 @@ export default async function page() {
 						variant="h1"
 						maxWidth={eightColumn}
 						marginBottom="2rem">
-						{heroBlock?.title || WelcomeHeroBlockBackup.title}
+						{WelcomeHeroBlockBackup.title}
 					</Typography>
 
 					<div style={{ maxWidth: nineColumn, marginBottom: "2rem" }}>
 						<Typography variant="subtitle2" textAlign="center">
-							{heroBlock?.subtitle || WelcomeHeroBlockBackup.subtitle}
+							{WelcomeHeroBlockBackup.subtitle}
 						</Typography>
 					</div>
 
@@ -85,7 +85,10 @@ export default async function page() {
 					</div>
 
 					<div style={{ width: "100%" }}>
-						<img src={WelcomeHeroBlockBackup.url} style={{ width: "100%" }} />
+						<img
+							src={WelcomeHeroBlockBackup.url}
+							style={{ width: "100%" }}
+						/>
 					</div>
 				</section>
 			</Container>
