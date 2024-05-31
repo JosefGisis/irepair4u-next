@@ -4,8 +4,8 @@ import { Typography } from "@mui/material"
 import type { Metadata } from "next"
 import { widths } from "../../../styles/widths"
 import { colorTheme } from "../../../styles/colorTheme"
-import ContactUsBanner from "./components/ContactUsBanner.server"
-import ContactInformation from "./components/ContactInformation.server"
+import ContactUsBanner from "./components/ContactUsBanner"
+import ContactInformation from "./components/ContactInformation"
 
 export const metadata: Metadata = { title: "iRepair4u - Contact Us" }
 

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import { Container, Typography } from "@mui/material"
-import ServicesCard from "./ServicesCard.server"
+import ServicesCard from "./ServicesCard"
 import { homePageServicesContent } from "../homePageBackupContent"
 import { widths } from "../../../../styles/widths"
 import { colorTheme } from "../../../../styles/colorTheme"

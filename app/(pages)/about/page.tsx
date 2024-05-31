@@ -2,9 +2,9 @@ import * as React from "react"
 import { Typography } from "@mui/material"
 import { Metadata } from "next"
 import { widths } from "../../../styles/widths"
-import AboutSection from "./components/AboutSection.server"
-import SeeYouSoon from "./components/SeeYouSoon.server"
-import TermsAndConditions from "./components/TermsAndConditions.server"
+import AboutSection from "./components/AboutSection"
+import SeeYouSoon from "./components/SeeYouSoon"
+import TermsAndConditions from "./components/TermsAndConditions"
 
 export const metadata: Metadata = { title: "iRepair4u - About Us" }
 

@@ -3,7 +3,7 @@ import { Typography } from "@mui/material"
 
 import type { Metadata } from "next"
 import { widths } from "../../../styles/widths"
-import FAQSection from "./components/FAQSection.server"
+import FAQSection from "./components/FAQSection"
 
 export const metadata: Metadata = {
 	title: "iRepair4u - FAQ",

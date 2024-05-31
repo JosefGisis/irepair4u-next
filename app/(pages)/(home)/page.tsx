@@ -2,7 +2,7 @@ import React from "react"
 import Link from "next/link"
 import { Container, Box, Typography, Button } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
-import ServicesCard from "./components/ServicesCard.server"
+import ServicesCard from "./components/ServicesCard"
 import { widths } from "../../../styles/widths"
 import { colorTheme } from "../../../styles/colorTheme"
 import {
@@ -15,10 +15,10 @@ import {
 import type { Metadata } from "next"
 // import type { PageBlocksWelcomeHero } from "../../../tina/__generated__/types"
 import client from "../../../tina/__generated__/client"
-import HomePageServicesSection from "./components/HomePageServicesSection.server"
-import HomePageAboutSection from "./components/HomePageAboutSection.server"
-import WelcomeHero from "./components/WelcomeHero.server"
-import WarrantyBanner from "./components/WarrantyBanner.server"
+import HomePageServicesSection from "./components/HomePageServicesSection"
+import HomePageAboutSection from "./components/HomePageAboutSection"
+import WelcomeHero from "./components/WelcomeHero"
+import WarrantyBanner from "./components/WarrantyBanner"
 
 export const metadata: Metadata = {
 	title: "iRepair4u - home",
