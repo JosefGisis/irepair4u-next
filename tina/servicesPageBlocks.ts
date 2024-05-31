@@ -19,7 +19,7 @@ export const servicesPageBlocks = [
 					},
 					{
 						description:
-							"Add an id so you can link to this section of the page elsewhere.",
+							"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
 						name: "id",
 						label: "ID",
 						type: "string",
@@ -29,7 +29,6 @@ export const servicesPageBlocks = [
 						label: "Paragraphs",
 						type: "string",
 						list: true,
-						required: true,
 					},
 				],
 			},
@@ -55,7 +54,7 @@ export const servicesPageBlocks = [
 					},
 					{
 						description:
-							"Add an id so you can link to this section of the page elsewhere.",
+							"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
 						name: "id",
 						label: "ID",
 						type: "string",
@@ -65,7 +64,6 @@ export const servicesPageBlocks = [
 						label: "Paragraphs",
 						type: "string",
 						list: true,
-						required: true,
 					},
 				],
 			},
@@ -91,7 +89,7 @@ export const servicesPageBlocks = [
 					},
 					{
 						description:
-							"Add an id so you can link to this section of the page elsewhere.",
+							"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
 						name: "id",
 						label: "ID",
 						type: "string",
@@ -101,7 +99,6 @@ export const servicesPageBlocks = [
 						label: "Paragraphs",
 						type: "string",
 						list: true,
-						required: true,
 					},
 				],
 			},

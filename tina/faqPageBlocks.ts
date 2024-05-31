@@ -13,6 +13,13 @@ export const faqPageBlocks = [
                 required: true,
             },
             {
+                name: "id",
+                label: "ID",
+                type: "string",
+                description: "Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.
+
+            },
+            {
                 name: "answer",
                 label: "Answer",
                 type: "string",
