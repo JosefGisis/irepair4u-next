@@ -1,38 +1,15 @@
 import React from "react"
-import Link from "next/link"
-import { Container, Box, Typography, Button } from "@mui/material"
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
-import ServicesCard from "./components/ServicesCard"
-import { widths } from "../../../styles/widths"
-import { colorTheme } from "../../../styles/colorTheme"
-import {
-	WelcomeHeroBlockBackup,
-	homePageAboutContent,
-	homePageServicesContent,
-	warrantyBannerContent,
-} from "./homePageBackupContent"
 
 import type { Metadata } from "next"
-// import type { PageBlocksWelcomeHero } from "../../../tina/__generated__/types"
+import Components from "./components/Index"
 import client from "../../../tina/__generated__/client"
-import HomePageServicesSection from "./components/HomePageServicesSection"
-import HomePageAboutSection from "./components/HomePageAboutSection"
-import WelcomeHero from "./components/WelcomeHero"
-import WarrantyBanner from "./components/WarrantyBanner"
 
 export const metadata: Metadata = {
 	title: "iRepair4u - home",
 }
 
 export default async function page() {
-	// const result = await client.queries.page({ relativePath: "Home.md" })
-
-	// const heroBlock = result?.data?.page?.blocks?.find(
-	// 	(block) => block?.__typename === "PageBlocksWelcomeHero"
-	// ) as PageBlocksWelcomeHero | undefined
-
-	const { sixColumn, eightColumn, nineColumn } = widths
-	const { redAccent, redAccentContrast, grayAccent } = colorTheme
+	const result = await client.queries.page({ relativePath: "New_Home.md" })
 
 	return (
 		<div
@@ -42,13 +19,7 @@ export default async function page() {
 				flexDirection: "column",
 				alignItems: "center",
 			}}>
-			<WelcomeHero />
-
-			<HomePageAboutSection />
-
-			<HomePageServicesSection />
-
-			<WarrantyBanner />
+			<Components {...result}/>
 		</div>
 	)
 }

@@ -1,10 +1,4 @@
 import { defineConfig } from "tinacms"
-import { homePageBlocks } from "./homePageBlocks"
-import { aboutPageBlocks } from "./aboutPageBlocks"
-import { servicesPageBlocks } from "./servicesPageBlocks"
-import { contactUsPageBlocks } from "./contactUsPageBlocks"
-import { faqPageBlocks } from "./faqPageBlocks"
-import { linkFields } from "./linkFields"
 
 export default defineConfig({
 	branch: "",
@@ -23,42 +17,422 @@ export default defineConfig({
 	schema: {
 		collections: [
 			{
-				name: "page",
-				label: "Page",
-				path: "content/pages",
+				name: "home",
+				label: "Home",
+				path: "content/home",
 				format: "md",
-				ui: {
-					router: (props) => {
-						switch (props.document._sys.relativePath) {
-							case "Home.md":
-								return "/"
-							case "About.md":
-								return "/about"
-							case "Services.md":
-								return "/services"
-							case "Contact_Us.md":
-								return "/contact-us"
-							case "FAQ.md":
-								return "/faq"
-							default:
-								return "/404"
-						}
-					},
-				},
+				ui: { router: () => `/` },
 				fields: [
-					{ name: "title", type: "string" },
+					{ name: "title", label: "Title", type: "string" },
 					{
 						name: "blocks",
 						label: "Blocks",
 						type: "object",
 						list: true,
-						// @ts-ignore
 						fields: [
-							...homePageBlocks,
-							...aboutPageBlocks,
-							...servicesPageBlocks,
-							...contactUsPageBlocks,
-							...faqPageBlocks,
+							{
+								name: "welcomeHero",
+								label: "Welcome Hero",
+								type: "object",
+								fields: [
+									{
+										name: "title",
+										label: "Title",
+										type: "string",
+									},
+									{
+										name: "subtitle",
+										label: "Subtitle",
+										type: "string",
+									},
+									{
+										name: "image",
+										label: "Image",
+										type: "image",
+									},
+								],
+							},
+							{
+								name: "homePageAbout",
+								label: "Home Page About",
+								type: "object",
+								list: true,
+								fields: [
+									{
+										name: "title",
+										label: "Title",
+										type: "string",
+									},
+									{
+										name: "text",
+										label: "Text",
+										type: "string",
+									},
+									{
+										name: "image",
+										label: "Image",
+										type: "image",
+									},
+								],
+							},
+							{
+								name: "homePageServices",
+								label: "Home Page Services",
+								type: "object",
+								list: true,
+								fields: [
+									{
+										name: "title",
+										label: "Title",
+										type: "string",
+									},
+									{
+										name: "text",
+										label: "Text",
+										type: "string",
+									},
+									{
+										description:
+											"The URL for the page that the link will point to.",
+										name: "pageLink",
+										label: "Page Link",
+										type: "string",
+										options: [
+											"/",
+											"/about",
+											"/services",
+											"/contact-us",
+											"/faq",
+										],
+									},
+									{
+										description:
+											"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
+										name: "id",
+										label: "ID",
+										type: "string",
+									},
+									{
+										name: "image",
+										label: "Image",
+										type: "image",
+									},
+								],
+							},
+							{
+								name: "warrantyBanner",
+								label: "Warranty Banner",
+								type: "object",
+								fields: [
+									{
+										name: "title",
+										label: "Title",
+										type: "string",
+									},
+									{
+										name: "paragraphs",
+										label: "Paragraphs",
+										type: "string",
+										list: true,
+									},
+								],
+							},
+						],
+					},
+				],
+			},
+			{
+				name: "about",
+				label: "About",
+				path: "content/about",
+				format: "md",
+				ui: { router: () => `/about` },
+				fields: [
+					{ name: "title", label: "Title", type: "string" },
+					{
+						name: "blocks",
+						label: "Blocks",
+						type: "object",
+						list: true,
+						fields: [
+							{
+								name: "aboutSegment",
+								label: "About Segment",
+								type: "object",
+								list: true,
+								fields: [
+									{
+										name: "title",
+										label: "Title",
+										type: "string",
+									},
+									{
+										description:
+											"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
+										name: "id",
+										label: "ID",
+										type: "string",
+									},
+									{
+										name: "paragraphs",
+										label: "Paragraphs",
+										type: "string",
+										list: true,
+									},
+								],
+							},
+							{
+								name: "termsAndConditionsSegment",
+								label: "Terms and Conditions Segment",
+								type: "object",
+								list: true,
+								fields: [
+									{
+										name: "title",
+										label: "Title",
+										type: "string",
+									},
+									{
+										name: "clauses",
+										label: "Clauses",
+										type: "string",
+										list: true,
+									},
+								],
+							},
+						],
+					},
+				],
+			},
+			{
+				name: "services",
+				label: "Services",
+				path: "content/services",
+				format: "md",
+				ui: { router: () => `/services` },
+				fields: [
+					{ name: "title", label: "Title", type: "string" },
+					{
+						name: "blocks",
+						label: "Blocks",
+						type: "object",
+						list: true,
+						fields: [
+							{
+								name: "servicesSection",
+								label: "Services Section",
+								type: "object",
+								fields: [
+									{
+										name: "servicesSectionSegment",
+										label: "Services Section Segment",
+										type: "object",
+										list: true,
+
+										fields: [
+											{
+												name: "title",
+												label: "Title",
+												type: "string",
+											},
+											{
+												description:
+													"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
+												name: "id",
+												label: "ID",
+												type: "string",
+											},
+											{
+												name: "paragraphs",
+												label: "Paragraphs",
+												type: "string",
+												list: true,
+											},
+										],
+									},
+								],
+							},
+							{
+								name: "coverageSection",
+								label: "Coverage Section",
+								type: "object",
+								fields: [
+									{
+										name: "coverageSectionSegment",
+										label: "Coverage Section Segment",
+										type: "object",
+										list: true,
+
+										fields: [
+											{
+												name: "title",
+												label: "Title",
+												type: "string",
+											},
+											{
+												description:
+													"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
+												name: "id",
+												label: "ID",
+												type: "string",
+											},
+											{
+												name: "paragraphs",
+												label: "Paragraphs",
+												type: "string",
+												list: true,
+											},
+										],
+									},
+								],
+							},
+							{
+								name: "salesSection",
+								label: "Sales Section",
+								type: "object",
+								fields: [
+									{
+										name: "salesSectionSegment",
+										label: "Sales Section Segment",
+										type: "object",
+										list: true,
+
+										fields: [
+											{
+												name: "title",
+												label: "Title",
+												type: "string",
+											},
+											{
+												description:
+													"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
+												name: "id",
+												label: "ID",
+												type: "string",
+											},
+											{
+												name: "paragraphs",
+												label: "Paragraphs",
+												type: "string",
+												list: true,
+											},
+										],
+									},
+								],
+							},
+						],
+					},
+				],
+			},
+			{
+				name: "faq",
+				label: "FAQ",
+				path: "content/faq",
+				format: "md",
+				ui: { router: () => `/faq` },
+				fields: [
+					{ name: "title", label: "Title", type: "string" },
+					{
+						name: "blocks",
+						label: "Blocks",
+						type: "object",
+						list: true,
+						fields: [
+							{
+								name: "questionAndAnswer",
+								label: "Question and Answer",
+								type: "object",
+								list: true,
+								fields: [
+									{
+										name: "question",
+										label: "Question",
+										type: "string",
+									},
+									{
+										name: "id",
+										label: "ID",
+										type: "string",
+										description:
+											"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
+									},
+									{
+										name: "answer",
+										label: "Answer",
+										type: "string",
+										list: true,
+									},
+								],
+							},
+						],
+					},
+				],
+			},
+			{
+				name: "contactUs",
+				label: "Contact Us",
+				path: "content/contact-us",
+				format: "md",
+				ui: { router: () => `/contact-us` },
+				fields: [
+					{ name: "title", label: "Title", type: "string" },
+					{
+						name: "blocks",
+						label: "Blocks",
+						type: "object",
+						list: true,
+						fields: [
+							{
+								name: "contactUsBanner",
+								label: "Contact Us Banner",
+								type: "object",
+								fields: [
+									{
+										name: "title",
+										label: "Title",
+										type: "string",
+									},
+									{
+										name: "subtitle",
+										label: "Subtitle",
+										type: "string",
+									},
+								],
+							},
+							{
+								name: "contactInfo",
+								label: "Contact Info",
+								type: "object",
+								list: true,
+								fields: [
+									{
+										name: "title",
+										label: "Title",
+										type: "string",
+									},
+									{
+										name: "linkType",
+										label: "Link Type",
+										type: "string",
+										options: [
+											"tel",
+											"email",
+											"social",
+											"other",
+										],
+									},
+									{
+										name: "link",
+										label: "Link",
+										type: "string",
+									},
+									{
+										name: "paragraph",
+										label: "Paragraph",
+										type: "string",
+									},
+								],
+							},
 						],
 					},
 				],
@@ -71,10 +445,192 @@ export default defineConfig({
 				ui: {
 					router: () => "/",
 				},
-				// @ts-ignore
 				fields: [
-					...linkFields
-					
+					{
+						name: "contactLinks",
+						label: "Contact Links",
+						type: "object",
+						fields: [
+							{
+								description:
+									"Please provide a valid phone number.",
+								name: "phoneNumber",
+								label: "Phone Number",
+								type: "string",
+							},
+							{
+								description:
+									"Please provide a valid email address.",
+								name: "email",
+								label: "Email",
+								type: "string",
+							},
+							{
+								description:
+									"Please provide a link to a map service at your address.",
+								name: "address",
+								label: "Address",
+								type: "string",
+							},
+							{
+								description:
+									"Please provide a valid link to your social media account",
+								name: "socialLinks",
+								label: "Social Links",
+								type: "string",
+								list: true,
+								options: [
+									"facebook",
+									"twitter",
+									"instagram",
+									"snapchat",
+									"whatsapp",
+									"telegram",
+									"linkedin",
+									"instagram",
+								],
+							},
+						],
+					},
+					{
+						name: "informationLinks",
+						label: "Information Links",
+						type: "object",
+						list: true,
+
+						fields: [
+							{
+								description:
+									"The text that will be displayed for the link. Try to pick something that is descriptive and concise.",
+								name: "label",
+								label: "Label",
+								type: "string",
+							},
+							{
+								description:
+									"The URL for the page that the link will point to.",
+								name: "pageLink",
+								label: "Page Link",
+								type: "string",
+								options: [
+									"/",
+									"/about",
+									"/services",
+									"/contact-us",
+									"/faq",
+								],
+							},
+							{
+								description:
+									"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
+								name: "id",
+								label: "ID",
+								type: "string",
+							},
+						],
+					},
+					{
+						name: "servicesLinks",
+						label: "Services Links",
+						type: "object",
+						list: true,
+						fields: [
+							{
+								description:
+									"The text that will be displayed for the link. Try to pick something that is descriptive and concise.",
+								name: "label",
+								label: "Label",
+								type: "string",
+							},
+							{
+								description:
+									"The URL for the page that the link will point to.",
+								name: "pageLink",
+								label: "Page Link",
+								type: "string",
+								options: [
+									"/",
+									"/about",
+									"/services",
+									"/contact-us",
+									"/faq",
+								],
+							},
+							{
+								description:
+									"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
+								name: "id",
+								label: "ID",
+								type: "string",
+							},
+						],
+					},
+					{
+						name: "coverageLinks",
+						label: "Coverage Links",
+						type: "object",
+						list: true,
+						fields: [
+							{
+								description:
+									"The text that will be displayed for the link. Try to pick something that is descriptive and concise.",
+								name: "label",
+								label: "Label",
+								type: "string",
+							},
+							{
+								description:
+									"The URL for the page that the link will point to.",
+								name: "pageLink",
+								label: "Page Link",
+								type: "string",
+								options: [
+									"/",
+									"/about",
+									"/services",
+									"/contact-us",
+									"/faq",
+								],
+							},
+							{
+								description:
+									"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
+								name: "id",
+								label: "ID",
+								type: "string",
+							},
+						],
+					},
+					{
+						name: "hoursOfOperation",
+						label: "Hours of Operation",
+						type: "object",
+
+						fields: [
+							{
+								name: "day",
+								label: "Day",
+								type: "string",
+
+								options: [
+									"Sunday",
+									"Monday",
+									"Tuesday",
+									"Wednesday",
+									"Thursday",
+									"Friday",
+									"Saturday",
+									"Sun - Thur",
+									"Mon - Thur",
+								],
+							},
+							{
+								name: "hours",
+								label: "Hours",
+								type: "string",
+							},
+						],
+					},
 				],
 			},
 		],
