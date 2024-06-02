@@ -1,7 +1,11 @@
 import { Container, Typography } from "@mui/material"
 import { warrantyBannerContent } from "../homePageBackupContent"
 
-export default function WarrantyBanner() {
+export default function WarrantyBanner(props: {
+    __typename: "HomeBlocksWarrantyBanner";
+    title?: string | null | undefined;
+    paragraphs?: (string | null)[] | null | undefined;
+}) {
 	return (
 		<div
 			id="warranty-banner"

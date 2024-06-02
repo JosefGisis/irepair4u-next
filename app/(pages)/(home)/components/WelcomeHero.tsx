@@ -3,7 +3,12 @@ import { colorTheme } from "../../../../styles/colorTheme"
 import { widths } from "../../../../styles/widths"
 import { WelcomeHeroBlockBackup } from "../homePageBackupContent"
 
-export default function WelcomeHero() {
+export default function WelcomeHero({ title, subtitle, image}: {
+	__typename: "HomeBlocksWelcomeHero"
+	title?: string | null | undefined
+	subtitle?: string | null | undefined
+	image?: string | null | undefined
+}) {
 	const { redAccent } = colorTheme
 	const { eightColumn, nineColumn } = widths
 	return (
@@ -22,12 +27,12 @@ export default function WelcomeHero() {
 					variant="h1"
 					maxWidth={eightColumn}
 					marginBottom="2rem">
-					{WelcomeHeroBlockBackup.title}
+					{ title ? title : WelcomeHeroBlockBackup.title}
 				</Typography>
 
 				<div style={{ maxWidth: nineColumn, marginBottom: "2rem" }}>
 					<Typography variant="subtitle2" textAlign="center">
-						{WelcomeHeroBlockBackup.subtitle}
+						{ subtitle ? subtitle : WelcomeHeroBlockBackup.subtitle}
 					</Typography>
 				</div>
 
@@ -59,7 +64,7 @@ export default function WelcomeHero() {
 
 				<div style={{ width: "100%" }}>
 					<img
-						src={WelcomeHeroBlockBackup.url}
+						src={image ? image : WelcomeHeroBlockBackup.url}
 						style={{ width: "100%" }}
 					/>
 				</div>

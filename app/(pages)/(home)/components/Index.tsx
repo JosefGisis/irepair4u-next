@@ -5,12 +5,12 @@ import HomePageServicesSection from "./HomePageServicesSection"
 import WarrantyBanner from "./WarrantyBanner"
 import WelcomeHero from "./WelcomeHero"
 
-import type { PageQuery } from "../../../../tina/__generated__/types"
+import type { HomeQuery } from "../../../../tina/__generated__/types"
 import type { Exact } from "../../../../tina/__generated__/types"
 import { useTina } from "tinacms/dist/react"
 
 export default function Components(props: {
-	data: PageQuery
+	data: HomeQuery
 	errors?:
 		| {
 				message: string
@@ -27,15 +27,20 @@ export default function Components(props: {
 	query: string
 }) {
 	const { data } = useTina(props)
-    console.log(data.page.blocks)
+	const blocks = data.home.blocks?.[0]
+	const welcomeHero = blocks?.welcomeHero
+	const homePageAbout = blocks?.homePageAbout
+	const homePageServices = blocks?.homePageServices
+	const warrantyBanner = blocks?.warrantyBanner
+
 	return (
 		<>
-			{data?.page?.blocks?.map((block, index) => {
-                console.log(block)
-                switch (block?.__typename) {
-                    case "PageBlocks": return null
-                }
-			})}
+			{welcomeHero && <WelcomeHero {...welcomeHero} />}
+			{homePageAbout && <HomePageAboutSection {...homePageAbout} />}
+			{homePageServices && (
+				<HomePageServicesSection {...homePageServices} />
+			)}
+			{warrantyBanner && <WarrantyBanner {...warrantyBanner} />}
 		</>
 	)
 }
