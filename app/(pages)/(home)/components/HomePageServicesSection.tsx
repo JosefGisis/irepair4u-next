@@ -2,17 +2,19 @@ import Link from "next/link"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import { Container, Typography } from "@mui/material"
 import ServicesCard from "./ServicesCard"
-import { homePageServicesContent } from "../homePageBackupContent"
 import { widths } from "../../../../styles/widths"
 import { colorTheme } from "../../../../styles/colorTheme"
 
 export default function HomePageServicesSection(props: {
-	__typename: "HomeBlocksHomePageServices"
-	title?: string | null | undefined
-	text?: string | null | undefined
-	pageLink?: string | null | undefined
-	id?: string | null | undefined
-	image?: string | null | undefined
+    __typename: "HomeBlocksHomePageServices";
+    cards?: ({
+        __typename: "HomeBlocksHomePageServicesCards";
+        title?: string | null | undefined;
+        text?: string | null | undefined;
+        pageLink?: string | null | undefined;
+        id?: string | null | undefined;
+        image?: string | null | undefined;
+    } | null)[] | null | undefined;
 }) {
 	const { redAccent } = colorTheme
 	const { eightColumn, nineColumn } = widths
@@ -41,13 +43,13 @@ export default function HomePageServicesSection(props: {
 					rowSpacing={5}
 					columnSpacing={3}
 					justifyItems="center">
-					{homePageServicesContent.map((content, index) => (
+					{props?.cards?.map((card, index) => (
 						<Grid2 key={index} xs={12} sm={6} md={4}>
 							<ServicesCard
-								text={content.paragraphs[0]}
-								url={content.url}
-								href={content.href}
-								header={content.title}
+								text={card?.text}
+								url={card?.image}
+								href={card?.pageLink}
+								header={card?.title}
 							/>
 						</Grid2>
 					))}

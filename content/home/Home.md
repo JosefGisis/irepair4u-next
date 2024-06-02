@@ -1,17 +1,25 @@
 ---
 title: Home
 blocks:
-  - title: fdasafsdfdas
-    text: dffasdafdf daf dfaaf d d
-    image: /images/about-us-3-2-460x307.jpg
-    _template: homePageAbout
-  - title: ;lkdfja fdaklafdk df
-    subtitle: k;sdfadafskjdfsak;f dask j;dfs ak j fasd
-    image: /images/age-barros-fKAjOxgZNPg-unsplash.jpg
+  - title: This si the title
+    subtitle: This is the subtitle
+    image: /images/imac-940x474.png
     _template: welcomeHero
-  - title: fnf  dfsdfa sdfs afd
-    text: 'dsf fads fdasfdsa sdffafda ad fd af af afs '
-    image: /images/age-barros-fKAjOxgZNPg-unsplash.jpg
+  - cards:
+      - title: This is a card
+        text: This is the text for the card
+        image: /images/apple-1284223_640.jpg
     _template: homePageAbout
+  - cards:
+      - title: This is a title
+        text: This is the tesxt for the titel kldfkfdkffkfkfkfkfkfkfkkf
+        pageLink: /services
+        id: kdjalkjf al
+        image: /images/android-svgrepo-com.svg
+    _template: homePageServices
+  - title: This is a wararnty
+    paragraphs:
+      - this si a paragraph
+    _template: warrantyBanner
 ---
 

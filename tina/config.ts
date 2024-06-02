@@ -56,8 +56,8 @@ export default defineConfig({
 								label: "Home Page About",
 								fields: [
 									{
-										name: "homePageAboutCard",
-										label: "Home Page About Card",
+										name: "cards",
+										label: "Card",
 										type: "object",
 										list: true,
 										fields: [
@@ -85,8 +85,8 @@ export default defineConfig({
 								label: "Home Page Services",
 								fields: [
 									{
-										name: "homePageServicesCard",
-										label: "Home Page Services Card",
+										name: "cards",
+										label: "Cards",
 										type: "object",
 										list: true,
 										fields: [
@@ -114,19 +114,19 @@ export default defineConfig({
 													"/faq",
 												],
 											},
+											{
+												description:
+													"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
+												name: "id",
+												label: "ID",
+												type: "string",
+											},
+											{
+												name: "image",
+												label: "Image",
+												type: "image",
+											},
 										],
-									},
-									{
-										description:
-											"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
-										name: "id",
-										label: "ID",
-										type: "string",
-									},
-									{
-										name: "image",
-										label: "Image",
-										type: "image",
 									},
 								],
 							},

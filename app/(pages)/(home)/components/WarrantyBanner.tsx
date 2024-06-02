@@ -1,10 +1,9 @@
 import { Container, Typography } from "@mui/material"
-import { warrantyBannerContent } from "../homePageBackupContent"
 
 export default function WarrantyBanner(props: {
-    __typename: "HomeBlocksWarrantyBanner";
-    title?: string | null | undefined;
-    paragraphs?: (string | null)[] | null | undefined;
+	__typename: "HomeBlocksWarrantyBanner"
+	title?: string | null | undefined
+	paragraphs?: (string | null)[] | null | undefined
 }) {
 	return (
 		<div
@@ -27,9 +26,9 @@ export default function WarrantyBanner(props: {
 						variant="h3"
 						textAlign="center"
 						marginBottom="2.5rem">
-						{warrantyBannerContent.title}
+						{props.title}
 					</Typography>
-					{warrantyBannerContent.paragraphs.map(
+					{props.paragraphs?.map(
 						(paragraph, index) => (
 							<Typography
 								key={index}

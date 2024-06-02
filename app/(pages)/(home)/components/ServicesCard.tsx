@@ -9,10 +9,10 @@ import {
 } from "@mui/material"
 
 export interface ServicesCardProps {
-	href: string
-	url: string
-	header: string
-	text: string
+	href?: string | null | undefined
+	url?: string | null | undefined
+	header?: string | null | undefined
+	text?: string | null | undefined
 }
 
 export default function ServicesCard({
@@ -23,12 +23,12 @@ export default function ServicesCard({
 }: ServicesCardProps) {
 	return (
 		<Card sx={{ maxWidth: "345px", marginInline: "auto" }}>
-			<Link href={href}>
+			<Link href={href || ""}>
 				<CardActionArea>
 					<CardMedia
 						component="img"
 						sx={{ height: "250px" }}
-						image={url}
+						image={url || ""}
 					/>
 					<CardContent>
 						<Typography gutterBottom variant="h6" component="div">

@@ -1,13 +1,18 @@
 import { Box, Container, Typography } from "@mui/material"
 import { colorTheme } from "../../../../styles/colorTheme"
 import { widths } from "../../../../styles/widths"
-import { homePageAboutContent } from "../homePageBackupContent"
 
 export default function HomePageAboutSection(props: {
 	__typename: "HomeBlocksHomePageAbout"
-	title?: string | null | undefined
-	text?: string | null | undefined
-	image?: string | null | undefined
+	cards?:
+		| ({
+				__typename: "HomeBlocksHomePageAboutCards"
+				title?: string | null | undefined
+				text?: string | null | undefined
+				image?: string | null | undefined
+		  } | null)[]
+		| null
+		| undefined
 }) {
 	const { redAccentContrast, grayAccent } = colorTheme
 	const { sixColumn } = widths
@@ -45,7 +50,7 @@ export default function HomePageAboutSection(props: {
 							flexDirection: "column",
 							gap: "3rem",
 						}}>
-						{homePageAboutContent.map((content, index) => (
+						{props.cards?.map((card, index) => (
 							<Box
 								key={index}
 								sx={{
@@ -77,20 +82,14 @@ export default function HomePageAboutSection(props: {
 											variant="h4"
 											textAlign="center"
 											color={redAccentContrast}>
-											{content.title}
+											{card?.title}
 										</Typography>
 									</div>
 
 									<div style={{ paddingInline: 15 }}>
-										{content.paragraphs.map(
-											(paragraph, subIndex) => (
-												<Typography
-													key={subIndex}
-													variant="body1">
-													{paragraph}
-												</Typography>
-											)
-										)}
+										<Typography variant="body1">
+											{card?.text}
+										</Typography>
 									</div>
 								</div>
 								<Box
@@ -102,7 +101,7 @@ export default function HomePageAboutSection(props: {
 										},
 									}}>
 									<img
-										src={content.url}
+										src={card?.image || ""}
 										width="460"
 										height="307"
 									/>
