@@ -1,7 +1,16 @@
 import { Typography } from "@mui/material"
-import { termsAndConditions } from "../aboutPageBackupContent"
 
-export default function TermsAndConditions() {
+export default function TermsAndConditions(props: {
+	__typename: "AboutBlocksTermsAndConditions"
+	segments?:
+		| ({
+				__typename: "AboutBlocksTermsAndConditionsSegments"
+				title?: string | null | undefined
+				clauses?: (string | null)[] | null | undefined
+		  } | null)[]
+		| null
+		| undefined
+}) {
 	return (
 		<section
 			id="terms-and-conditions"
@@ -23,19 +32,19 @@ export default function TermsAndConditions() {
 			</div>
 
 			<div>
-				{termsAndConditions.map((section, index) => (
+				{props.segments?.map((segment, index) => (
 					<div key={index}>
 						<Typography
 							variant="h5"
 							style={{ marginBottom: "1rem", marginTop: "2rem" }}>
-							{section.title}
+							{segment?.title}
 						</Typography>
-						{section.paragraphs.map((paragraph, index) => (
+						{segment?.clauses?.map((clause, index) => (
 							<Typography
 								key={index}
 								style={{ marginBottom: "0.8rem" }}
 								variant="body2">
-								- {paragraph}
+								- {clause}
 							</Typography>
 						))}
 					</div>

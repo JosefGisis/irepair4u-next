@@ -1,15 +1,25 @@
 import { Typography } from "@mui/material"
-import { aboutPageContent } from "../aboutPageBackupContent"
 
-export default function AboutSection() {
+export default function AboutSection(props: {
+	__typename: "AboutBlocksAboutSegment"
+	cards?:
+		| ({
+				__typename: "AboutBlocksAboutSegmentCards"
+				title?: string | null | undefined
+				id?: string | null | undefined
+				paragraphs?: (string | null)[] | null | undefined
+		  } | null)[]
+		| null
+		| undefined
+}) {
 	return (
 		<div style={{ paddingInline: 20 }}>
-			{aboutPageContent.map((section, index) => (
+			{props.cards?.map((card, index) => (
 				<div key={index}>
 					<Typography variant="h5" style={{ marginBlock: 20 }}>
-						{section.title}
+						{card?.title}
 					</Typography>
-					{section.paragraphs.map((paragraph, index) => (
+					{card?.paragraphs?.map((paragraph, index) => (
 						<Typography
 							key={index}
 							style={{ marginBottom: 15 }}

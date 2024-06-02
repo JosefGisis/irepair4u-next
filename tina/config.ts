@@ -170,8 +170,8 @@ export default defineConfig({
 								label: "About Segment",
 								fields: [
 									{
-										name: "aboutSegmentCard",
-										label: "About Segment Card",
+										name: "cards",
+										label: "Card",
 										type: "object",
 										list: true,
 										fields: [
@@ -202,8 +202,8 @@ export default defineConfig({
 								label: "Terms and Conditions",
 								fields: [
 									{
-										name: "termsAndConditionsSegment",
-										label: "Terms and Conditions Segment",
+										name: "segments",
+										label: "Segments",
 										type: "object",
 										list: true,
 										fields: [
