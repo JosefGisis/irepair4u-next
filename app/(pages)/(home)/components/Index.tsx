@@ -27,20 +27,26 @@ export default function Components(props: {
 	query: string
 }) {
 	const { data } = useTina(props)
-	const blocks = data.home.blocks?.[0]
-	const welcomeHero = blocks?.welcomeHero
-	const homePageAbout = blocks?.homePageAbout
-	const homePageServices = blocks?.homePageServices
-	const warrantyBanner = blocks?.warrantyBanner
 
 	return (
 		<>
-			{welcomeHero && <WelcomeHero {...welcomeHero} />}
-			{homePageAbout && <HomePageAboutSection {...homePageAbout} />}
-			{homePageServices && (
-				<HomePageServicesSection {...homePageServices} />
-			)}
-			{warrantyBanner && <WarrantyBanner {...warrantyBanner} />}
+			{data.home.blocks?.map((block, index) => {
+				console.log(block)
+				switch (block?.__typename) {
+					case "HomeBlocksWelcomeHero":
+						return <WelcomeHero key={index} {...block} />
+					case "HomeBlocksHomePageAbout":
+						return <HomePageAboutSection key={index} {...block} />
+					case "HomeBlocksHomePageServices":
+						return (
+							<HomePageServicesSection key={index} {...block} />
+						)
+					case "HomeBlocksWarrantyBanner":
+						return <WarrantyBanner key={index} {...block} />
+					default:
+						return null
+				}
+			})}
 		</>
 	)
 }

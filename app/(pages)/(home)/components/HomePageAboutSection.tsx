@@ -3,14 +3,12 @@ import { colorTheme } from "../../../../styles/colorTheme"
 import { widths } from "../../../../styles/widths"
 import { homePageAboutContent } from "../homePageBackupContent"
 
-export default function HomePageAboutSection(
-	props: ({
-		__typename: "HomeBlocksHomePageAbout"
-		title?: string | null | undefined
-		text?: string | null | undefined
-		image?: string | null | undefined
-	} | null)[]
-) {
+export default function HomePageAboutSection(props: {
+	__typename: "HomeBlocksHomePageAbout"
+	title?: string | null | undefined
+	text?: string | null | undefined
+	image?: string | null | undefined
+}) {
 	const { redAccentContrast, grayAccent } = colorTheme
 	const { sixColumn } = widths
 

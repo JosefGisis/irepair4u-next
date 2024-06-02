@@ -6,16 +6,14 @@ import { homePageServicesContent } from "../homePageBackupContent"
 import { widths } from "../../../../styles/widths"
 import { colorTheme } from "../../../../styles/colorTheme"
 
-export default function HomePageServicesSection(
-	props: ({
-		__typename: "HomeBlocksHomePageServices"
-		title?: string | null | undefined
-		text?: string | null | undefined
-		pageLink?: string | null | undefined
-		id?: string | null | undefined
-		image?: string | null | undefined
-	} | null)[]
-) {
+export default function HomePageServicesSection(props: {
+	__typename: "HomeBlocksHomePageServices"
+	title?: string | null | undefined
+	text?: string | null | undefined
+	pageLink?: string | null | undefined
+	id?: string | null | undefined
+	image?: string | null | undefined
+}) {
 	const { redAccent } = colorTheme
 	const { eightColumn, nineColumn } = widths
 

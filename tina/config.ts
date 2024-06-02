@@ -29,11 +29,10 @@ export default defineConfig({
 						label: "Blocks",
 						type: "object",
 						list: true,
-						fields: [
+						templates: [
 							{
 								name: "welcomeHero",
 								label: "Welcome Hero",
-								type: "object",
 								fields: [
 									{
 										name: "title",
@@ -55,54 +54,66 @@ export default defineConfig({
 							{
 								name: "homePageAbout",
 								label: "Home Page About",
-								type: "object",
-								list: true,
 								fields: [
 									{
-										name: "title",
-										label: "Title",
-										type: "string",
-									},
-									{
-										name: "text",
-										label: "Text",
-										type: "string",
-									},
-									{
-										name: "image",
-										label: "Image",
-										type: "image",
+										name: "homePageAboutCard",
+										label: "Home Page About Card",
+										type: "object",
+										list: true,
+										fields: [
+											{
+												name: "title",
+												label: "Title",
+												type: "string",
+											},
+											{
+												name: "text",
+												label: "Text",
+												type: "string",
+											},
+											{
+												name: "image",
+												label: "Image",
+												type: "image",
+											},
+										],
 									},
 								],
 							},
 							{
 								name: "homePageServices",
 								label: "Home Page Services",
-								type: "object",
-								list: true,
 								fields: [
 									{
-										name: "title",
-										label: "Title",
-										type: "string",
-									},
-									{
-										name: "text",
-										label: "Text",
-										type: "string",
-									},
-									{
-										description:
-											"The URL for the page that the link will point to.",
-										name: "pageLink",
-										label: "Page Link",
-										type: "string",
-										options: [
-											"/",
-											"/about",
-											"/services",
-											"/contact-us",
-											"/faq",
+										name: "homePageServicesCard",
+										label: "Home Page Services Card",
+										type: "object",
+										list: true,
+										fields: [
+											{
+												name: "title",
+												label: "Title",
+												type: "string",
+											},
+											{
+												name: "text",
+												label: "Text",
+												type: "string",
+											},
+											{
+												description:
+													"The URL for the page that the link will point to.",
+												name: "pageLink",
+												label: "Page Link",
+												type: "string",
+												options: [
+													"/",
+													"/about",
+													"/services",
+													"/contact-us",
+													"/faq",
+												],
+											},
 										],
 									},
 									{
@@ -122,7 +133,6 @@ export default defineConfig({
 							{
 								name: "warrantyBanner",
 								label: "Warranty Banner",
-								type: "object",
 								fields: [
 									{
 										name: "title",
@@ -154,49 +164,61 @@ export default defineConfig({
 						label: "Blocks",
 						type: "object",
 						list: true,
-						fields: [
+						templates: [
 							{
 								name: "aboutSegment",
 								label: "About Segment",
-								type: "object",
-								list: true,
 								fields: [
 									{
-										name: "title",
-										label: "Title",
-										type: "string",
-									},
-									{
-										description:
-											"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
-										name: "id",
-										label: "ID",
-										type: "string",
-									},
-									{
-										name: "paragraphs",
-										label: "Paragraphs",
-										type: "string",
+										name: "aboutSegmentCard",
+										label: "About Segment Card",
+										type: "object",
 										list: true,
+										fields: [
+											{
+												name: "title",
+												label: "Title",
+												type: "string",
+											},
+											{
+												description:
+													"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
+												name: "id",
+												label: "ID",
+												type: "string",
+											},
+											{
+												name: "paragraphs",
+												label: "Paragraphs",
+												type: "string",
+												list: true,
+											},
+										],
 									},
 								],
 							},
 							{
-								name: "termsAndConditionsSegment",
-								label: "Terms and Conditions Segment",
-								type: "object",
-								list: true,
+								name: "termsAndConditions",
+								label: "Terms and Conditions",
 								fields: [
 									{
-										name: "title",
-										label: "Title",
-										type: "string",
-									},
-									{
-										name: "clauses",
-										label: "Clauses",
-										type: "string",
+										name: "termsAndConditionsSegment",
+										label: "Terms and Conditions Segment",
+										type: "object",
 										list: true,
+										fields: [
+											{
+												name: "title",
+												label: "Title",
+												type: "string",
+											},
+											{
+												name: "clauses",
+												label: "Clauses",
+												type: "string",
+												list: true,
+											},
+										],
 									},
 								],
 							},
@@ -217,18 +239,16 @@ export default defineConfig({
 						label: "Blocks",
 						type: "object",
 						list: true,
-						fields: [
+						templates: [
 							{
 								name: "servicesSection",
 								label: "Services Section",
-								type: "object",
 								fields: [
 									{
 										name: "servicesSectionSegment",
 										label: "Services Section Segment",
 										type: "object",
 										list: true,
-
 										fields: [
 											{
 												name: "title",
@@ -250,71 +270,71 @@ export default defineConfig({
 											},
 										],
 									},
-								],
-							},
-							{
-								name: "coverageSection",
-								label: "Coverage Section",
-								type: "object",
-								fields: [
 									{
-										name: "coverageSectionSegment",
-										label: "Coverage Section Segment",
+										name: "coverageSection",
+										label: "Coverage Section",
 										type: "object",
 										list: true,
-
 										fields: [
 											{
-												name: "title",
-												label: "Title",
-												type: "string",
-											},
-											{
-												description:
-													"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
-												name: "id",
-												label: "ID",
-												type: "string",
-											},
-											{
-												name: "paragraphs",
-												label: "Paragraphs",
-												type: "string",
+												name: "coverageSectionSegment",
+												label: "Coverage Section Segment",
+												type: "object",
 												list: true,
+												fields: [
+													{
+														name: "title",
+														label: "Title",
+														type: "string",
+													},
+													{
+														description:
+															"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
+														name: "id",
+														label: "ID",
+														type: "string",
+													},
+													{
+														name: "paragraphs",
+														label: "Paragraphs",
+														type: "string",
+														list: true,
+													},
+												],
 											},
 										],
 									},
-								],
-							},
-							{
-								name: "salesSection",
-								label: "Sales Section",
-								type: "object",
-								fields: [
 									{
-										name: "salesSectionSegment",
-										label: "Sales Section Segment",
+										name: "salesSection",
+										label: "Sales Section",
 										type: "object",
 										list: true,
-
 										fields: [
 											{
-												name: "title",
-												label: "Title",
-												type: "string",
-											},
-											{
-												description:
-													"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
-												name: "id",
-												label: "ID",
-												type: "string",
-											},
-											{
-												name: "paragraphs",
-												label: "Paragraphs",
-												type: "string",
+												name: "salesSectionSegment",
+												label: "Sales Section Segment",
+												type: "object",
 												list: true,
+												fields: [
+													{
+														name: "title",
+														label: "Title",
+														type: "string",
+													},
+													{
+														description:
+															"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
+														name: "id",
+														label: "ID",
+														type: "string",
+													},
+													{
+														name: "paragraphs",
+														label: "Paragraphs",
+														type: "string",
+														list: true,
+													},
+												],
 											},
 										],
 									},
@@ -337,30 +357,36 @@ export default defineConfig({
 						label: "Blocks",
 						type: "object",
 						list: true,
-						fields: [
+						templates: [
 							{
-								name: "questionAndAnswer",
-								label: "Question and Answer",
-								type: "object",
-								list: true,
+								name: "questionAndAnswerSection",
+								label: "Question and Answer Section",
 								fields: [
 									{
-										name: "question",
-										label: "Question",
-										type: "string",
-									},
-									{
-										name: "id",
-										label: "ID",
-										type: "string",
-										description:
-											"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
-									},
-									{
-										name: "answer",
-										label: "Answer",
-										type: "string",
+										name: "questionAndAnswer",
+										label: "Question and Answer",
+										type: "object",
 										list: true,
+										fields: [
+											{
+												name: "question",
+												label: "Question",
+												type: "string",
+											},
+											{
+												name: "id",
+												label: "ID",
+												type: "string",
+												description:
+													"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
+											},
+											{
+												name: "answer",
+												label: "Answer",
+												type: "string",
+												list: true,
+											},
+										],
 									},
 								],
 							},
@@ -381,11 +407,10 @@ export default defineConfig({
 						label: "Blocks",
 						type: "object",
 						list: true,
-						fields: [
+						templates: [
 							{
 								name: "contactUsBanner",
 								label: "Contact Us Banner",
-								type: "object",
 								fields: [
 									{
 										name: "title",
@@ -402,34 +427,40 @@ export default defineConfig({
 							{
 								name: "contactInfo",
 								label: "Contact Info",
-								type: "object",
-								list: true,
 								fields: [
 									{
-										name: "title",
-										label: "Title",
-										type: "string",
-									},
-									{
-										name: "linkType",
-										label: "Link Type",
-										type: "string",
-										options: [
-											"tel",
-											"email",
-											"social",
-											"other",
+										name: "contactInfoCard",
+										label: "Contact Info Card",
+										type: "object",
+										list: true,
+										fields: [
+											{
+												name: "title",
+												label: "Title",
+												type: "string",
+											},
+											{
+												name: "linkType",
+												label: "Link Type",
+												type: "string",
+												options: [
+													"tel",
+													"email",
+													"social",
+													"other",
+												],
+											},
+											{
+												name: "link",
+												label: "Link",
+												type: "string",
+											},
+											{
+												name: "paragraph",
+												label: "Paragraph",
+												type: "string",
+											},
 										],
-									},
-									{
-										name: "link",
-										label: "Link",
-										type: "string",
-									},
-									{
-										name: "paragraph",
-										label: "Paragraph",
-										type: "string",
 									},
 								],
 							},
@@ -497,7 +528,6 @@ export default defineConfig({
 						label: "Information Links",
 						type: "object",
 						list: true,
-
 						fields: [
 							{
 								description:
