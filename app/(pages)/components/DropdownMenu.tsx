@@ -3,12 +3,12 @@ import { Box, Typography } from "@mui/material"
 import { colorTheme } from "../../../styles/colorTheme"
 import Link from "next/link"
 
-export default function DropdownMenu({dropdownOpen, setDropdownOpen}: { dropdownOpen: boolean, setDropdownOpen: (value: boolean) => void }) {
+export default function DropdownMenu({ open }: { open: boolean }) {
 	const { redAccentContrast, shadowColor, grayAccent } = colorTheme
 	return (
 		<Box
 			sx={{
-				display: { xs: dropdownOpen ? "block" : "none", md: "none" },
+				display: { xs: open ? "block" : "none", md: "none" },
 				position: "absolute",
 				width: "100%",
 				borderBottom: `5px solid ${shadowColor}`,
@@ -17,7 +17,6 @@ export default function DropdownMenu({dropdownOpen, setDropdownOpen}: { dropdown
 				{pages.map((page, index) => (
 					<Link href={page.link} key={index}>
 						<Box
-							onClick={() => setDropdownOpen(false)}
 							sx={{
 								background: grayAccent,
 								paddingBlock: "1rem",

@@ -1,19 +1,13 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import {
-	Box,
-	Toolbar,
-	Button,
-	IconButton,
-	Container,
-	AppBar,
-} from "@mui/material"
+import { Box, Toolbar, Button, Container, AppBar } from "@mui/material"
 import Link from "next/link"
 import MenuIcon from "@mui/icons-material/Menu"
 import { colorTheme } from "../../../styles/colorTheme"
 import ScrollToTop from "./ScrollToTop"
 import DropdownMenu from "./DropdownMenu"
+import { usePathname } from "next/navigation"
 
 export const pages = [
 	{ name: "ABOUT", link: "/about" },
@@ -25,6 +19,12 @@ export const pages = [
 function ResponsiveAppBar() {
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const { redAccent, redAccentContrast } = colorTheme
+
+	const pathname = usePathname()
+
+	useEffect(() => {
+		setDropdownOpen(false)
+	}, [pathname])
 
 	// Check if user has scrolled down the page and change Appearance
 	const [scrolling, setScrolling] = useState(false)
@@ -54,7 +54,7 @@ function ResponsiveAppBar() {
 							display: "flex",
 							justifyContent: "space-between",
 						}}>
-						<Link href="/">
+						<Link onClick={() => setDropdownOpen(false)} href="/">
 							<img
 								src="/images/irepair4u_red_transparent_100x860.svg"
 								alt="irepair4u banner"
@@ -109,10 +109,7 @@ function ResponsiveAppBar() {
 					</Toolbar>
 				</Container>
 			</AppBar>
-			<DropdownMenu
-				dropdownOpen={dropdownOpen}
-				setDropdownOpen={setDropdownOpen}
-			/>
+			<DropdownMenu open={dropdownOpen} />
 		</div>
 	)
 }
