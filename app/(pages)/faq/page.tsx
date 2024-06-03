@@ -3,13 +3,15 @@ import { Typography } from "@mui/material"
 
 import type { Metadata } from "next"
 import { widths } from "../../../styles/widths"
-import FAQSection from "./components/FAQSection"
+import client from "../../../tina/__generated__/client"
+import FAQComponents from "./components/Index"
 
 export const metadata: Metadata = {
 	title: "iRepair4u - FAQ",
 }
 
-export default function FAQPage() {
+export default async function FAQPage() {
+	const results = await client.queries.faq({ relativePath: "FAQ.md" })
 	const { tenColumn } = widths
 	return (
 		<section
@@ -33,7 +35,7 @@ export default function FAQPage() {
 				Here are some questions are customers frequently ask us.
 			</Typography>
 
-			<FAQSection />
+			<FAQComponents {...results} />
 		</section>
 	)
 }

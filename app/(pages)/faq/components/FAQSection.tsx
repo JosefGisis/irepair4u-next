@@ -1,7 +1,18 @@
 import { Typography } from "@mui/material"
-import { faqTextContent } from "../faqPageBackupContent"
+import { tinaField } from "tinacms/dist/react"
 
-export default function FAQSection() {
+export default function FAQSection(props: {
+	__typename: "FaqBlocksQuestionAndAnswerSection"
+	questionAndAnswer?:
+		| ({
+				__typename: "FaqBlocksQuestionAndAnswerSectionQuestionAndAnswer"
+				question?: string | null | undefined
+				id?: string | null | undefined
+				answer?: (string | null)[] | null | undefined
+		  } | null)[]
+		| null
+		| undefined
+}) {
 	return (
 		<div
 			style={{
@@ -10,16 +21,16 @@ export default function FAQSection() {
 				alignItems: "center",
 				marginBottom: "3rem",
 			}}>
-			{faqTextContent.map((section, index) => (
-				<div key={index} style={{ width: "100%" }}>
+			{props.questionAndAnswer?.map((item, index) => (
+				<div key={index} data-tina-field={tinaField(props, "questionAndAnswer")} id={item?.id || ""} style={{ width: "100%" }}>
 					<Typography
 						variant="subtitle1"
 						marginBottom="1rem"
 						marginTop="1.5rem">
-						Q. {section.q}
+						Q. {item?.question}
 					</Typography>
 					<Typography marginBottom="1rem" variant="body2">
-						{section.a}
+						{item?.answer}
 					</Typography>
 				</div>
 			))}
