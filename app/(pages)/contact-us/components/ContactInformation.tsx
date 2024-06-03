@@ -1,31 +1,46 @@
 import { Typography, Link } from "@mui/material"
-import { contactUsPageContent } from "../contactUsPageBackupContent"
 import { colorTheme } from "../../../../styles/colorTheme"
+import { tinaField } from "tinacms/dist/react"
 
-export default function ContactInformation() {
-    const { redAccent } = colorTheme
+export default function ContactInformation(props: {
+	__typename: "ContactUsBlocksContactInfo"
+	contactInfoCard?:
+		| ({
+				__typename: "ContactUsBlocksContactInfoContactInfoCard"
+				title?: string | null | undefined
+				linkType?: string | null | undefined
+				link?: string | null | undefined
+				paragraph?: string | null | undefined
+		  } | null)[]
+		| null
+		| undefined
+}) {
+	const { redAccent } = colorTheme
 	return (
 		<>
-			{contactUsPageContent.map((section, index) => (
-				<div key={index} style={{ width: "100%" }}>
+			{props.contactInfoCard?.map((card, index) => (
+				<div
+					data-tina-field={tinaField(props, "contactInfoCard")}
+					key={index}
+					style={{ width: "100%" }}>
 					<Typography
 						variant="h6"
 						marginBottom="1rem"
 						marginTop="1.5rem">
-						{section.title}{" "}
+						{card?.title}{" "}
 						<span
 							style={{
 								color: redAccent,
 								textDecoration: "underline",
 							}}>
 							<Link
-								href={`${section.linkType === "email" ? "mailto:" : section.linkType === "tel" ? "tel:+" : ""}${section.link}`}>
-								{section.link}
+								href={`${card?.linkType === "email" ? "mailto:" : card?.linkType === "tel" ? "tel:+" : ""}${card?.link}`}>
+								{card?.link}
 							</Link>
 						</span>
 					</Typography>
 					<Typography variant="body1" marginBottom="1rem">
-						{section.paragraph}
+						{card?.paragraph}
 					</Typography>
 				</div>
 			))}

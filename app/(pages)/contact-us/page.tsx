@@ -1,15 +1,15 @@
 import * as React from "react"
-import Link from "next/link"
-import { Typography } from "@mui/material"
 import type { Metadata } from "next"
 import { widths } from "../../../styles/widths"
-import { colorTheme } from "../../../styles/colorTheme"
-import ContactUsBanner from "./components/ContactUsBanner"
-import ContactInformation from "./components/ContactInformation"
+import ContactUsComponents from "./components/Index"
+import client from "../../../tina/__generated__/client"
 
 export const metadata: Metadata = { title: "iRepair4u - Contact Us" }
 
-export default function ContactUsPage() {
+export default async function ContactUsPage() {
+	const results = await client.queries.contactUs({
+		relativePath: "Contact_Us.md",
+	})
 	const { tenColumn } = widths
 	return (
 		<section
@@ -22,8 +22,7 @@ export default function ContactUsPage() {
 				marginInline: "auto",
 				paddingInline: "20px",
 			}}>
-			<ContactUsBanner />
-			<ContactInformation />
+			<ContactUsComponents {...results} />
 		</section>
 	)
 }
