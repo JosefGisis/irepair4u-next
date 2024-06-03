@@ -1,26 +1,12 @@
 import { Typography, Link } from "@mui/material"
 import { colorTheme } from "../../../../styles/colorTheme"
-import { tinaField } from "tinacms/dist/react"
 
-export default function ContactInformation(props: {
-	__typename: "ContactUsBlocksContactInfo"
-	contactInfoCard?:
-		| ({
-				__typename: "ContactUsBlocksContactInfoContactInfoCard"
-				title?: string | null | undefined
-				linkType?: string | null | undefined
-				link?: string | null | undefined
-				paragraph?: string | null | undefined
-		  } | null)[]
-		| null
-		| undefined
-}) {
+export default function ContactInformation() {
 	const { redAccent } = colorTheme
 	return (
 		<>
-			{props.contactInfoCard?.map((card, index) => (
+			{contactUsPageContent.map((card, index) => (
 				<div
-					data-tina-field={tinaField(props)}
 					key={index}
 					style={{ width: "100%" }}>
 					<Typography
@@ -35,15 +21,38 @@ export default function ContactInformation(props: {
 							}}>
 							<Link
 								href={`${card?.linkType === "email" ? "mailto:" : card?.linkType === "tel" ? "tel:+" : ""}${card?.link}`}>
-								{card?.link}
+								{card.link}
 							</Link>
 						</span>
 					</Typography>
 					<Typography variant="body1" marginBottom="1rem">
-						{card?.paragraph}
+						{card.text}
 					</Typography>
 				</div>
 			))}
 		</>
 	)
 }
+
+type ContactUsPageContentType = {
+	title: string
+	linkType: "tel" | "email" | "social" | "other"
+	link: string
+	text: string
+}[]
+export const contactUsPageContent: ContactUsPageContentType = [
+	{
+		title: "Give us a call at",
+		linkType: "tel",
+		link: "7323303038",
+		text:
+			"If you can't get through to us, please leave a voicemail or message with your name, phone number, and device specifications.",
+	},
+	{
+		title: "or contact us via email at",
+		linkType: "email",
+		link: "irepairr4u@gmail.com",
+		text:
+			"When emailing us, please provide the make and model of your device, as well as the issue or repair of your concern. You can find information about your device in settings/about. If you are still unsure, or cannot access your device’s settings, no problem, just send us whatever information you do have about your device. Also, please put your name as a comment, so we can contact you sooner and more effectively communicate.",
+	},
+]
