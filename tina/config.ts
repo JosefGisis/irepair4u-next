@@ -245,8 +245,35 @@ export default defineConfig({
 								label: "Services Section",
 								fields: [
 									{
-										name: "servicesSectionSegment",
-										label: "Services Section Segment",
+										name: "services",
+										label: "Services",
+										type: "object",
+										list: true,
+										fields: [
+											{
+												name: "title",
+												label: "Title",
+												type: "string",
+											},
+											{
+												description:
+													"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
+												name: "id",
+												label: "ID",
+												type: "string",
+											},
+											{
+												name: "paragraphs",
+												label: "Paragraphs",
+												type: "string",
+												list: true,
+											},
+										],
+									},
+
+									{
+										name: "coverage",
+										label: "Coverage",
 										type: "object",
 										list: true,
 										fields: [
@@ -271,70 +298,28 @@ export default defineConfig({
 										],
 									},
 									{
-										name: "coverageSection",
-										label: "Coverage Section",
+										name: "sales",
+										label: "Sales",
 										type: "object",
 										list: true,
 										fields: [
 											{
-												name: "coverageSectionSegment",
-												label: "Coverage Section Segment",
-												type: "object",
-												list: true,
-												fields: [
-													{
-														name: "title",
-														label: "Title",
-														type: "string",
-													},
-													{
-														description:
-															"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
-														name: "id",
-														label: "ID",
-														type: "string",
-													},
-													{
-														name: "paragraphs",
-														label: "Paragraphs",
-														type: "string",
-														list: true,
-													},
-												],
+												name: "title",
+												label: "Title",
+												type: "string",
 											},
-										],
-									},
-									{
-										name: "salesSection",
-										label: "Sales Section",
-										type: "object",
-										list: true,
-										fields: [
 											{
-												name: "salesSectionSegment",
-												label: "Sales Section Segment",
-												type: "object",
+												description:
+													"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
+												name: "id",
+												label: "ID",
+												type: "string",
+											},
+											{
+												name: "paragraphs",
+												label: "Paragraphs",
+												type: "string",
 												list: true,
-												fields: [
-													{
-														name: "title",
-														label: "Title",
-														type: "string",
-													},
-													{
-														description:
-															"Add an id so you can link to this section of the page elsewhere. ID should be written in kebab-case (lowercase with hyphens) for example: phone-services.",
-														name: "id",
-														label: "ID",
-														type: "string",
-													},
-													{
-														name: "paragraphs",
-														label: "Paragraphs",
-														type: "string",
-														list: true,
-													},
-												],
 											},
 										],
 									},

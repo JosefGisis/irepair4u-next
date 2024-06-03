@@ -1,6 +1,8 @@
 import { Box, Container, Typography } from "@mui/material"
 import { colorTheme } from "../../../../styles/colorTheme"
 import { widths } from "../../../../styles/widths"
+import { tinaField } from "tinacms/dist/react"
+import type { HomeBlocksHomePageAboutCards } from "../../../../tina/__generated__/types"
 
 export default function HomePageAboutSection(props: {
 	__typename: "HomeBlocksHomePageAbout"
@@ -52,6 +54,7 @@ export default function HomePageAboutSection(props: {
 						}}>
 						{props.cards?.map((card, index) => (
 							<Box
+								data-tina-field={tinaField(props, "cards")}
 								key={index}
 								sx={{
 									display: "flex",
@@ -63,6 +66,7 @@ export default function HomePageAboutSection(props: {
 									order: 1,
 								}}>
 								<div
+									data-tina-field={"hello"}
 									style={{
 										display: "flex",
 										flexDirection: "column",

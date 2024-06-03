@@ -3,12 +3,16 @@ import { Typography } from "@mui/material"
 
 import type { Metadata } from "next"
 import { widths } from "../../../styles/widths"
-import ServicesSection from "./components/ServicesSection"
+import client from "../../../tina/__generated__/client"
+import ServicesComponents from "./components/Index"
 
 export const metadata: Metadata = { title: "iRepair4u - FAQ" }
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+	const results = await client.queries.services({ relativePath: "Services.md" })
+
 	const { tenColumn } = widths
+
 	return (
 		<section
 			id="about-page"
@@ -27,7 +31,7 @@ export default function ServicesPage() {
 				SERVICES
 			</Typography>
 
-			<ServicesSection />
+			<ServicesComponents {...results} />
 
 			<div
 				style={{

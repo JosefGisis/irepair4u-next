@@ -1,4 +1,5 @@
 import { Container, Typography } from "@mui/material"
+import { tinaField } from "tinacms/dist/react"
 
 export default function WarrantyBanner(props: {
 	__typename: "HomeBlocksWarrantyBanner"
@@ -25,19 +26,19 @@ export default function WarrantyBanner(props: {
 					<Typography
 						variant="h3"
 						textAlign="center"
-						marginBottom="2.5rem">
+						marginBottom="2.5rem"
+						data-tina-field={tinaField(props, "title")}>
 						{props.title}
 					</Typography>
-					{props.paragraphs?.map(
-						(paragraph, index) => (
-							<Typography
-								key={index}
-								variant="body1"
-								textAlign="center">
-								{paragraph}
-							</Typography>
-						)
-					)}
+					{props.paragraphs?.map((paragraph, index) => (
+						<Typography
+							data-tina-field={tinaField(props, "paragraphs")}
+							key={index}
+							variant="body1"
+							textAlign="center">
+							{paragraph}
+						</Typography>
+					))}
 				</div>
 			</Container>
 		</div>

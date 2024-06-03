@@ -4,6 +4,7 @@ import { Container, Typography } from "@mui/material"
 import ServicesCard from "./ServicesCard"
 import { widths } from "../../../../styles/widths"
 import { colorTheme } from "../../../../styles/colorTheme"
+import { tinaField } from "tinacms/dist/react"
 
 export default function HomePageServicesSection(props: {
     __typename: "HomeBlocksHomePageServices";
@@ -39,6 +40,7 @@ export default function HomePageServicesSection(props: {
 				</Typography>
 
 				<Grid2
+					data-tina-field={tinaField(props, "cards")}
 					container
 					rowSpacing={5}
 					columnSpacing={3}

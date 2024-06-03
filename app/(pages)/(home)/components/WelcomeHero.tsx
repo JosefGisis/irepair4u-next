@@ -2,8 +2,9 @@ import { Typography, Link, Button, Container } from "@mui/material"
 import { colorTheme } from "../../../../styles/colorTheme"
 import { widths } from "../../../../styles/widths"
 import { WelcomeHeroBlockBackup } from "../homePageBackupContent"
+import { tinaField } from "tinacms/dist/react"
 
-export default function WelcomeHero({ title, subtitle, image}: {
+export default function WelcomeHero(props: {
 	__typename: "HomeBlocksWelcomeHero"
 	title?: string | null | undefined
 	subtitle?: string | null | undefined
@@ -23,16 +24,20 @@ export default function WelcomeHero({ title, subtitle, image}: {
 					marginBottom: "4rem",
 				}}>
 				<Typography
+					data-tina-field={tinaField(props, "title")}
 					textAlign="center"
 					variant="h1"
 					maxWidth={eightColumn}
 					marginBottom="2rem">
-					{ title ? title : WelcomeHeroBlockBackup.title}
+					{props.title}
 				</Typography>
 
 				<div style={{ maxWidth: nineColumn, marginBottom: "2rem" }}>
-					<Typography variant="subtitle2" textAlign="center">
-						{ subtitle ? subtitle : WelcomeHeroBlockBackup.subtitle}
+					<Typography
+						data-tina-field={tinaField(props, "subtitle")}
+						variant="subtitle2"
+						textAlign="center">
+						{props.subtitle}
 					</Typography>
 				</div>
 
@@ -64,7 +69,8 @@ export default function WelcomeHero({ title, subtitle, image}: {
 
 				<div style={{ width: "100%" }}>
 					<img
-						src={image ? image : WelcomeHeroBlockBackup.url}
+						data-tina-field={tinaField(props, "image")}
+						src={props.image || ""}
 						style={{ width: "100%" }}
 					/>
 				</div>
