@@ -114,12 +114,14 @@ export default function Footer() {
 								flexDirection: "column",
 								gap: "18px",
 								alignItems: { xs: "center", md: "start" },
+								textWrap: "nowrap",
 							}}>
 							<Typography variant="h6">{item.title}</Typography>
 
 							{item.links.map((link, index) => (
 								<Link key={index} href={link.link}>
 									<Typography
+										style={{ textWrap: "nowrap" }}
 										variant="body2"
 										className="footer-link"
 										width="fit-content">

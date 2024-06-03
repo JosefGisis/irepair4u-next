@@ -62,13 +62,11 @@ function ResponsiveAppBar() {
 							/>
 						</Link>
 						<Box
+							onClick={() => setDropdownOpen(!dropdownOpen)}
 							sx={{
 								display: { xs: "flex", md: "none" },
 							}}>
-							<IconButton
-								size="large"
-								onClick={() => setDropdownOpen(!dropdownOpen)}
-								color="inherit">
+							<Button variant="text">
 								<MenuIcon
 									style={{
 										width: 35,
@@ -76,7 +74,7 @@ function ResponsiveAppBar() {
 										color: redAccent,
 									}}
 								/>
-							</IconButton>
+							</Button>
 						</Box>
 						<Box
 							sx={{
@@ -111,7 +109,10 @@ function ResponsiveAppBar() {
 					</Toolbar>
 				</Container>
 			</AppBar>
-			<DropdownMenu dropdownOpen={dropdownOpen} setDropdownOpen={setDropdownOpen}/>
+			<DropdownMenu
+				dropdownOpen={dropdownOpen}
+				setDropdownOpen={setDropdownOpen}
+			/>
 		</div>
 	)
 }
