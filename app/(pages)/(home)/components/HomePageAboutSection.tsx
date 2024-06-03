@@ -66,7 +66,6 @@ export default function HomePageAboutSection(props: {
 									order: 1,
 								}}>
 								<div
-									data-tina-field={"hello"}
 									style={{
 										display: "flex",
 										flexDirection: "column",

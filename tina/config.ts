@@ -241,12 +241,12 @@ export default defineConfig({
 						list: true,
 						templates: [
 							{
-								name: "servicesSection",
-								label: "Services Section",
+								name: "repairsSection",
+								label: "Repairs Section",
 								fields: [
 									{
-										name: "services",
-										label: "Services",
+										name: "repairs",
+										label: "Repairs",
 										type: "object",
 										list: true,
 										fields: [
@@ -270,7 +270,12 @@ export default defineConfig({
 											},
 										],
 									},
-
+								],
+							},
+							{
+								name: "coverageSection",
+								label: "Coverage Section",
+								fields: [
 									{
 										name: "coverage",
 										label: "Coverage",
@@ -297,6 +302,12 @@ export default defineConfig({
 											},
 										],
 									},
+								],
+							},
+							{
+								name: "salesSection",
+								label: "Sales Section",
+								fields: [
 									{
 										name: "sales",
 										label: "Sales",

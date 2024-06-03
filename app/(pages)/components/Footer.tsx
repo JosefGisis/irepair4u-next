@@ -25,7 +25,6 @@ export default function Footer() {
 						mt: "18px",
 					}}>
 					<div
-						// data-tina-field={tinaField(props: "business-links")}
 						id="business-links"
 						style={{
 							display: "flex",
