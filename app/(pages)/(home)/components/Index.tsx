@@ -31,7 +31,6 @@ export default function Components(props: {
 	return (
 		<>
 			{data.home.blocks?.map((block, index) => {
-				console.log(block)
 				switch (block?.__typename) {
 					case "HomeBlocksWelcomeHero":
 						return <WelcomeHero key={index} {...block} />

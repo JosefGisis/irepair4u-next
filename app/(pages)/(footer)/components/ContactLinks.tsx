@@ -19,15 +19,6 @@ export const socialMediaLinks = [
 	"linkedin",
 ]
 
-const socialMediaIcons = {
-	facebook: <Facebook />,
-	twitter: <Twitter />,
-	instagram: <Instagram />,
-	whatsapp: <WhatsApp />,
-	telegram: <Telegram />,
-	linkedin: <LinkedIn />,
-}
-
 export default function ContactLinks(props: {
 	__typename: "HomeBlocksContactLinks"
 	phoneNumber?: string | null | undefined
@@ -49,6 +40,14 @@ export default function ContactLinks(props: {
 		| null
 		| undefined
 }) {
+	const socialMediaIcons = {
+		facebook: <Facebook style={{ width: 35, height: 35 }} />,
+		twitter: <Twitter style={{ width: 35, height: 35 }} />,
+		instagram: <Instagram style={{ width: 35, height: 35 }} />,
+		whatsapp: <WhatsApp style={{ width: 35, height: 35 }} />,
+		telegram: <Telegram style={{ width: 35, height: 35 }} />,
+		linkedin: <LinkedIn style={{ width: 35, height: 35 }} />,
+	}
 	return (
 		<div
 			style={{
@@ -100,23 +99,20 @@ export default function ContactLinks(props: {
 			)}
 
 			{props.socialLinks?.length && (
-				<div data-tina-field={tinaField(props)}>
+				<div
+					style={{ display: "flex", gap: 15 }}
+					data-tina-field={tinaField(props)}>
 					{props.socialLinks?.map((link, index) => {
 						return (
-							<div
-								key={index}
-								style={{ display: "flex", gap: 10 }}>
-								{ socialMediaIcons[link?.linkType?.toLowerCase() as keyof typeof socialMediaIcons]}
-								<Typography
-									id={link?.linkType?.toLowerCase()}
-									className="footer-link">
-									<a
-										className="footer-link"
-										href={link?.link || ""}>
-										{link?.linkType}
-									</a>
-								</Typography>
-							</div>
+							<Typography key={index} className="footer-link">
+								<a href={link?.link || ""}>
+									{
+										socialMediaIcons[
+											link?.linkType?.toLowerCase() as keyof typeof socialMediaIcons
+										]
+									}
+								</a>
+							</Typography>
 						)
 					})}
 				</div>
