@@ -1,7 +1,6 @@
 import { Typography, Link, Button, Container } from "@mui/material"
 import { colorTheme } from "../../../../styles/colorTheme"
 import { widths } from "../../../../styles/widths"
-import { WelcomeHeroBlockBackup } from "../homePageBackupContent"
 import { tinaField } from "tinacms/dist/react"
 
 export default function WelcomeHero(props: {

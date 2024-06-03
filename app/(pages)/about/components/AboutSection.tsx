@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material"
+import { tinaField } from "tinacms/dist/react"
 
 export default function AboutSection(props: {
 	__typename: "AboutBlocksAboutSegment"
@@ -13,7 +14,9 @@ export default function AboutSection(props: {
 		| undefined
 }) {
 	return (
-		<div style={{ paddingInline: 20 }}>
+		<div
+			data-tina-field={tinaField(props, "cards")}
+			style={{ paddingInline: 20 }}>
 			{props.cards?.map((card, index) => (
 				<div key={index}>
 					<Typography variant="h5" style={{ marginBlock: 20 }}>

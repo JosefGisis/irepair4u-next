@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material"
+import { tinaField } from "tinacms/dist/react"
 
 export default function TermsAndConditions(props: {
 	__typename: "AboutBlocksTermsAndConditions"
@@ -13,6 +14,7 @@ export default function TermsAndConditions(props: {
 }) {
 	return (
 		<section
+			data-tina-field={tinaField(props, "segments")}
 			id="terms-and-conditions"
 			style={{
 				display: "flex",
