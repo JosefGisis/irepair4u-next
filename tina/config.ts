@@ -1,4 +1,5 @@
 import { defineConfig } from "tinacms"
+import { socialMediaLinks } from "../app/(pages)/(footer)/components/ContactLinks"
 
 export default defineConfig({
 	branch: "",
@@ -473,187 +474,241 @@ export default defineConfig({
 					router: () => "/",
 				},
 				fields: [
+					{ name: "title", label: "Title", type: "string" },
 					{
-						name: "contactLinks",
-						label: "Contact Links",
-						type: "object",
-						fields: [
-							{
-								description:
-									"Please provide a valid phone number.",
-								name: "phoneNumber",
-								label: "Phone Number",
-								type: "string",
-							},
-							{
-								description:
-									"Please provide a valid email address.",
-								name: "email",
-								label: "Email",
-								type: "string",
-							},
-							{
-								description:
-									"Please provide a link to a map service at your address.",
-								name: "address",
-								label: "Address",
-								type: "string",
-							},
-							{
-								description:
-									"Please provide a valid link to your social media account",
-								name: "socialLinks",
-								label: "Social Links",
-								type: "string",
-								list: true,
-								options: [
-									"facebook",
-									"twitter",
-									"instagram",
-									"snapchat",
-									"whatsapp",
-									"telegram",
-									"linkedin",
-									"instagram",
-								],
-							},
-						],
-					},
-					{
-						name: "informationLinks",
-						label: "Information Links",
+						name: "blocks",
+						label: "Blocks",
 						type: "object",
 						list: true,
-						fields: [
+						templates: [
 							{
-								description:
-									"The text that will be displayed for the link. Try to pick something that is descriptive and concise.",
-								name: "label",
-								label: "Label",
-								type: "string",
-							},
-							{
-								description:
-									"The URL for the page that the link will point to.",
-								name: "pageLink",
-								label: "Page Link",
-								type: "string",
-								options: [
-									"/",
-									"/about",
-									"/services",
-									"/contact-us",
-									"/faq",
+								name: "contactLinks",
+								label: "Contact Links",
+								fields: [
+									{
+										description:
+											"Please provide a valid phone number.",
+										name: "phoneNumber",
+										label: "Phone Number",
+										type: "string",
+									},
+									{
+										description:
+											"Please provide a valid email address.",
+										name: "email",
+										label: "Email",
+										type: "string",
+									},
+									{
+										name: "address",
+										label: "Address",
+										type: "object",
+										fields: [
+											{
+												name: "address",
+												label: "Address",
+												type: "string",
+											},
+											{
+												description:
+													"Please provide a link to a map service at your address.",
+												name: "link",
+												label: "Link",
+												type: "string",
+											},
+										],
+									},
+									{
+										name: "socialLinks",
+										label: "Social Links",
+										type: "object",
+										list: true,
+										fields: [
+											{
+												description:
+													"pick a social media platform. This will generate a corresponding icon.",
+												name: "linkType",
+												label: "Link Type",
+												type: "string",
+												options: socialMediaLinks,
+											},
+											{
+												description:
+													"Please provide a valid link to your social media account",
+												name: "link",
+												label: "Link",
+												type: "string",
+											},
+										],
+									},
 								],
 							},
 							{
-								description:
-									"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
-								name: "id",
-								label: "ID",
-								type: "string",
-							},
-						],
-					},
-					{
-						name: "servicesLinks",
-						label: "Services Links",
-						type: "object",
-						list: true,
-						fields: [
-							{
-								description:
-									"The text that will be displayed for the link. Try to pick something that is descriptive and concise.",
-								name: "label",
-								label: "Label",
-								type: "string",
-							},
-							{
-								description:
-									"The URL for the page that the link will point to.",
-								name: "pageLink",
-								label: "Page Link",
-								type: "string",
-								options: [
-									"/",
-									"/about",
-									"/services",
-									"/contact-us",
-									"/faq",
+								name: "informationLinks",
+								label: "Information Links",
+								fields: [
+									{
+										name: "list",
+										label: "List",
+										type: "object",
+										list: true,
+										fields: [
+											{
+												description:
+													"The text that will be displayed for the link. Try to pick something that is descriptive and concise.",
+												name: "label",
+												label: "Label",
+												type: "string",
+											},
+											{
+												description: "Information links can contain external links to other websites. If provided pageLink and id are ignored for the full link provided here.",
+												name: "externalLink",
+												label: "External Link",
+												type: "string",
+											},
+											{
+												description:
+													"The URL for the page that the link will point to.",
+												name: "pageLink",
+												label: "Page Link",
+												type: "string",
+												options: [
+													"/",
+													"/about",
+													"/services",
+													"/contact-us",
+													"/faq",
+												],
+											},
+											{
+												description:
+													"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
+												name: "id",
+												label: "ID",
+												type: "string",
+											},
+										],
+									},
 								],
 							},
 							{
-								description:
-									"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
-								name: "id",
-								label: "ID",
-								type: "string",
-							},
-						],
-					},
-					{
-						name: "coverageLinks",
-						label: "Coverage Links",
-						type: "object",
-						list: true,
-						fields: [
-							{
-								description:
-									"The text that will be displayed for the link. Try to pick something that is descriptive and concise.",
-								name: "label",
-								label: "Label",
-								type: "string",
-							},
-							{
-								description:
-									"The URL for the page that the link will point to.",
-								name: "pageLink",
-								label: "Page Link",
-								type: "string",
-								options: [
-									"/",
-									"/about",
-									"/services",
-									"/contact-us",
-									"/faq",
+								name: "servicesLinks",
+								label: "Services Links",
+								fields: [
+									{
+										name: "list",
+										label: "List",
+										type: "object",
+										list: true,
+										fields: [
+											{
+												description:
+													"The text that will be displayed for the link. Try to pick something that is descriptive and concise.",
+												name: "label",
+												label: "Label",
+												type: "string",
+											},
+											{
+												description:
+													"The URL for the page that the link will point to.",
+												name: "pageLink",
+												label: "Page Link",
+												type: "string",
+												options: [
+													"/",
+													"/about",
+													"/services",
+													"/contact-us",
+													"/faq",
+												],
+											},
+											{
+												description:
+													"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
+												name: "id",
+												label: "ID",
+												type: "string",
+											},
+										],
+									},
 								],
 							},
 							{
-								description:
-									"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
-								name: "id",
-								label: "ID",
-								type: "string",
-							},
-						],
-					},
-					{
-						name: "hoursOfOperation",
-						label: "Hours of Operation",
-						type: "object",
-
-						fields: [
-							{
-								name: "day",
-								label: "Day",
-								type: "string",
-
-								options: [
-									"Sunday",
-									"Monday",
-									"Tuesday",
-									"Wednesday",
-									"Thursday",
-									"Friday",
-									"Saturday",
-									"Sun - Thur",
-									"Mon - Thur",
+								name: "coverageLinks",
+								label: "Coverage Links",
+								fields: [
+									{
+										name: "list",
+										label: "List",
+										type: "object",
+										list: true,
+										fields: [
+											{
+												description:
+													"The text that will be displayed for the link. Try to pick something that is descriptive and concise.",
+												name: "label",
+												label: "Label",
+												type: "string",
+											},
+											{
+												description:
+													"The URL for the page that the link will point to.",
+												name: "pageLink",
+												label: "Page Link",
+												type: "string",
+												options: [
+													"/",
+													"/about",
+													"/services",
+													"/contact-us",
+													"/faq",
+												],
+											},
+											{
+												description:
+													"Add an ID from a block on the page to link to a specific section of the page. Refer to IDs from your created blocks. ID should be in the format of 'about-section-1' with dashes separating words.",
+												name: "id",
+												label: "ID",
+												type: "string",
+											},
+										],
+									},
 								],
 							},
 							{
-								name: "hours",
-								label: "Hours",
-								type: "string",
+								name: "hoursOfOperation",
+								label: "Hours of Operation",
+								fields: [
+									{
+										name: "days",
+										label: "Days",
+										type: "object",
+										list: true,
+										fields: [
+											{
+												name: "day",
+												label: "Day",
+												type: "string",
+												options: [
+													"Sunday",
+													"Monday",
+													"Tuesday",
+													"Wednesday",
+													"Thursday",
+													"Friday",
+													"Saturday",
+													"Sun - Thur",
+													"Mon - Thur",
+												],
+											},
+											{
+												name: "hours",
+												label: "Hours",
+												type: "string",
+											},
+										],
+									},
+								],
 							},
 						],
 					},
