@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 }
 
 export default async function page() {
-	const result = await client.queries.home({ relativePath: "Home.md" })
+	const result = await client.queries.home({ relativePath: "New_Home.md" })
 
 	return (
 		<div

@@ -1,3 +1,5 @@
+'use client'
+
 import { useTina } from "tinacms/dist/react"
 import type { FaqQuery, Exact } from "../../../../tina/__generated__/types"
 import FAQSection from "./FAQSection"

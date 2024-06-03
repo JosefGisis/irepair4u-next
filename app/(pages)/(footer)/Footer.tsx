@@ -18,7 +18,7 @@ export default function Footer() {
 						marginTop: "18px",
 					}}>
 					{client.queries
-						.home({ relativePath: "Home.md" })
+						.home({ relativePath: "New_Home.md" })
 						.then((results) => {
 							return <FooterComponents {...results} />
 						})

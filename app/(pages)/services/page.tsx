@@ -9,7 +9,7 @@ import ServicesComponents from "./components/Index"
 export const metadata: Metadata = { title: "iRepair4u - FAQ" }
 
 export default async function ServicesPage() {
-	const results = await client.queries.services({ relativePath: "Services.md" })
+	const results = await client.queries.services({ relativePath: "New_Services.md" })
 
 	const { tenColumn } = widths
 

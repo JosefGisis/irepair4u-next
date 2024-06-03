@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default async function FAQPage() {
-	const results = await client.queries.faq({ relativePath: "FAQ.md" })
+	const results = await client.queries.faq({ relativePath: "New_FAQ.md" })
 	const { tenColumn } = widths
 	return (
 		<section

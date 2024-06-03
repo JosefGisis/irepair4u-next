@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "iRepair4u - Contact Us" }
 
 export default async function ContactUsPage() {
 	const results = await client.queries.contactUs({
-		relativePath: "Contact_Us.md",
+		relativePath: "New_Contact_Us.md",
 	})
 	const { tenColumn } = widths
 	return (
