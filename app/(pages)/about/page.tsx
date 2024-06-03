@@ -2,14 +2,13 @@ import * as React from "react"
 import { Typography } from "@mui/material"
 import { Metadata } from "next"
 import { widths } from "../../../styles/widths"
-
-import AboutComponents from "./components/Index"
-import client from "../../../tina/__generated__/client"
+import AboutSection from "./components/AboutSection"
+import SeeYouSoon from "./components/SeeYouSoon"
+import TermsAndConditions from "./components/TermsAndConditions"
 
 export const metadata: Metadata = { title: "iRepair4u - About Us" }
 
-export default async function AboutPage() {
-	const result = await client.queries.about({ relativePath: "About.md" })
+export default function AboutPage() {
 	const { tenColumn } = widths
 	return (
 		<section
@@ -30,7 +29,9 @@ export default async function AboutPage() {
 				</Typography>
 			</div>
 
-			<AboutComponents {...result} />
+			<AboutSection />
+			<SeeYouSoon />
+			<TermsAndConditions	/>
 		</section>
 	)
 }
