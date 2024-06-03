@@ -25,9 +25,7 @@ export default function WelcomeHero() {
 				</Typography>
 
 				<div style={{ maxWidth: nineColumn, marginBottom: "2rem" }}>
-					<Typography
-						variant="subtitle2"
-						textAlign="center">
+					<Typography variant="subtitle2" textAlign="center">
 						{welcomeHeroContent.subtitle}
 					</Typography>
 				</div>
@@ -41,7 +39,6 @@ export default function WelcomeHero() {
 					}}>
 					<Link href="/contact-us">
 						<Button
-							href="/contact-us"
 							variant="contained"
 							sx={{ backgroundColor: redAccent }}>
 							CONTACT US
@@ -49,10 +46,7 @@ export default function WelcomeHero() {
 					</Link>
 
 					<Link href="/about">
-						<Button
-							href="/about"
-							variant="outlined"
-							sx={{ color: redAccent }}>
+						<Button variant="outlined" sx={{ color: redAccent }}>
 							ABOUT US
 						</Button>
 					</Link>

@@ -3,11 +3,11 @@
 import React, { useEffect, useState } from "react"
 import { Box, Toolbar, Button, Container, AppBar } from "@mui/material"
 import Link from "next/link"
-import MenuIcon from "@mui/icons-material/Menu"
 import { colorTheme } from "../../../styles/colorTheme"
 import ScrollToTop from "./ScrollToTop"
 import DropdownMenu from "./DropdownMenu"
 import { usePathname } from "next/navigation"
+import HamburgerIcon from "./HamburgerIcon"
 
 export const pages = [
 	{ name: "ABOUT", link: "/about" },
@@ -16,7 +16,7 @@ export const pages = [
 	{ name: "CONTACT US", link: "/contact-us" },
 ]
 
-function ResponsiveAppBar() {
+export default function ResponsiveAppBar() {
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const { redAccent, redAccentContrast } = colorTheme
 
@@ -66,15 +66,7 @@ function ResponsiveAppBar() {
 							sx={{
 								display: { xs: "flex", md: "none" },
 							}}>
-							<Button variant="text">
-								<MenuIcon
-									style={{
-										width: 35,
-										height: 35,
-										color: redAccent,
-									}}
-								/>
-							</Button>
+							<HamburgerIcon open={dropdownOpen} />
 						</Box>
 						<Box
 							sx={{
@@ -113,4 +105,3 @@ function ResponsiveAppBar() {
 		</div>
 	)
 }
-export default ResponsiveAppBar
