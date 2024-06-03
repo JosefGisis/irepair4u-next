@@ -14,7 +14,7 @@ export default function TermsAndConditions(props: {
 }) {
 	return (
 		<section
-			data-tina-field={tinaField(props, "segments")}
+			data-tina-field={tinaField(props)}
 			id="terms-and-conditions"
 			style={{
 				display: "flex",

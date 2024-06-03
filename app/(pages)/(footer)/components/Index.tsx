@@ -1,12 +1,15 @@
+"use client"
+
 import { useTina } from "tinacms/dist/react"
-import type { LinksQuery, Exact } from "../../../../tina/__generated__/types"
+import type { HomeQuery, Exact } from "../../../../tina/__generated__/types"
 import ContactLinks from "./ContactLinks"
 import Hours from "./Hours"
 import FooterLogo from "./FooterLogo"
 import { ServicesLinks, InformationLinks } from "./Links"
+import { Box } from "@mui/material"
 
 export default function FooterComponents(props: {
-	data: LinksQuery
+	data: HomeQuery
 	errors?:
 		| {
 				message: string
@@ -24,7 +27,13 @@ export default function FooterComponents(props: {
 }) {
 	const { data } = useTina(props)
 	return (
-		<div>
+		<Box
+			sx={{
+				display: "flex",
+				gap: "40px",
+				flexDirection: { xs: "column", md: "row" },
+				justifyContent: "space-between",
+			}}>
 			<div
 				id="business-links"
 				style={{
@@ -33,29 +42,29 @@ export default function FooterComponents(props: {
 					gap: 15,
 				}}>
 				<FooterLogo />
-				{data?.links?.blocks?.map((block, index) => {
+				{data?.home?.blocks?.map((block, index) => {
 					switch (block?.__typename) {
-						case "LinksBlocksContactLinks":
+						case "HomeBlocksContactLinks":
 							return <ContactLinks key={index} {...block} />
-						case "LinksBlocksHoursOfOperation":
+						case "HomeBlocksHoursOfOperation":
 							return <Hours key={index} {...block} />
 						default:
 							return null
 					}
 				})}
 			</div>
-			{data?.links?.blocks?.map((block, index) => {
+			{data?.home?.blocks?.map((block, index) => {
 				switch (block?.__typename) {
-					case "LinksBlocksInformationLinks":
+					case "HomeBlocksInformationLinks":
 						return <InformationLinks key={index} {...block} />
-					case "LinksBlocksServicesLinks":
+					case "HomeBlocksServicesLinks":
 						return <ServicesLinks key={index} {...block} />
-					case "LinksBlocksCoverageLinks":
+					case "HomeBlocksCoverageLinks":
 						return <ServicesLinks key={index} {...block} />
 					default:
 						return null
 				}
 			})}
-		</div>
+		</Box>
 	)
 }

@@ -47,6 +47,7 @@ export default function HomePageAboutSection(props: {
 					</Typography>
 
 					<div
+						data-tina-field={tinaField(props)}
 						style={{
 							display: "flex",
 							flexDirection: "column",
@@ -54,7 +55,6 @@ export default function HomePageAboutSection(props: {
 						}}>
 						{props.cards?.map((card, index) => (
 							<Box
-								data-tina-field={tinaField(props, "cards")}
 								key={index}
 								sx={{
 									display: "flex",

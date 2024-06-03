@@ -36,7 +36,8 @@ export default function Components(props: {
 					case "HomeBlocksWelcomeHero":
 						return <WelcomeHero key={index} {...block} />
 					case "HomeBlocksHomePageAbout":
-						return <HomePageAboutSection key={index} {...block} />
+						return <HomePageAboutSection 
+						key={index} {...block} />
 					case "HomeBlocksHomePageServices":
 						return (
 							<HomePageServicesSection key={index} {...block} />

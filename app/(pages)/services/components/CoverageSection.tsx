@@ -23,7 +23,7 @@ export default function CoverageSection(props: {
 			</Typography>
 			{props.coverage?.map((segment, index) => (
 				<div
-					data-tina-field={tinaField(props, "coverage")}
+					data-tina-field={tinaField(props)}
 					key={index}
 					id={segment?.id || ""}>
 					<Typography

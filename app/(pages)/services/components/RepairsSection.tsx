@@ -23,7 +23,7 @@ export default function RepairsSection(props: {
 			</Typography>
 			{props.repairs?.map((segment, index) => (
 				<div
-					data-tina-field={tinaField(props, "repairs")}
+					data-tina-field={tinaField(props)}
 					key={index}
 					id={segment?.id || ""}>
 					<Typography

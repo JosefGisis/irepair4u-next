@@ -23,7 +23,7 @@ export default function SalesSection(props: {
 			</Typography>
 			{props.sales?.map((segment, index) => (
 				<div
-					data-tina-field={tinaField(props, "sales")}
+					data-tina-field={tinaField(props)}
 					key={index}
 					id={segment?.id || ""}>
 					<Typography

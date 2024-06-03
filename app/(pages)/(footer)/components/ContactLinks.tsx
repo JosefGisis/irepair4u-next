@@ -29,12 +29,12 @@ const socialMediaIcons = {
 }
 
 export default function ContactLinks(props: {
-	__typename: "LinksBlocksContactLinks"
+	__typename: "HomeBlocksContactLinks"
 	phoneNumber?: string | null | undefined
 	email?: string | null | undefined
 	address?:
 		| {
-				__typename: "LinksBlocksContactLinksAddress"
+				__typename: "HomeBlocksContactLinksAddress"
 				address?: string | null | undefined
 				link?: string | null | undefined
 		  }
@@ -42,7 +42,7 @@ export default function ContactLinks(props: {
 		| undefined
 	socialLinks?:
 		| ({
-				__typename: "LinksBlocksContactLinksSocialLinks"
+				__typename: "HomeBlocksContactLinksSocialLinks"
 				linkType?: string | null | undefined
 				link?: string | null | undefined
 		  } | null)[]
@@ -50,7 +50,12 @@ export default function ContactLinks(props: {
 		| undefined
 }) {
 	return (
-		<div>
+		<div
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				gap: 15,
+			}}>
 			{props.phoneNumber && (
 				<div
 					data-tina-field={tinaField(props, "phoneNumber")}
@@ -95,22 +100,13 @@ export default function ContactLinks(props: {
 			)}
 
 			{props.socialLinks?.length && (
-				<div data-tina-field={tinaField(props, "socialLinks")}>
+				<div data-tina-field={tinaField(props)}>
 					{props.socialLinks?.map((link, index) => {
 						return (
 							<div
 								key={index}
 								style={{ display: "flex", gap: 10 }}>
-								{Object.entries(socialMediaIcons).find(
-									([key, Icon]) => {
-										if (
-											link?.linkType?.toLowerCase() ===
-											key
-										) {
-											return Icon
-										}
-									}
-								)}
+								<WhatsApp />
 								<Typography
 									id={link?.linkType?.toLowerCase()}
 									className="footer-link">

@@ -5,10 +5,10 @@ import { tinaField } from "tinacms/dist/react"
 export function ServicesLinks(
 	props:
 		| {
-				__typename: "LinksBlocksServicesLinks"
+				__typename: "HomeBlocksServicesLinks"
 				list?:
 					| ({
-							__typename: "LinksBlocksServicesLinksList"
+							__typename: "HomeBlocksServicesLinksList"
 							label?: string | null | undefined
 							pageLink?: string | null | undefined
 							id?: string | null | undefined
@@ -17,10 +17,10 @@ export function ServicesLinks(
 					| undefined
 		  }
 		| {
-				__typename: "LinksBlocksCoverageLinks"
+				__typename: "HomeBlocksCoverageLinks"
 				list?:
 					| ({
-							__typename: "LinksBlocksCoverageLinksList"
+							__typename: "HomeBlocksCoverageLinksList"
 							label?: string | null | undefined
 							pageLink?: string | null | undefined
 							id?: string | null | undefined
@@ -38,13 +38,13 @@ export function ServicesLinks(
 				alignItems: { xs: "center", md: "start" },
 			}}>
 			<Typography variant="h6">
-				{props.__typename === "LinksBlocksServicesLinks"
-					? "Services"
-					: "Coverage"}
+				{props.__typename === "HomeBlocksServicesLinks"
+					? "Service Links"
+					: "Coverage Links"}
 			</Typography>
 
 			{props.list?.length && (
-				<div data-tina-field={tinaField(props, "list")}>
+				<div data-tina-field={tinaField(props)}>
 					{props.list?.map((link, index) => (
 						<Link
 							key={index}
@@ -65,10 +65,10 @@ export function ServicesLinks(
 }
 
 export function InformationLinks(props: {
-	__typename: "LinksBlocksInformationLinks"
+	__typename: "HomeBlocksInformationLinks"
 	list?:
 		| ({
-				__typename: "LinksBlocksInformationLinksList"
+				__typename: "HomeBlocksInformationLinksList"
 				label?: string | null | undefined
 				externalLink?: string | null | undefined
 				pageLink?: string | null | undefined
@@ -88,7 +88,7 @@ export function InformationLinks(props: {
 			<Typography variant="h6">Information Links</Typography>
 
 			{props.list?.length && (
-				<div data-tina-field={tinaField(props, "list")}>
+				<div data-tina-field={tinaField(props)}>
 					{props.list?.map((link, index) => (
 						<Link
 							key={index}

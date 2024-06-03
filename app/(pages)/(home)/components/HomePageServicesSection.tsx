@@ -40,7 +40,7 @@ export default function HomePageServicesSection(props: {
 				</Typography>
 
 				<Grid2
-					data-tina-field={tinaField(props, "cards")}
+					data-tina-field={tinaField(props)}
 					container
 					rowSpacing={5}
 					columnSpacing={3}

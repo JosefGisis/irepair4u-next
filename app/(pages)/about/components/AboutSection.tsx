@@ -15,7 +15,7 @@ export default function AboutSection(props: {
 }) {
 	return (
 		<div
-			data-tina-field={tinaField(props, "cards")}
+			data-tina-field={tinaField(props)}
 			style={{ paddingInline: 20 }}>
 			{props.cards?.map((card, index) => (
 				<div key={index}>

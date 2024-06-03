@@ -20,7 +20,7 @@ export default function ContactInformation(props: {
 		<>
 			{props.contactInfoCard?.map((card, index) => (
 				<div
-					data-tina-field={tinaField(props, "contactInfoCard")}
+					data-tina-field={tinaField(props)}
 					key={index}
 					style={{ width: "100%" }}>
 					<Typography

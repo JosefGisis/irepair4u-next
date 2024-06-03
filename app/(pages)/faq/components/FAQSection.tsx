@@ -22,7 +22,7 @@ export default function FAQSection(props: {
 				marginBottom: "3rem",
 			}}>
 			{props.questionAndAnswer?.map((item, index) => (
-				<div key={index} data-tina-field={tinaField(props, "questionAndAnswer")} id={item?.id || ""} style={{ width: "100%" }}>
+				<div key={index} data-tina-field={tinaField(props)} id={item?.id || ""} style={{ width: "100%" }}>
 					<Typography
 						variant="subtitle1"
 						marginBottom="1rem"

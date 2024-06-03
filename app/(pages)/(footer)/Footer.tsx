@@ -4,8 +4,7 @@ import { colorTheme } from "../../../styles/colorTheme"
 import client from "../../../tina/__generated__/client"
 import FooterComponents from "./components/Index"
 
-export default async function Footer() {
-	const results = await client.queries.links({ relativePath: "Links.md" })
+export default function Footer() {
 	const { redAccent, redAccentContrast } = colorTheme
 	return (
 		<div
@@ -14,16 +13,17 @@ export default async function Footer() {
 				color: redAccentContrast,
 			}}>
 			<Container maxWidth="lg">
-				<Box
-					sx={{
-						display: "flex",
-						gap: "40px",
-						flexDirection: { xs: "column", md: "row" },
-						justifyContent: "space-between",
-						mt: "18px",
-					}}></Box>
-
-				<FooterComponents {...results} />
+				<div
+					style={{
+						marginTop: "18px",
+					}}>
+					{client.queries
+						.home({ relativePath: "Home.md" })
+						.then((results) => {
+							return <FooterComponents {...results} />
+						})
+						.catch((err) => console.log(err))}
+				</div>
 
 				<Typography
 					variant="body1"

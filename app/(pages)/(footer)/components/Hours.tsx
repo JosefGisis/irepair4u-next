@@ -2,10 +2,10 @@ import { Typography } from "@mui/material"
 import { tinaField } from "tinacms/dist/react"
 
 export default function Hours(props: {
-	__typename: "LinksBlocksHoursOfOperation"
+	__typename: "HomeBlocksHoursOfOperation"
 	days?:
 		| ({
-				__typename: "LinksBlocksHoursOfOperationDays"
+				__typename: "HomeBlocksHoursOfOperationDays"
 				day?: string | null | undefined
 				hours?: string | null | undefined
 		  } | null)[]
@@ -14,7 +14,7 @@ export default function Hours(props: {
 }) {
 	return (
 		<div
-			data-tina-field={tinaField(props, "days")}
+			data-tina-field={tinaField(props)}
 			style={{
 				display: "flex",
 				flexDirection: "column",
