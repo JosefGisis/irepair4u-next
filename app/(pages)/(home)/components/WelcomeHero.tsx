@@ -21,14 +21,14 @@ export default function WelcomeHero() {
 					variant="h1"
 					maxWidth={eightColumn}
 					marginBottom="2rem">
-					{welcomeHeroBlockBackup.title}
+					{welcomeHeroContent.title}
 				</Typography>
 
 				<div style={{ maxWidth: nineColumn, marginBottom: "2rem" }}>
 					<Typography
 						variant="subtitle2"
 						textAlign="center">
-						{welcomeHeroBlockBackup.subtitle}
+						{welcomeHeroContent.subtitle}
 					</Typography>
 				</div>
 
@@ -60,7 +60,7 @@ export default function WelcomeHero() {
 
 				<div style={{ width: "100%" }}>
 					<img
-						src={welcomeHeroBlockBackup.url}
+						src={welcomeHeroContent.url}
 						style={{ width: "100%" }}
 					/>
 				</div>
@@ -69,7 +69,7 @@ export default function WelcomeHero() {
 	)
 }
 
-export const welcomeHeroBlockBackup = {
+export const welcomeHeroContent = {
 	title: "IPHONE, IPAD, AND MORE",
 	url: "images/imac-940x474.png",
 	subtitle:

@@ -73,7 +73,11 @@ export default function Footer() {
 						<div style={{ display: "flex", gap: 10 }}>
 							<PlaceIcon />
 							<Typography id="address" className="footer-item">
-								750 Green Valley rd., Jackson, NJ 08527
+								<a
+									className="footer-link"
+									href="https://www.google.com/maps/place/iRepair4U+LLC/@40.1038409,-74.2717807,17z/data=!3m1!4b1!4m6!3m5!1s0x89c179553fca4843:0x689de9999043f34b!8m2!3d40.1038368!4d-74.2692058!16s%2Fg%2F11vkkr95w1?entry=ttu">
+									750 Green Valley rd., Jackson, NJ 08527
+								</a>
 							</Typography>
 						</div>
 

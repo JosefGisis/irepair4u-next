@@ -39,7 +39,7 @@ export default function HomePageServicesSection() {
 								text={item.text}
 								url={item.url}
 								href={item.href}
-								header={item.text}
+								header={item.title}
 							/>
 						</Grid2>
 					))}
