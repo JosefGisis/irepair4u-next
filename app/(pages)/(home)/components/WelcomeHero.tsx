@@ -1,14 +1,8 @@
 import { Typography, Link, Button, Container } from "@mui/material"
 import { colorTheme } from "../../../../styles/colorTheme"
 import { widths } from "../../../../styles/widths"
-import { tinaField } from "tinacms/dist/react"
 
-export default function WelcomeHero(props: {
-	__typename: "HomeBlocksWelcomeHero"
-	title?: string | null | undefined
-	subtitle?: string | null | undefined
-	image?: string | null | undefined
-}) {
+export default function WelcomeHero() {
 	const { redAccent } = colorTheme
 	const { eightColumn, nineColumn } = widths
 	return (
@@ -23,20 +17,18 @@ export default function WelcomeHero(props: {
 					marginBottom: "4rem",
 				}}>
 				<Typography
-					data-tina-field={tinaField(props, "title")}
 					textAlign="center"
 					variant="h1"
 					maxWidth={eightColumn}
 					marginBottom="2rem">
-					{props.title}
+					{welcomeHeroBlockBackup.title}
 				</Typography>
 
 				<div style={{ maxWidth: nineColumn, marginBottom: "2rem" }}>
 					<Typography
-						data-tina-field={tinaField(props, "subtitle")}
 						variant="subtitle2"
 						textAlign="center">
-						{props.subtitle}
+						{welcomeHeroBlockBackup.subtitle}
 					</Typography>
 				</div>
 
@@ -68,12 +60,18 @@ export default function WelcomeHero(props: {
 
 				<div style={{ width: "100%" }}>
 					<img
-						data-tina-field={tinaField(props, "image")}
-						src={props.image || ""}
+						src={welcomeHeroBlockBackup.url}
 						style={{ width: "100%" }}
 					/>
 				</div>
 			</section>
 		</Container>
 	)
+}
+
+export const welcomeHeroBlockBackup = {
+	title: "IPHONE, IPAD, AND MORE",
+	url: "images/imac-940x474.png",
+	subtitle:
+		"iRepair4U has been serving Lakewood, Jackson and neighboring communities for over 9 years. We provide fast, professional, and courteous services at affordable prices. Give us a call so we may assist you!",
 }

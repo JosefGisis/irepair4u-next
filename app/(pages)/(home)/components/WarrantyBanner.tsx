@@ -1,11 +1,6 @@
 import { Container, Typography } from "@mui/material"
-import { tinaField } from "tinacms/dist/react"
 
-export default function WarrantyBanner(props: {
-	__typename: "HomeBlocksWarrantyBanner"
-	title?: string | null | undefined
-	paragraphs?: (string | null)[] | null | undefined
-}) {
+export default function WarrantyBanner() {
 	return (
 		<div
 			id="warranty-banner"
@@ -26,21 +21,28 @@ export default function WarrantyBanner(props: {
 					<Typography
 						variant="h3"
 						textAlign="center"
-						marginBottom="2.5rem"
-						data-tina-field={tinaField(props, "title")}>
-						{props.title}
+						marginBottom="2.5rem">
+						{warrantyBannerContent.title}
 					</Typography>
-					{props.paragraphs?.map((paragraph, index) => (
-						<Typography
-							data-tina-field={tinaField(props, "paragraphs")}
-							key={index}
-							variant="body1"
-							textAlign="center">
-							{paragraph}
-						</Typography>
-					))}
+					{warrantyBannerContent.paragraphs?.map(
+						(paragraph, index) => (
+							<Typography
+								key={index}
+								variant="body1"
+								textAlign="center">
+								{paragraph}
+							</Typography>
+						)
+					)}
 				</div>
 			</Container>
 		</div>
 	)
+}
+
+export const warrantyBannerContent = {
+	title: "Free 90-Day Warranty",
+	paragraphs: [
+		"All our phone repair services are backed by our free 90-day warranty. We guarantee the quality of our work. If you encounter issue connected to the repair we conducted, we've got you covered. See for more information on our warranty.",
+	],
 }

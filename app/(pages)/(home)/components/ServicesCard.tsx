@@ -9,10 +9,10 @@ import {
 } from "@mui/material"
 
 export interface ServicesCardProps {
-	href?: string | null | undefined
-	url?: string | null | undefined
-	header?: string | null | undefined
-	text?: string | null | undefined
+	href: string
+	url: string
+	header: string
+	text: string
 }
 
 export default function ServicesCard({
