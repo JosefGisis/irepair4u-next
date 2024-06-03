@@ -20,12 +20,12 @@ export const socialMediaLinks = [
 ]
 
 const socialMediaIcons = {
-	facebook: Facebook,
-	twitter: Twitter,
-	instagram: Instagram,
-	whatsapp: WhatsApp,
-	telegram: Telegram,
-	linkedin: LinkedIn,
+	facebook: <Facebook />,
+	twitter: <Twitter />,
+	instagram: <Instagram />,
+	whatsapp: <WhatsApp />,
+	telegram: <Telegram />,
+	linkedin: <LinkedIn />,
 }
 
 export default function ContactLinks(props: {
@@ -106,7 +106,7 @@ export default function ContactLinks(props: {
 							<div
 								key={index}
 								style={{ display: "flex", gap: 10 }}>
-								<WhatsApp />
+								{ socialMediaIcons[link?.linkType?.toLowerCase() as keyof typeof socialMediaIcons]}
 								<Typography
 									id={link?.linkType?.toLowerCase()}
 									className="footer-link">
