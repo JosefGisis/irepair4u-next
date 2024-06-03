@@ -2,36 +2,35 @@
 
 import React, { useEffect, useState } from "react"
 import {
-	MenuItem,
 	Box,
 	Toolbar,
 	Button,
 	IconButton,
 	Container,
-	Menu,
-	Typography,
 	AppBar,
 } from "@mui/material"
 import Link from "next/link"
 import MenuIcon from "@mui/icons-material/Menu"
 import { colorTheme } from "../../../styles/colorTheme"
-import client from "../../../tina/__generated__/client"
 import ScrollToTop from "./ScrollToTop"
+import DropdownMenu from "./DropdownMenu"
 
-const pages = [
-	{ name: "About", link: "/about" },
-	{ name: "Services", link: "/services" },
+export const pages = [
+	{ name: "ABOUT", link: "/about" },
+	{ name: "SERVICES", link: "/services" },
 	{ name: "FAQ", link: "/faq" },
-	{ name: "Contact Us", link: "/contact-us" },
+	{ name: "CONTACT US", link: "/contact-us" },
 ]
 
 function ResponsiveAppBar() {
+	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const { redAccent, redAccentContrast } = colorTheme
 
 	// Check if user has scrolled down the page and change Appearance
 	const [scrolling, setScrolling] = useState(false)
 	useEffect(() => {
 		const onScroll = () => {
+			setDropdownOpen(false)
 			const isScrolling = document.documentElement.scrollTop > 10
 			setScrolling(isScrolling)
 		}
@@ -40,16 +39,6 @@ function ResponsiveAppBar() {
 			window.removeEventListener("scroll", onScroll)
 		}
 	}, [])
-
-	const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
-
-	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorElNav(event.currentTarget)
-	}
-
-	const handleCloseNavMenu = () => {
-		setAnchorElNav(null)
-	}
 
 	return (
 		<div>
@@ -78,10 +67,7 @@ function ResponsiveAppBar() {
 							}}>
 							<IconButton
 								size="large"
-								aria-label="account of current user"
-								aria-controls="menu-appbar"
-								aria-haspopup="true"
-								onClick={handleOpenNavMenu}
+								onClick={() => setDropdownOpen(!dropdownOpen)}
 								color="inherit">
 								<MenuIcon
 									style={{
@@ -91,36 +77,6 @@ function ResponsiveAppBar() {
 									}}
 								/>
 							</IconButton>
-							<Menu
-								id="menu-appbar"
-								anchorEl={anchorElNav}
-								anchorOrigin={{
-									vertical: "bottom",
-									horizontal: "left",
-								}}
-								keepMounted
-								transformOrigin={{
-									vertical: "top",
-									horizontal: "left",
-								}}
-								open={Boolean(anchorElNav)}
-								onClose={handleCloseNavMenu}
-								sx={{
-									display: {
-										xs: "block",
-										md: "none",
-									},
-								}}>
-								{pages.map((page, index) => (
-									<Link key={index} href={page.link}>
-										<MenuItem onClick={handleCloseNavMenu}>
-											<Typography textAlign="center">
-												{page.name}
-											</Typography>
-										</MenuItem>
-									</Link>
-								))}
-							</Menu>
 						</Box>
 						<Box
 							sx={{
@@ -155,6 +111,7 @@ function ResponsiveAppBar() {
 					</Toolbar>
 				</Container>
 			</AppBar>
+			<DropdownMenu dropdownOpen={dropdownOpen} setDropdownOpen={setDropdownOpen}/>
 		</div>
 	)
 }
