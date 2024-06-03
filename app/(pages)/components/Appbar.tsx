@@ -86,7 +86,7 @@ function ResponsiveAppBar() {
 								<Link key={index} href={page.link}>
 									<Button
 										variant={
-											page.name === "Contact Us"
+											page.name === "CONTACT US"
 												? "contained"
 												: "text"
 										}
@@ -94,11 +94,11 @@ function ResponsiveAppBar() {
 											ml: 2,
 											my: 2,
 											background:
-												page.name === "Contact Us"
+												page.name === "CONTACT US"
 													? redAccent
 													: "inherit",
 											color:
-												page.name === "Contact Us"
+												page.name === "CONTACT US"
 													? redAccentContrast
 													: "rgb(0, 0, 0)",
 											display: "block",
