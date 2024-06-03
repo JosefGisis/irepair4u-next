@@ -33,8 +33,7 @@ export default function ReadMePage() {
 
 			<p>
 				This website is constructed in NextJS using TypeScript and
-				MaterialUI. This site also uses TinaCMS to manage content and
-				design.
+				MaterialUI.
 			</p>
 
 			<p>
