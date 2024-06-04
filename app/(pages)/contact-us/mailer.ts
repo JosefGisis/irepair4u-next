@@ -27,14 +27,14 @@ export default async function mailer(data: SurveyData) {
 	await transporter.sendMail({
 		from: process.env.GMAIL_USER,
 		to: process.env.GMAIL_USER,
-		subject: "A customer has send you a request!",
-        html: `
+		subject: "A customer has sent you a request!",
+		html: `
             <p>Customer email: ${data.email}</p>
             <p>Customer name: ${data.name?.first} ${data.name?.last}</p>
-            ${data.phone ? `<p>Customer would like a callback at ${data.phone}</p>` : ""}
+            ${data.phone ? `<p>Customer would like a callback at <a href="tel:${data.phone}"> ${data.phone}</p>` : ""}
             <p>Customer request: ${data.request}</p>
             <p>Please respond promptly!</p>
-        `
+        `,
 	})
 
 	await transporter.sendMail({
@@ -50,7 +50,7 @@ export default async function mailer(data: SurveyData) {
                 <p>Your request:</p>
                 <p>${data.request}</p>
                 <hr />
-                <p>Feel free to reply to this email if you have any additional questions or concerns or would like to change you original request.</p>
+                <p>Feel free to reply to this email if you have any additional questions or concerns or would like to change your original request.</p>
                 <p />
                 <p>Best regards,</p>
                 <p>-<i> Mattis Gisis</i></p>
