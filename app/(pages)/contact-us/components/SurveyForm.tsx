@@ -1,16 +1,20 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import { Survey } from "survey-react-ui"
 import { Model } from "survey-core"
 import { ThreeDimensionalLight } from "survey-core/themes/three-dimensional-light"
+import mailer from "../mailer"
+import CompletedMessage from "./CompletedMessage"
 
 export default function SurveyForm() {
+	const [completed, setCompleted] = useState(false)
 	const surveyJson = {
 		title: "Contact Us",
 		description:
 			"Request a free quote or reach out with any questions or comments",
 		logoPosition: "right",
+		showQuestionNumbers: "false",
 		pages: [
 			{
 				name: "page1",
@@ -62,10 +66,23 @@ export default function SurveyForm() {
 
 	survey.applyTheme(ThreeDimensionalLight)
 
+	survey.showCompletedPage = false
+
 	// This is a hack to make the survey update on typing.
 	survey.textUpdateMode = "onTyping"
 
-    survey.onComplete.add((result) => console.log(result.data))
+	survey.onComplete.add((survey) => {
+		mailer(survey.data)
+		setCompleted(true)
+	})
 
-	return <Survey model={survey}></Survey>
+	return (
+		<>
+			{completed ? (
+				<CompletedMessage setCompleted={setCompleted} />
+			) : (
+				<Survey model={survey} />
+			)}
+		</>
+	)
 }

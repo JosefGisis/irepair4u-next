@@ -22,7 +22,11 @@ export default function ContactUsPage() {
 			}}>
 			<ContactUsBanner />
 			<ContactInformation />
-			<div style={{ marginTop: "2rem", width: "100%"}}>
+			<div
+				style={{
+					marginTop: "2rem",
+					width: "100%",
+				}}>
 				<SurveyForm />
 			</div>
 		</section>
