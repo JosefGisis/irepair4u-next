@@ -5,6 +5,9 @@ import type { Metadata } from "next"
 import { ThemeProvider } from "@mui/material/styles"
 import { theme } from "./materialUI"
 
+// This import is required to import styles from survey-core.
+import "survey-core/defaultV2.min.css"
+
 export const metadata: Metadata = {
 	title: "iRepair4u",
 	description:
