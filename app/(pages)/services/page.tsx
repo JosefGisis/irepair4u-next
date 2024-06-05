@@ -7,7 +7,7 @@ import ServicesSection from "./components/ServicesSection"
 
 export const metadata: Metadata = { title: "iRepair4u - FAQ" }
 
-export default async function ServicesPage() {
+export default function ServicesPage() {
 	const { tenColumn } = widths
 
 	return (

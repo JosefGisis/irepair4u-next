@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 	title: "iRepair4u - FAQ",
 }
 
-export default async function FAQPage() {
+export default function FAQPage() {
 	const { tenColumn } = widths
 	return (
 		<section

@@ -85,7 +85,7 @@ export default function HomePageAboutSection() {
 									sx={{
 										order: {
 											xs: 3,
-											// alternate order
+											// alternate order of image and text on md screens
 											md: index % 2 === 0 ? 3 : 1,
 										},
 									}}>

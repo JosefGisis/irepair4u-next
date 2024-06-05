@@ -1,7 +1,5 @@
 import { Box } from "@mui/material"
 import { colorTheme } from "../../../styles/colorTheme"
-import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp"
-import { light } from "@mui/material/styles/createPalette"
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
 
 export default function ScrollToTop({ scrolling }: { scrolling: boolean }) {

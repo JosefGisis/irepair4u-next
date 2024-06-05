@@ -20,8 +20,8 @@ export default function ResponsiveAppBar() {
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const { redAccent, redAccentContrast } = colorTheme
 
+	// Close dropdown when user navigates to a new page
 	const pathname = usePathname()
-
 	useEffect(() => {
 		setDropdownOpen(false)
 	}, [pathname])
@@ -61,6 +61,8 @@ export default function ResponsiveAppBar() {
 								style={{ height: 35 }}
 							/>
 						</Link>
+
+						{/* hamburger icon for mobile displays */}
 						<Box
 							onClick={() => setDropdownOpen(!dropdownOpen)}
 							sx={{
@@ -68,6 +70,8 @@ export default function ResponsiveAppBar() {
 							}}>
 							<HamburgerIcon open={dropdownOpen} />
 						</Box>
+
+						{/* desktop navigation */}
 						<Box
 							sx={{
 								display: { xs: "none", md: "flex" },

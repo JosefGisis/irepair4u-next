@@ -8,6 +8,7 @@ export default function HamburgerIcon({ open }: { open: boolean }) {
 
 	return (
 		<Box
+			// setHovering to true when mouse enters the icon. This is used to change the color of the bars
 			onMouseEnter={() => setHovering(true)}
 			onMouseLeave={() => setHovering(false)}
 			sx={{

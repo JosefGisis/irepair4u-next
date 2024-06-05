@@ -1,6 +1,4 @@
-"use client"
-
-import { Box, Typography, Container, Divider } from "@mui/material"
+import { Box, Typography, Container } from "@mui/material"
 import PlaceIcon from "@mui/icons-material/Place"
 import EmailIcon from "@mui/icons-material/Email"
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone"
@@ -106,6 +104,7 @@ export default function Footer() {
 						</div>
 					</div>
 
+					{/* links section */}
 					{links.map((item, index) => (
 						<Box
 							key={index}

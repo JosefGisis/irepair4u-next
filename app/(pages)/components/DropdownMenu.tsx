@@ -6,6 +6,7 @@ import Link from "next/link"
 export default function DropdownMenu({ open }: { open: boolean }) {
 	const { redAccentContrast, shadowColor, grayAccent } = colorTheme
 	return (
+		// custom dropdown menu for mobile
 		<Box
 			sx={{
 				display: { xs: open ? "block" : "none", md: "none" },
