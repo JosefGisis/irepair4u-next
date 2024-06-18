@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.irepair4unj.com
+
+# Sitemaps
+Sitemap: https://www.irepair4unj.com/sitemap.xml
