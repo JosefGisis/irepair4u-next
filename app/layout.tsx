@@ -5,6 +5,8 @@ import type { Metadata } from "next"
 import { ThemeProvider } from "@mui/material/styles"
 import { theme } from "./materialUI"
 
+import { Analytics } from "@vercel/analytics/react"
+
 // This import is required to import styles from survey-core.
 import "survey-core/defaultV2.min.css"
 
@@ -50,6 +52,10 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<ThemeProvider theme={theme}>
+				{/* vercel analytics comp */}
+				<Analytics />
+
+				{/* main child comp */}
 				<body>{children}</body>
 			</ThemeProvider>
 		</html>
