@@ -27,6 +27,7 @@ export default async function mailer(data: SurveyData) {
 	await transporter.sendMail({
 		from: process.env.GMAIL_USER,
 		to: process.env.GMAIL_USER,
+		cc: process.env.THIRD_PARTY_EMAIL,
 		subject: "A customer has sent you a request!",
 		html: `
             <p>Customer email: ${data.email}</p>
