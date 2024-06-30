@@ -1,6 +1,7 @@
 import { Box, Container, Typography } from "@mui/material"
 import { colorTheme } from "../../../../styles/colorTheme"
 import { widths } from "../../../../styles/widths"
+import { homePageAboutContent } from "../../../content"
 
 export default function HomePageAboutSection() {
 	const { redAccentContrast, grayAccent } = colorTheme
@@ -41,6 +42,7 @@ export default function HomePageAboutSection() {
 						}}>
 						{homePageAboutContent.map((item, index) => (
 							<Box
+								id={item.id || ""}
 								key={index}
 								sx={{
 									display: "flex",
@@ -103,25 +105,3 @@ export default function HomePageAboutSection() {
 		</section>
 	)
 }
-
-export const homePageAboutContent: {
-	title: string
-	url: string
-	text: string
-}[] = [
-	{
-		title: "OUR STORY",
-		url: "images/about-us-3-2-460x307.jpg",
-		text: "iRepair4U started fixing phones in 2016 in Lakewood, NJ, and soon gained a reputation for its quality work and friendly service. Since then, our business has grown and our workshop is now located in beautiful Jackson, New Jersey, right off Clearstream, only five minutes out of lakewood.",
-	},
-	{
-		title: "COVERAGE",
-		url: "images/coverage1-3-2-460x307.jpg",
-		text: "We offer a broad range of services for a wide variety of devices. We repair all popular makes and models, such as Apple, Samsung, LG, Google, OnePlus, Motorola, and more. We would love to work with you, so if you don't see a device or service you need, please give us call!",
-	},
-	{
-		title: "CUSTOMER SERVICE",
-		url: "images/trust-us1-3-2-460x307.jpg",
-		text: "Since our start, we have set customer service, affordability, and quality work as the cornerstone of our business. We pride ourselves in passing savings on to our customers without compromising on the quality of our work and all while providing a warm and welcoming environment.",
-	},
-]

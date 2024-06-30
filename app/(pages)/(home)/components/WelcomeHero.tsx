@@ -1,6 +1,7 @@
 import { Typography, Link, Button, Container } from "@mui/material"
 import { colorTheme } from "../../../../styles/colorTheme"
 import { widths } from "../../../../styles/widths"
+import { welcomeHeroContent } from "../../../content"
 
 export default function WelcomeHero() {
 	const { redAccent } = colorTheme
@@ -8,7 +9,7 @@ export default function WelcomeHero() {
 	return (
 		<Container maxWidth="lg">
 			<section
-				id="about-simple"
+				id={welcomeHeroContent.id || ""}
 				style={{
 					display: "flex",
 					flexDirection: "column",
@@ -61,11 +62,4 @@ export default function WelcomeHero() {
 			</section>
 		</Container>
 	)
-}
-
-export const welcomeHeroContent = {
-	title: "IPHONE, IPAD, AND MORE",
-	url: "images/imac-940x474.png",
-	subtitle:
-		"iRepair4U has been serving Lakewood, Jackson and neighboring communities for over 9 years. We provide fast, professional, and courteous services at affordable prices. Give us a call so we may assist you!",
 }
