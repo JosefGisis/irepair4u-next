@@ -1,8 +1,15 @@
-import { Typography } from "@mui/material"
+"use client"
+
+import { Button, Typography } from "@mui/material"
+import { useState } from "react"
 
 export default function TermsAndConditions() {
+	const [isExpanded, setIsExpanded] = useState(false)
+
+	const expand = () => setIsExpanded(!isExpanded)
+
 	return (
-		<section
+		<div
 			id="terms-and-conditions"
 			style={{
 				display: "flex",
@@ -11,6 +18,7 @@ export default function TermsAndConditions() {
 				backgroundColor: "#D2D2D2",
 				padding: "2rem",
 				marginBottom: "3rem",
+				position: "relative",
 			}}>
 			<div>
 				<Typography
@@ -21,26 +29,71 @@ export default function TermsAndConditions() {
 				</Typography>
 			</div>
 
-			<div>
-				{termsAndConditionsContent.map((segment, index) => (
-					<div key={index} id={segment.id || ""}>
-						<Typography
-							variant="h5"
-							style={{ marginBottom: "1rem", marginTop: "2rem" }}>
-							{segment?.title}
-						</Typography>
-						{segment.clauses?.map((clause, index) => (
+			<div
+				style={{
+					position: "relative",
+					width: "100%",
+					height: isExpanded ? "fit-content" : "300px",
+					overflow: "hidden",
+				}}>
+				<div>
+					{termsAndConditionsContent.map((segment, index) => (
+						<div key={index} id={segment.id || ""}>
 							<Typography
-								key={index}
-								style={{ marginBottom: "0.8rem" }}
-								variant="body2">
-								- {clause}
+								variant="h5"
+								style={{
+									marginBottom: "1rem",
+									marginTop: "2rem",
+								}}>
+								{segment?.title}
 							</Typography>
-						))}
+							{segment.clauses?.map((clause, index) => (
+								<Typography
+									key={index}
+									style={{ marginBottom: "0.8rem" }}
+									variant="body2">
+									- {clause}
+								</Typography>
+							))}
+						</div>
+					))}
+				</div>
+
+				{!isExpanded && (
+					<div
+						style={{
+							position: "absolute",
+							bottom: 0,
+							left: 0,
+							right: 0,
+							height: "200px",
+							background: "linear-gradient(transparent, #D2D2D2)",
+							display: "flex",
+							alignItems: "end",
+							justifyContent: "center",
+							cursor: "pointer",
+						}}
+						onClick={expand}>
+						<Button variant="contained" size="medium">
+							Read More
+						</Button>
 					</div>
-				))}
+				)}
 			</div>
-		</section>
+
+			{isExpanded && (
+				<div
+					style={{
+						marginTop: "1rem",
+						cursor: "pointer",
+					}}
+					onClick={expand}>
+					<Button variant="contained" size="medium">
+						Read Less
+					</Button>
+				</div>
+			)}
+		</div>
 	)
 }
 
