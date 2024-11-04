@@ -4,7 +4,6 @@ import EmailIcon from "@mui/icons-material/Email"
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone"
 import { colorTheme } from "../../../styles/colorTheme"
 import Link from "next/link"
-import { hoursContent, footerLinksContent } from "../../content"
 
 export default function Footer() {
 	const { redAccent, redAccentContrast } = colorTheme
@@ -144,3 +143,67 @@ export default function Footer() {
 		</div>
 	)
 }
+
+export const hoursContent: {
+	id?: string
+	hours: { day: string; hours: string }[]
+} = {
+	id: "hours-of-operation",
+	hours: [
+		{ day: "Sun - Thu", hours: "11:00am - 5:00pm" },
+		{ day: "Friday", hours: "11:00am - 2:00pm" },
+		{ day: "Saturday", hours: "closed" },
+	],
+}
+
+export const footerLinksContent: {
+	id?: string
+	title: string
+	links: { name: string; link: string }[]
+}[] = [
+	{
+		id: "information-links",
+		title: "Information Links",
+		links: [
+			{ name: "About", link: "/about" },
+			{
+				name: "Terms and Conditions",
+				link: "/about#terms-and-conditions",
+			},
+			{ name: "FAQ", link: "/faq" },
+			{ name: "Services", link: "/services" },
+			{ name: "Accessories", link: "/services#accessories-sales-tag" },
+			{ name: "Phone Sales", link: "/services#phone-sales-tag" },
+			{ name: "Site Documentation", link: "/README" },
+		],
+	},
+	{
+		id: "services-links",
+		title: "Services Links",
+		links: [
+			{ name: "Screen Repair", link: "/services#repair-services-tag" },
+			{
+				name: "Battery Replacement",
+				link: "/services#repair-services-tag",
+			},
+			{ name: "Water Damage", link: "/services#repair-services-tag" },
+			{ name: "Button Repair", link: "/services#repair-services-tag" },
+			{ name: "Camera Repair", link: "/services#repair-services-tag" },
+			{ name: "Speaker Repair", link: "/services#repair-services-tag" },
+			{ name: "Data Recovery", link: "/services#repair-services-tag" },
+			{ name: "Board Repair", link: "/services#repair-services-tag" },
+		],
+	},
+	{
+		id: "coverage-links",
+		title: "Coverage Links",
+		links: [
+			{ name: "iPhone", link: "/services#iphone-tag" },
+			{ name: "Samsung", link: "/services#samsung-tag" },
+			{ name: "Smartphone", link: "/services#smartphone-tag" },
+			{ name: "Flip Phone", link: "/services#flipphone-tag" },
+			{ name: "Tablet", link: "/services#tablet-tag" },
+			{ name: "Computer", link: "/services#computer-tag" },
+		],
+	},
+]

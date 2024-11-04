@@ -4,7 +4,6 @@ import { Container, Typography } from "@mui/material"
 import ServicesCard from "./ServicesCard"
 import { widths } from "../../../../styles/widths"
 import { colorTheme } from "../../../../styles/colorTheme"
-import { homePageServicesContent } from "../../../content"
 
 export default function HomePageServicesSection() {
 	const { redAccent } = colorTheme
@@ -71,3 +70,54 @@ export default function HomePageServicesSection() {
 		</Container>
 	)
 }
+
+export const homePageServicesContent: {
+	id?: string
+	title: string
+	url: string
+	href: string
+	text: string
+}[] = [
+	{
+		id: "home-page-screen-replacement",
+		title: "SCREEN REPLACEMENT",
+		url: "images/age-barros-fKAjOxgZNPg-unsplash.jpg",
+		href: "/services",
+		text: "Phone screen broken or cracked? No worries! Screen repairs are our specialty. We will have your phone looking and working like new in no time.",
+	},
+	{
+		id: "home-page-water-damage",
+		title: "WATER DAMAGE",
+		url: "images/iphone-1067991_640.jpg",
+		href: "/faq#faq-water-damage",
+		text: "Accidents happen. Bring us your water damaged phone so we may assist you. In the meantime, click on this card to see what you can do to increase your phone's chance of surviving.",
+	},
+	{
+		id: "home-page-battery-replacement",
+		title: "BATTERY REPLACEMENT",
+		url: "images/tyler-lastovich-rAtzDB6hWrU-unsplash.jpg",
+		href: "/services",
+		text: "If your phone won't charge or your battery is draining too quickly, we offer fast and affordable battery replacements and charging port repairs.",
+	},
+	{
+		id: "home-page-data-recovery",
+		title: "DATA RECOVERY",
+		url: "images/benjamin-lehman-GNyjCePVRs8-unsplash.jpg",
+		href: "/services",
+		text: "Need to save precious data? We can help you recover and preserve all your invaluable photos, videos, messages, and other media from your device.",
+	},
+	{
+		id: "home-page-accessories",
+		title: "ACCESSORIES",
+		url: "images/lucas-hoang-0_S1K3u6Cmc-unsplash.jpg",
+		href: "/services",
+		text: "We offer accessories for your mobile devices, such as screen protectors, chargers, car mounts, and more. We also have cases for most popular smartphone makes and models.",
+	},
+	{
+		id: "home-page-speaker-repair",
+		title: "SPEAKER REPAIR",
+		url: "images/apple-1284223_640.jpg",
+		href: "/services",
+		text: "Having a hard time hearing others during your calls? Speakers can go weak over time. We can improve the quality of your microphone and speaker.",
+	},
+]

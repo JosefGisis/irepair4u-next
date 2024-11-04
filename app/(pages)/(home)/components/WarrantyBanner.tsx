@@ -1,5 +1,4 @@
 import { Container, Typography } from "@mui/material"
-import { warrantyBannerContent } from "../../../content"
 
 export default function WarrantyBanner() {
 	return (
@@ -39,4 +38,16 @@ export default function WarrantyBanner() {
 			</Container>
 		</div>
 	)
+}
+
+export const warrantyBannerContent: {
+	id?: string
+	title: string
+	paragraphs: string[]
+} = {
+	id: "warranty-banner",
+	title: "Free 90-Day Warranty",
+	paragraphs: [
+		"All our phone repair services are backed by our free 90-day warranty. We guarantee the quality of our work. If you encounter issue connected to the repair we conducted, we've got you covered. See our terms-and-conditions for more information on our warranty.",
+	],
 }

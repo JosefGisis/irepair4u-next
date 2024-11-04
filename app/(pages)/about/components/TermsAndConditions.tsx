@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material"
-import { termsAndConditionsContent } from "../../../content"
 
 export default function TermsAndConditions() {
 	return (
@@ -44,3 +43,75 @@ export default function TermsAndConditions() {
 		</section>
 	)
 }
+
+export const termsAndConditionsContent: {
+	id?: string
+	title: string
+	clauses: string[]
+}[] = [
+	{
+		title: "Service Agreement",
+		clauses: [
+			"The customer agrees to the terms and conditions outlined herein upon availing of phone repair services from iRepair4U LLC.",
+			"iRepair4U LLC will provide repair services as described in the service request.",
+			"iRepair4U LLC will assess the device and inform the customer of the repair options and costs.",
+		],
+	},
+	{
+		title: "Cost and Payment",
+		clauses: [
+			"Repair costs include parts, labor, and any additional services agreed upon.",
+			"Payment is due upon completion of the repair.",
+			"iRepair4U LLC reserves the right to withhold the repaired device until full payment is received.",
+		],
+	},
+	{
+		title: "Warranty",
+		clauses: [
+			"All repairs are covered by a free 90-day warranty against defects in workmanship and materials.",
+			"This warranty only covers failures or defects in workmanship and materials directly related to the repair or service performed. Unrelated issues are subject to full repair fees and costs.",
+			"The 90 day warranty starts on the first day the customer receives the repaired device. All Repairs following the warranty period are subject to full repair fees and costs.",
+			"This warranty does not cover damage resulting from mishandling or unauthorized modifications.",
+		],
+	},
+	{
+		title: "Phone Sales",
+		clauses: [
+			"All sales of phones refurbished by iRepair4u are covered by a free 90-day warranty.",
+			"The customer is entitled to a full refund or replacement if the refurbished device stops working within the 90-day warranty period and iRepair4U LLC can not repair it.",
+			"This warranty does not cover damage resulting from mishandling or unauthorized modifications to the device.",
+			"iRepair4u LLC reserves the right to subtract refund total to cover damages to salvageable device parts resulting from mishandling or unauthorized modifications to the device.",
+		],
+	},
+	{
+		title: "Customer Responsibilities",
+		clauses: [
+			"Customers are responsible for backing up their data before submitting devices for repair.",
+			"iRepair4U LLC is not liable for any loss of data during the repair process.",
+		],
+	},
+	{
+		title: "Turnaround Time",
+		clauses: [
+			"iRepair4U LLC will make reasonable efforts to complete repairs in a timely manner.",
+			"Delays may occur due to unforeseen circumstances, and iRepair4U LLC will communicate any changes in the estimated completion time.",
+		],
+	},
+	{
+		title: "Failure to Successfully Recover Device/Data",
+		clauses: [
+			"iRepair4U LLC reserves the right to charge labor costs for services rendered even if the device cannot be successfully repaired (or the data cannot be recovered) depending on the nature of the repair. Such repairs include water damage recovery, severely damaged devices, and other services where the outcome or likelihood of successful repair is uncertain.",
+		],
+	},
+	{
+		title: "Liability",
+		clauses: [
+			"iRepair4U LLC is not liable for any indirect, consequential, or incidental damages.",
+			"The total liability of iRepair4U LLC shall not exceed the total amount of the device submitted for repair. Irepiar4u LLC is not liable for any loss of data during the repair process (see Customer Responsibilities).",
+		],
+	},
+	{
+		title: "By availing of our phone repair services, the customer acknowledges and agrees to these terms and conditions.",
+		clauses: [],
+	},
+]
